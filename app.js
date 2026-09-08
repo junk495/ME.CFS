@@ -401,6 +401,36 @@
     downloadCSV(buildCSV(entries), 'mecfs_export.csv');
   };
 
+  const handleShare = async () => {
+    const entries = getAllEntries();
+    if (entries.length === 0) {
+      alert('Keine gespeicherten Daten vorhanden.');
+      return;
+    }
+
+    const csvString = buildCSV(entries);
+    const filename = 'mecfs_export.csv';
+    const blob = new Blob(['\uFEFF' + csvString], { type: 'text/csv;charset=utf-8;' });
+
+    if (navigator.share && navigator.canShare) {
+      const file = new File([blob], filename, { type: 'text/csv' });
+      if (navigator.canShare({ files: [file] })) {
+        try {
+          await navigator.share({
+            title: 'ME/CFS Symptom-Tracker Export',
+            files: [file]
+          });
+        } catch (err) {
+          console.log('Teilen abgebrochen:', err);
+        }
+      } else {
+        alert('Dein Browser unterstützt das direkte Teilen von Dateien leider nicht.');
+      }
+    } else {
+      alert('Die Teilen-Funktion wird auf diesem Gerät/Browser nicht unterstützt. Nutze den normalen Export.');
+    }
+  };
+
   // ---------- Alle Daten löschen ----------
   const resetForm = () => {
     ['view-tagescheck', 'view-pem-crash', 'view-detailcheck'].forEach((viewId) => {
@@ -470,6 +500,9 @@
 
     const exportBtn = document.getElementById('btn-export-csv');
     if (exportBtn) exportBtn.addEventListener('click', handleExport);
+
+    const shareBtn = document.getElementById('btn-share-csv');
+    if (shareBtn) shareBtn.addEventListener('click', handleShare);
 
     const deleteBtn = document.getElementById('btn-delete-all');
     if (deleteBtn) deleteBtn.addEventListener('click', handleDeleteAll);

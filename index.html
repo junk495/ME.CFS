@@ -22,6 +22,15 @@
     <section id="view-tagescheck" class="view is-active">
       <h2 class="view-title">Tagescheck</h2>
 
+      <details class="help-box">
+        <summary class="help-summary">📖 Hilfe & Erklärungen einblenden</summary>
+        <div class="help-content">
+          <p><strong>Die 0-4 Skala:</strong> 0 = Nicht vorhanden, 1 = Leicht (kaum Einschränkung), 2 = Mittel (Pause nötig), 3 = Schwer (stark reduziert), 4 = Sehr schwer (Aktivität unmöglich).</p>
+          <p><strong>Ausnahmen:</strong> Beim Zustand (0-10) und der Bell-Skala (0-100) bedeuten <em>höhere</em> Werte einen <em>besseren</em> Zustand (volle Energie).</p>
+          <p><strong>Fatigue vs. PEM:</strong> <em>Fatigue</em> ist die bleierne Grunderschöpfung. <em>PEM</em> (Post-Exertional Malaise) ist der Absturz nach einer physischen oder kognitiven Überlastung.</p>
+        </div>
+      </details>
+
       <div class="block">
         <h3 class="block-title">Minimal <span class="block-badge">Pflicht</span></h3>
 
@@ -196,6 +205,15 @@
     <section id="view-pem-crash" class="view">
       <h2 class="view-title">PEM-Crash</h2>
 
+      <details class="help-box">
+        <summary class="help-summary">📖 Hilfe zur Crash-Dokumentation</summary>
+        <div class="help-content">
+          <p><strong>Nutzung:</strong> Dies ist ein Ereignis-Logbuch. Nutze den Datums-Wähler oben im Header, um Crashs Pacing-gerecht nachzutragen.</p>
+          <p><strong>Auslöser:</strong> Trage hier am Tag des Ereignisses den Auslöser und die zeitliche Verzögerung bis zum Absturz ein.</p>
+          <p><strong>Verlauf:</strong> Wenn du dich erholt hast, wechsle auf das Crash-Datum zurück. Trage hier die Dauer ein und wie stark sich die Symptome <em>im Vergleich zu deinem Normalzustand</em> verschlimmert haben (0 = keine Zunahme, 4 = extreme Zunahme).</p>
+        </div>
+      </details>
+
       <div class="pem-tabs">
         <button type="button" id="tab-pem-ausloeser" class="pem-tab is-active">Auslöser</button>
         <button type="button" id="tab-pem-verlauf" class="pem-tab">Verlauf</button>
@@ -312,6 +330,16 @@
     <!-- ===================== DETAILCHECK ===================== -->
     <section id="view-detailcheck" class="view">
       <h2 class="view-title">Detailcheck</h2>
+
+      <details class="help-box">
+        <summary class="help-summary">📖 Hilfe zum Detailcheck</summary>
+        <div class="help-content">
+          <p><strong>Nutzung:</strong> Nutze diesen Tab an guten Tagen oder vor Arztbesuchen/Gutachten. An schlechten Tagen kannst du ihn komplett ignorieren.</p>
+          <p>Alle Felder nutzen die einheitliche Skala (0 = keine Beschwerden, 4 = extreme Beschwerden / völliger Funktionsverlust).</p>
+          <p><strong>Basis & Spezifisch:</strong> Detaillierte medizinische Parameter und Begleiterscheinungen (Dysautonomie, MCAS, Neurokognitiv).</p>
+          <p><strong>Funktion:</strong> Sehr wichtig für Pflegegeld oder GdB. Bewertet den Grad der Hilfebedürftigkeit im Alltag.</p>
+        </div>
+      </details>
 
       <div class="pem-tabs">
         <button type="button" id="tab-detail-basis" class="pem-tab is-active">Basis</button>
@@ -920,8 +948,18 @@
     <!-- ===================== EXPORT ===================== -->
     <section id="view-export" class="view">
       <h2 class="view-title">Export</h2>
+
+      <details class="help-box">
+        <summary class="help-summary">📖 Hilfe zum Export</summary>
+        <div class="help-content">
+          <p><strong>Datenschutz:</strong> Deine Daten verlassen niemals dein Gerät. Die Erstellung der Datei passiert zu 100 % lokal.</p>
+          <p><strong>Daten als CSV exportieren:</strong> Speichert die Tabelle direkt im Download-Ordner deines Geräts (ideal für den Import in Excel).</p>
+          <p><strong>Datei teilen / senden:</strong> Öffnet das System-Menü deines Handys. Damit kannst du die Tabelle z.B. per E-Mail an den Arzt senden oder in einer privaten Cloud speichern.</p>
+        </div>
+      </details>
       <p>Hier kannst du alle gespeicherten Tagesprotokolle als CSV-Datei für Excel herunterladen.</p>
       <button id="btn-export-csv" class="btn-save">Daten als CSV exportieren</button>
+      <button id="btn-share-csv" class="btn-save" style="margin-top: 1rem; background: var(--bg-input); border-color: var(--border); color: var(--text);">Datei teilen / senden</button>
       <button id="btn-delete-all" class="btn-save" style="background: transparent; border: 1px solid #ff4d4d; color: #ff4d4d; margin-top: 3rem;">Alle lokalen Daten löschen</button>
     </section>
 

@@ -349,3 +349,54 @@ body {
     transition: none !important;
   }
 }
+
+/* ---------- Hilfe & Info-Boxen ---------- */
+.help-box {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.9rem;
+}
+
+.help-summary {
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.help-summary::-webkit-details-marker {
+  display: none;
+}
+
+.help-summary:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.help-content {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.help-content p {
+  margin: 0 0 0.5rem;
+}
+
+.help-content p:last-child {
+  margin-bottom: 0;
+}
+
+.help-content strong {
+  color: var(--text);
+  font-weight: 600;
+}
