@@ -38,7 +38,12 @@
     { key: 'schlafdauer_h', header: 'Schlafdauer (h)' },
     { key: 'schritte', header: 'Schritte' },
     { key: 'kontext', header: 'Kontext' },
-    { key: 'notiz', header: 'Notiz' }
+    { key: 'notiz', header: 'Notiz' },
+    { key: 'pem_belastungsdatum', header: 'Belastungsdatum' },
+    { key: 'pem_ausloeser', header: 'Ausloeser' },
+    { key: 'pem_verzoegerung_h', header: 'Verzoegerung (h)' },
+    { key: 'pem_dauer_h', header: 'PEM Dauer (h)' },
+    { key: 'pem_symptome', header: 'PEM Symptome' }
   ];
 
   // ---------- Datums-Helfer ----------
@@ -175,6 +180,36 @@
     showSavedFeedback(document.getElementById('btn-save-tagescheck'));
   };
 
+  // ---------- PEM-Daten lesen & speichern ----------
+  const collectPemData = () => {
+    const data = {};
+    const container = document.getElementById('view-pem-crash');
+
+    container
+      .querySelectorAll('input[type="date"], input[type="text"], input[type="number"], textarea')
+      .forEach((input) => {
+        const name = input.name;
+        if (!name) return;
+        const trimmed = input.value ? String(input.value).trim() : '';
+
+        if (trimmed === '') {
+          data[name] = null; // leer = null
+        } else if (input.type === 'number') {
+          const num = Number(trimmed);
+          data[name] = Number.isFinite(num) ? num : null;
+        } else {
+          data[name] = trimmed; // date / text / textarea
+        }
+      });
+
+    return data;
+  };
+
+  const handleSavePem = () => {
+    saveEntry(todayKey(), collectPemData());
+    showSavedFeedback(document.getElementById('btn-save-pem'));
+  };
+
   // ---------- Datumsanzeige im Header ----------
   const initDateDisplay = () => {
     const dateStr = todayKey();
@@ -296,6 +331,9 @@
 
     const deleteBtn = document.getElementById('btn-delete-all');
     if (deleteBtn) deleteBtn.addEventListener('click', handleDeleteAll);
+
+    const pemSaveBtn = document.getElementById('btn-save-pem');
+    if (pemSaveBtn) pemSaveBtn.addEventListener('click', handleSavePem);
 
     loadEntry(dateStr);
   };

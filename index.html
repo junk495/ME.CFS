@@ -190,7 +190,35 @@
     <!-- ===================== PEM-CRASH ===================== -->
     <section id="view-pem-crash" class="view">
       <h2 class="view-title">PEM-Crash</h2>
-      <p class="view-placeholder">Dieser Bereich wird in einem späteren Schritt aufgebaut.</p>
+
+      <div class="block">
+        <div class="field">
+          <label class="field-label" for="pem_belastungsdatum">Datum der vermuteten Belastung</label>
+          <input class="field-input" type="date" id="pem_belastungsdatum" name="pem_belastungsdatum" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="pem_ausloeser">Auslöser / Aktivität</label>
+          <input class="field-input" type="text" id="pem_ausloeser" name="pem_ausloeser" placeholder="z. B. Spaziergang, Arztbesuch" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="pem_verzoegerung_h">Verzögerung bis Crash <span class="field-unit">(Stunden)</span></label>
+          <input class="field-input" type="number" id="pem_verzoegerung_h" name="pem_verzoegerung_h" inputmode="numeric" step="1" min="0" placeholder="z. B. 24" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="pem_dauer_h">Bisherige Dauer <span class="field-unit">(Stunden)</span></label>
+          <input class="field-input" type="number" id="pem_dauer_h" name="pem_dauer_h" inputmode="numeric" step="1" min="0" placeholder="z. B. 36" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="pem_symptome">Stärkste Symptomzunahme &amp; Funktionsverlust</label>
+          <textarea class="field-input field-input--textarea" id="pem_symptome" name="pem_symptome" rows="3" placeholder="Freitext" autocomplete="off"></textarea>
+        </div>
+      </div>
+
+      <button type="button" class="btn-save" id="btn-save-pem">PEM-Daten speichern</button>
     </section>
 
     <!-- ===================== DETAILCHECK ===================== -->
