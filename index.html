@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#101316">
+  <meta name="description" content="ME/CFS Symptom-Tracker – offlinefähige PWA zur täglichen Dokumentation">
+  <title>ME/CFS Symptom-Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1 class="app-title">ME/CFS Tracker</h1>
+    <p class="app-date" id="datum-anzeige" aria-live="polite"></p>
+  </header>
+
+  <main class="app-main">
+
+    <!-- ===================== TAGESCHECK ===================== -->
+    <section id="view-tagescheck" class="view is-active">
+      <h2 class="view-title">Tagescheck</h2>
+
+      <div class="block">
+        <h3 class="block-title">Minimal <span class="block-badge">Pflicht</span></h3>
+
+        <fieldset class="scale-group">
+          <legend>Zustand <span class="scale-hint">(0–10)</span></legend>
+          <div class="scale-options scale-options--wrap">
+            <label class="scale-option"><input type="radio" name="zustand_0_10" value="0"><span>0</span></label>
+            <label class="scale-option"><input type="radio" name="zustand_0_10" value="1"><span>1</span></label>
+            <label class="scale-option"><input type="radio" name="zustand_0_10" value="2"><span>2</span></label>
+            <label class="scale-option"><input type="radio" name="zustand_0_10" value="3"><span>3</span></label>
+            <label class="scale-option"><input type="radio" name="zustand_0_10" value="4"><span>4</span></label>
+            <label class="scale-option"><input type="radio" name="zustand_0_10" value="5"><span>5</span></label>
+            <label class="scale-option"><input type="radio" name="zustand_0_10" value="6"><span>6</span></label>
+            <label class="scale-option"><input type="radio" name="zustand_0_10" value="7"><span>7</span></label>
+            <label class="scale-option"><input type="radio" name="zustand_0_10" value="8"><span>8</span></label>
+            <label class="scale-option"><input type="radio" name="zustand_0_10" value="9"><span>9</span></label>
+            <label class="scale-option"><input type="radio" name="zustand_0_10" value="10"><span>10</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="scale-group">
+          <legend>Fatigue / Erschöpfung <span class="scale-hint">(0–4)</span></legend>
+          <div class="scale-options">
+            <label class="scale-option"><input type="radio" name="fatigue_0_4" value="0"><span>0</span></label>
+            <label class="scale-option"><input type="radio" name="fatigue_0_4" value="1"><span>1</span></label>
+            <label class="scale-option"><input type="radio" name="fatigue_0_4" value="2"><span>2</span></label>
+            <label class="scale-option"><input type="radio" name="fatigue_0_4" value="3"><span>3</span></label>
+            <label class="scale-option"><input type="radio" name="fatigue_0_4" value="4"><span>4</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="scale-group">
+          <legend>PEM heute <span class="scale-hint">(0–4)</span></legend>
+          <div class="scale-options">
+            <label class="scale-option"><input type="radio" name="pem_heute_0_4" value="0"><span>0</span></label>
+            <label class="scale-option"><input type="radio" name="pem_heute_0_4" value="1"><span>1</span></label>
+            <label class="scale-option"><input type="radio" name="pem_heute_0_4" value="2"><span>2</span></label>
+            <label class="scale-option"><input type="radio" name="pem_heute_0_4" value="3"><span>3</span></label>
+            <label class="scale-option"><input type="radio" name="pem_heute_0_4" value="4"><span>4</span></label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label class="field-label" for="liegezeit_h">Liegezeit <span class="field-unit">(Stunden)</span></label>
+          <input class="field-input" type="number" id="liegezeit_h" name="liegezeit_h" inputmode="decimal" step="0.5" min="0" placeholder="z. B. 8" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="hilfebedarf_min">Hilfebedarf <span class="field-unit">(Minuten)</span></label>
+          <input class="field-input" type="number" id="hilfebedarf_min" name="hilfebedarf_min" inputmode="numeric" step="1" min="0" placeholder="z. B. 30" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="block">
+        <h3 class="block-title">Standard <span class="block-badge">optional</span></h3>
+
+        <fieldset class="scale-group">
+          <legend>Schlafqualität <span class="scale-hint">(0–4)</span></legend>
+          <div class="scale-options">
+            <label class="scale-option"><input type="radio" name="schlafqualitaet_0_4" value="0"><span>0</span></label>
+            <label class="scale-option"><input type="radio" name="schlafqualitaet_0_4" value="1"><span>1</span></label>
+            <label class="scale-option"><input type="radio" name="schlafqualitaet_0_4" value="2"><span>2</span></label>
+            <label class="scale-option"><input type="radio" name="schlafqualitaet_0_4" value="3"><span>3</span></label>
+            <label class="scale-option"><input type="radio" name="schlafqualitaet_0_4" value="4"><span>4</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="scale-group">
+          <legend>Belastung körperlich <span class="scale-hint">(0–4)</span></legend>
+          <div class="scale-options">
+            <label class="scale-option"><input type="radio" name="belastung_koerperlich_0_4" value="0"><span>0</span></label>
+            <label class="scale-option"><input type="radio" name="belastung_koerperlich_0_4" value="1"><span>1</span></label>
+            <label class="scale-option"><input type="radio" name="belastung_koerperlich_0_4" value="2"><span>2</span></label>
+            <label class="scale-option"><input type="radio" name="belastung_koerperlich_0_4" value="3"><span>3</span></label>
+            <label class="scale-option"><input type="radio" name="belastung_koerperlich_0_4" value="4"><span>4</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="scale-group">
+          <legend>Belastung kognitiv <span class="scale-hint">(0–4)</span></legend>
+          <div class="scale-options">
+            <label class="scale-option"><input type="radio" name="belastung_kognitiv_0_4" value="0"><span>0</span></label>
+            <label class="scale-option"><input type="radio" name="belastung_kognitiv_0_4" value="1"><span>1</span></label>
+            <label class="scale-option"><input type="radio" name="belastung_kognitiv_0_4" value="2"><span>2</span></label>
+            <label class="scale-option"><input type="radio" name="belastung_kognitiv_0_4" value="3"><span>3</span></label>
+            <label class="scale-option"><input type="radio" name="belastung_kognitiv_0_4" value="4"><span>4</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="scale-group">
+          <legend>Belastung Reize <span class="scale-hint">(0–4)</span></legend>
+          <div class="scale-options">
+            <label class="scale-option"><input type="radio" name="belastung_reiz_0_4" value="0"><span>0</span></label>
+            <label class="scale-option"><input type="radio" name="belastung_reiz_0_4" value="1"><span>1</span></label>
+            <label class="scale-option"><input type="radio" name="belastung_reiz_0_4" value="2"><span>2</span></label>
+            <label class="scale-option"><input type="radio" name="belastung_reiz_0_4" value="3"><span>3</span></label>
+            <label class="scale-option"><input type="radio" name="belastung_reiz_0_4" value="4"><span>4</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="scale-group">
+          <legend>Pacing <span class="scale-hint">(0–4)</span></legend>
+          <div class="scale-options">
+            <label class="scale-option"><input type="radio" name="pacing_0_4" value="0"><span>0</span></label>
+            <label class="scale-option"><input type="radio" name="pacing_0_4" value="1"><span>1</span></label>
+            <label class="scale-option"><input type="radio" name="pacing_0_4" value="2"><span>2</span></label>
+            <label class="scale-option"><input type="radio" name="pacing_0_4" value="3"><span>3</span></label>
+            <label class="scale-option"><input type="radio" name="pacing_0_4" value="4"><span>4</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="scale-group">
+          <legend>Arbeitsfähigkeit <span class="scale-hint">(0–4)</span></legend>
+          <div class="scale-options">
+            <label class="scale-option"><input type="radio" name="arbeitsfaehigkeit_0_4" value="0"><span>0</span></label>
+            <label class="scale-option"><input type="radio" name="arbeitsfaehigkeit_0_4" value="1"><span>1</span></label>
+            <label class="scale-option"><input type="radio" name="arbeitsfaehigkeit_0_4" value="2"><span>2</span></label>
+            <label class="scale-option"><input type="radio" name="arbeitsfaehigkeit_0_4" value="3"><span>3</span></label>
+            <label class="scale-option"><input type="radio" name="arbeitsfaehigkeit_0_4" value="4"><span>4</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="scale-group">
+          <legend>Teilhabe <span class="scale-hint">(0–4)</span></legend>
+          <div class="scale-options">
+            <label class="scale-option"><input type="radio" name="teilhabe_0_4" value="0"><span>0</span></label>
+            <label class="scale-option"><input type="radio" name="teilhabe_0_4" value="1"><span>1</span></label>
+            <label class="scale-option"><input type="radio" name="teilhabe_0_4" value="2"><span>2</span></label>
+            <label class="scale-option"><input type="radio" name="teilhabe_0_4" value="3"><span>3</span></label>
+            <label class="scale-option"><input type="radio" name="teilhabe_0_4" value="4"><span>4</span></label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="block">
+        <h3 class="block-title">Optional</h3>
+
+        <div class="field">
+          <label class="field-label" for="schlafdauer_h">Schlafdauer <span class="field-unit">(Stunden)</span></label>
+          <input class="field-input" type="number" id="schlafdauer_h" name="schlafdauer_h" inputmode="decimal" step="0.25" min="0" placeholder="z. B. 7.5" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="schritte">Schritte</label>
+          <input class="field-input" type="number" id="schritte" name="schritte" inputmode="numeric" step="1" min="0" placeholder="z. B. 3000" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="kontext">Kontext</label>
+          <input class="field-input" type="text" id="kontext" name="kontext" placeholder="z. B. Arztbesuch" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="notiz">Notiz</label>
+          <textarea class="field-input field-input--textarea" id="notiz" name="notiz" rows="3" placeholder="Freitext" autocomplete="off"></textarea>
+        </div>
+      </div>
+
+      <button type="button" class="btn-save" id="btn-save-tagescheck">Speichern</button>
+    </section>
+
+    <!-- ===================== PEM-CRASH ===================== -->
+    <section id="view-pem-crash" class="view">
+      <h2 class="view-title">PEM-Crash</h2>
+      <p class="view-placeholder">Dieser Bereich wird in einem späteren Schritt aufgebaut.</p>
+    </section>
+
+    <!-- ===================== DETAILCHECK ===================== -->
+    <section id="view-detailcheck" class="view">
+      <h2 class="view-title">Detailcheck</h2>
+      <p class="view-placeholder">Dieser Bereich wird in einem späteren Schritt aufgebaut.</p>
+    </section>
+
+    <!-- ===================== EXPORT ===================== -->
+    <section id="view-export" class="view">
+      <h2 class="view-title">Export</h2>
+      <p class="view-placeholder">Dieser Bereich wird in einem späteren Schritt aufgebaut.</p>
+    </section>
+
+  </main>
+
+  <nav class="tab-bar" aria-label="Hauptnavigation">
+    <button type="button" class="tab is-active" data-view="tagescheck">Tagescheck</button>
+    <button type="button" class="tab" data-view="pem-crash">PEM-Crash</button>
+    <button type="button" class="tab" data-view="detailcheck">Detailcheck</button>
+    <button type="button" class="tab" data-view="export">Export</button>
+  </nav>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

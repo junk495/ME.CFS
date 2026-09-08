@@ -1,0 +1,37 @@
+# Projektkontext
+Das Projekt ist eine Progressive Web App (PWA) zur täglichen Dokumentation von ME/CFS-Symptomen.
+Primäres Ziel: Minimale kognitive Belastung für den Nutzer (Pacing), extrem schnelle Eingabe am Smartphone (Mobile First), absolute Offline-Fähigkeit und strikter Datenschutz.
+Hosting-Umgebung: GitHub Pages (rein statisches Hosting, HTTPS).
+
+# Technologie-Stack
+- Struktur & Design: HTML5, CSS3. (Keine komplexen Build-Tools wie Webpack oder Vite).
+- Logik: Modernes Vanilla JavaScript (ES6+).
+- Speicherung: Ausschließlich `localStorage` (oder `IndexedDB`).
+- Export: SheetJS (xlsx) zur Generierung von Excel-Dateien direkt im Browser.
+- PWA-Kern: `manifest.json` und `sw.js` (Service Worker) für Caching und Offline-Betrieb.
+
+# Strikte Regeln für die Code-Generierung (KI-Direktiven)
+
+1. ABSOLUTE DATENLOKALITÄT:
+   - Schreibe NIEMALS Code, der Nutzerdaten an einen externen Server, eine API oder eine Cloud-Datenbank (wie Firebase oder Supabase) sendet.
+   - Alle Gesundheits- und Trackingdaten müssen zwingend auf dem Endgerät verbleiben.
+
+2. KEIN BACKEND / KEINE FRAMEWORKS:
+   - Generiere keinen Node.js, PHP oder Python Code. Das Projekt ist 100% statisch.
+   - Verwende keine Frontend-Frameworks (React, Vue, Angular) und kein jQuery. Nutze ausschließlich Vanilla JS.
+   - Verwende kein CSS-Framework wie Tailwind CSS oder Bootstrap, weder über npm noch über ein CDN. Schreibe ausschließlich reines CSS (Vanilla CSS) in einer separaten `style.css`, um externe Abhängigkeiten zu vermeiden und Offline-Fähigkeit zu garantieren.
+
+3. MOBILE-FIRST & BARRIEREFREIHEIT (UX/UI):
+   - Designe für die Smartphone-Nutzung (Hochformat).
+   - Verhindere horizontales Scrollen strikt.
+   - Touch-Flächen (Buttons) müssen groß sein (mind. 44x44px).
+   - Nutze augenschonende, reizarme Farben (Dark Mode bevorzugt).
+   - Verzichte auf Dropdown-Menüs für Skalen (0-4). Verwende stattdessen direkte Tap-Buttons oder Ziffernblock-Eingaben.
+
+4. SINGLE PAGE APPLICATION (SPA) STRUKTUR:
+   - Die gesamte App besteht aus einer `index.html`.
+   - Navigation zwischen Ansichten ("Tagescheck", "PEM-Crash", "Detailcheck") erfolgt ausschließlich über das Ein- und Ausblenden von DOM-Elementen per JavaScript (`display: none` / `block`), um Ladezeiten zu eliminieren.
+
+5. DATENMODELLIERUNG & EXPORT:
+   - Speicherstrukturen (JSON) für die Tagesprotokolle müssen flach gehalten werden, um das spätere Mapping auf Excel-Spalten zu erleichtern.
+   - Wenn optionale Eingabefelder übersprungen werden, muss der Wert zwingend als `null` gespeichert werden (niemals als `0` oder `""`), damit Durchschnittsberechnungen beim späteren Excel-Export nicht verfälscht werden.
