@@ -3,7 +3,7 @@
    Cache-First-Strategie für Offline-Betrieb.
    ========================================================= */
 
-const CACHE_NAME = 'mecfs-tracker-v1';
+const CACHE_NAME = 'mecfs-tracker-v2';
 
 // Beim ersten Install zu cachende Dateien (App-Shell)
 const CACHE_URLS = [
