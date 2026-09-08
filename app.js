@@ -43,7 +43,27 @@
     { key: 'pem_ausloeser', header: 'Ausloeser' },
     { key: 'pem_verzoegerung_h', header: 'Verzoegerung (h)' },
     { key: 'pem_dauer_h', header: 'PEM Dauer (h)' },
-    { key: 'pem_symptome', header: 'PEM Symptome' }
+    { key: 'pem_symptome', header: 'PEM Symptome' },
+    { key: 'schmerz_muskel', header: 'Schmerz Muskel (0-4)' },
+    { key: 'schmerz_gelenk', header: 'Schmerz Gelenk (0-4)' },
+    { key: 'schmerz_kopf', header: 'Schmerz Kopf (0-4)' },
+    { key: 'schmerz_neuro', header: 'Schmerz Neuropathisch (0-4)' },
+    { key: 'schmerz_beruehrung', header: 'Schmerz Beruehrung (0-4)' },
+    { key: 'kognition_konzentration', header: 'Kognition Konzentration (0-4)' },
+    { key: 'kognition_gedaechtnis', header: 'Kognition Gedaechtnis (0-4)' },
+    { key: 'kognition_sprache', header: 'Kognition Sprache (0-4)' },
+    { key: 'kognition_koordination', header: 'Kognition Koordination (0-4)' },
+    { key: 'reiz_licht', header: 'Reiz Licht (0-4)' },
+    { key: 'reiz_geraeusch', header: 'Reiz Geraeusch (0-4)' },
+    { key: 'autonom_schwindel', header: 'Autonom Schwindel (0-4)' },
+    { key: 'autonom_herzrasen', header: 'Autonom Herzrasen (0-4)' },
+    { key: 'autonom_atem', header: 'Autonom Atem (0-4)' },
+    { key: 'autonom_verdauung', header: 'Autonom Verdauung (0-4)' },
+    { key: 'autonom_blase', header: 'Autonom Blase (0-4)' },
+    { key: 'autonom_temperatur', header: 'Autonom Temperatur (0-4)' },
+    { key: 'immun_grippegefuehl', header: 'Immun Grippegefuehl (0-4)' },
+    { key: 'immun_hals', header: 'Immun Hals (0-4)' },
+    { key: 'mcas_flush', header: 'MCAS Flush (0-4)' }
   ];
 
   // ---------- Datums-Helfer ----------
@@ -210,6 +230,29 @@
     showSavedFeedback(document.getElementById('btn-save-pem'));
   };
 
+  // ---------- Detailcheck-Daten lesen & speichern ----------
+  const collectDetailData = () => {
+    const data = {};
+    const container = document.getElementById('view-detailcheck');
+
+    const radioNames = [];
+    container.querySelectorAll('input[type="radio"]').forEach((radio) => {
+      if (!radioNames.includes(radio.name)) radioNames.push(radio.name);
+    });
+
+    radioNames.forEach((name) => {
+      const checked = container.querySelector(`input[name="${name}"]:checked`);
+      data[name] = checked ? Number(checked.value) : null;
+    });
+
+    return data;
+  };
+
+  const handleSaveDetail = () => {
+    saveEntry(todayKey(), collectDetailData());
+    showSavedFeedback(document.getElementById('btn-save-detail'));
+  };
+
   // ---------- Datumsanzeige im Header ----------
   const initDateDisplay = () => {
     const dateStr = todayKey();
@@ -334,6 +377,9 @@
 
     const pemSaveBtn = document.getElementById('btn-save-pem');
     if (pemSaveBtn) pemSaveBtn.addEventListener('click', handleSavePem);
+
+    const detailSaveBtn = document.getElementById('btn-save-detail');
+    if (detailSaveBtn) detailSaveBtn.addEventListener('click', handleSaveDetail);
 
     loadEntry(dateStr);
   };
