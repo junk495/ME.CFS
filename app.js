@@ -466,6 +466,16 @@
 
   // ---------- Initialisierung ----------
   const init = () => {
+    if (navigator.storage && navigator.storage.persist) {
+      navigator.storage.persist().then((persistent) => {
+        if (persistent) {
+          console.log("Speicher ist persistent.");
+        } else {
+          console.log("Speicher ist flüchtig.");
+        }
+      });
+    }
+
     const dateStr = initDateDisplay();
 
     document.querySelectorAll('.tab').forEach((tab) => {
