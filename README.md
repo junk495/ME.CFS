@@ -1,9 +1,14 @@
 # ME/CFS Symptom-Tracker (PWA)
 
-**🌐 Zur Live-App:** [https://junk495.github.io/ME.CFS/](https://junk495.github.io/ME.CFS/)
+**🌐 Zur Live-App:** <a href="https://junk495.github.io/ME.CFS/" target="_blank" rel="noopener noreferrer">https://junk495.github.io/ME.CFS/</a>
 
 Ein reizarmer, offline-fähiger Tracker zur täglichen Dokumentation von ME/CFS-Symptomen. 
 Entwickelt mit Fokus auf Pacing und minimale kognitive Belastung am Smartphone (Mobile First).
+
+## 📚 Dokumentation & Hilfe
+
+*   **Bedienungsanleitung** (für Anwender:innen): <a href="./BEDIENUNGSANLEITUNG.md" target="_blank" rel="noopener noreferrer">BEDIENUNGSANLEITUNG.md</a> — Schritt-für-Schritt-Erklärung aller Tabs, Skalen und der Zeitreise-Funktion, frei von Technik-Jargon.
+*   **Fachliche Grundlagen** (für Ärzt:innen & Fachpersonal): <a href="./ERLAEUTERUNGEN.md" target="_blank" rel="noopener noreferrer">ERLAEUTERUNGEN.md</a> — Hintergrund zu PEM, der 0–4-Skala, GdB (Österreich) und Quellenangaben.
 
 ## Warum diese App?
 
@@ -21,7 +26,7 @@ Herkömmliche Excel-Tabellen zur Dokumentation (z.B. für GdB-Verfahren in Öste
 
 Da es sich um eine Progressive Web App (PWA) handelt, ist keine Installation über den Google Play Store oder Apple App Store nötig:
 
-1. Den Link [https://junk495.github.io/ME.CFS/](https://junk495.github.io/ME.CFS/) im mobilen Browser (z. B. Chrome, Firefox oder Safari) öffnen.
+1. Den Link <a href="https://junk495.github.io/ME.CFS/" target="_blank" rel="noopener noreferrer">https://junk495.github.io/ME.CFS/</a> im mobilen Browser (z. B. Chrome, Firefox oder Safari) öffnen.
 2. Im Browser-Menü die Option **"Zum Startbildschirm hinzufügen"** (Add to Home Screen) wählen.
 3. Die App kann nun wie eine reguläre App über das Icon auf dem Homescreen gestartet werden.
 
