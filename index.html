@@ -163,6 +163,11 @@
             <label class="scale-option"><input type="radio" name="teilhabe_0_4" value="4"><span>4</span></label>
           </div>
         </fieldset>
+
+        <div class="field">
+          <label class="field-label" for="bell_0_100">Bell-Selbsteinschätzung <span class="field-unit">(0–100)</span></label>
+          <input class="field-input" type="number" id="bell_0_100" name="bell_0_100" inputmode="numeric" step="10" min="0" max="100" placeholder="z. B. 30" autocomplete="off">
+        </div>
       </div>
 
       <div class="block">
@@ -308,6 +313,13 @@
     <section id="view-detailcheck" class="view">
       <h2 class="view-title">Detailcheck</h2>
 
+      <div class="pem-tabs">
+        <button type="button" id="tab-detail-basis" class="pem-tab is-active">Basis</button>
+        <button type="button" id="tab-detail-spezifisch" class="pem-tab">Spezifisch</button>
+        <button type="button" id="tab-detail-funktion" class="pem-tab">Funktion</button>
+      </div>
+
+      <div id="detail-basis-view">
       <div class="block">
         <h3 class="block-title">Schmerzen</h3>
 
@@ -539,6 +551,366 @@
             <label class="scale-option"><input type="radio" name="mcas_flush" value="4"><span>4</span></label>
           </div>
         </fieldset>
+      </div>
+
+      </div>
+
+      <div id="detail-spezifisch-view" style="display: none;">
+        <div class="block">
+          <h3 class="block-title">Schlaf</h3>
+
+          <fieldset class="scale-group">
+            <legend>Ein-/Durchschlafstörung <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="schlaf_durchschlaf" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="schlaf_durchschlaf" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="schlaf_durchschlaf" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="schlaf_durchschlaf" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="schlaf_durchschlaf" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Verschobener Schlafrhythmus <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="schlaf_rhythmus" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="schlaf_rhythmus" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="schlaf_rhythmus" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="schlaf_rhythmus" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="schlaf_rhythmus" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Hypersomnie / Schlafbedarf <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="schlaf_hypersomnie" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="schlaf_hypersomnie" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="schlaf_hypersomnie" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="schlaf_hypersomnie" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="schlaf_hypersomnie" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="block">
+          <h3 class="block-title">Kognitiv</h3>
+
+          <fieldset class="scale-group">
+            <legend>Info-Verarbeitung verlangsamt <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="kognition_verlangsamt" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="kognition_verlangsamt" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="kognition_verlangsamt" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="kognition_verlangsamt" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="kognition_verlangsamt" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Multitasking <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="kognition_multitasking" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="kognition_multitasking" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="kognition_multitasking" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="kognition_multitasking" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="kognition_multitasking" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Desorientierung/Verwirrtheit <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="kognition_desorientierung" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="kognition_desorientierung" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="kognition_desorientierung" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="kognition_desorientierung" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="kognition_desorientierung" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="block">
+          <h3 class="block-title">Reize &amp; Autonom</h3>
+
+          <fieldset class="scale-group">
+            <legend>Geruchs-/Berührungsempfindlichkeit <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="reiz_geruch" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="reiz_geruch" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="reiz_geruch" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="reiz_geruch" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="reiz_geruch" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Benommenheit/Präsynkope <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="autonom_praesynkope" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="autonom_praesynkope" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="autonom_praesynkope" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="autonom_praesynkope" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="autonom_praesynkope" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Synkope <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="autonom_synkope" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="autonom_synkope" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="autonom_synkope" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="autonom_synkope" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="autonom_synkope" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Stehintoleranz <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="autonom_stehintoleranz" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="autonom_stehintoleranz" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="autonom_stehintoleranz" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="autonom_stehintoleranz" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="autonom_stehintoleranz" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="block">
+          <h3 class="block-title">Neuroendokrin</h3>
+
+          <fieldset class="scale-group">
+            <legend>Hitzeintoleranz <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="neuroendokrin_hitze" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="neuroendokrin_hitze" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="neuroendokrin_hitze" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="neuroendokrin_hitze" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="neuroendokrin_hitze" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Kälteintoleranz <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="neuroendokrin_kaelte" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="neuroendokrin_kaelte" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="neuroendokrin_kaelte" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="neuroendokrin_kaelte" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="neuroendokrin_kaelte" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Appetit-/Gewichtsveränderung <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="neuroendokrin_appetit" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="neuroendokrin_appetit" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="neuroendokrin_appetit" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="neuroendokrin_appetit" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="neuroendokrin_appetit" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Stressintoleranz <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="neuroendokrin_stress" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="neuroendokrin_stress" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="neuroendokrin_stress" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="neuroendokrin_stress" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="neuroendokrin_stress" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="block">
+          <h3 class="block-title">Immun &amp; Allergien</h3>
+
+          <fieldset class="scale-group">
+            <legend>Fiebergefühl <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="immun_fieber" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="immun_fieber" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="immun_fieber" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="immun_fieber" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="immun_fieber" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Neue Allergie <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="immun_allergie" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="immun_allergie" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="immun_allergie" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="immun_allergie" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="immun_allergie" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="block">
+          <h3 class="block-title">MCAS / Magen-Darm</h3>
+
+          <fieldset class="scale-group">
+            <legend>Übelkeit <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="mcas_uebelkeit" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_uebelkeit" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_uebelkeit" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_uebelkeit" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_uebelkeit" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Bauchschmerz/Blähung <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="mcas_bauchschmerz" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_bauchschmerz" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_bauchschmerz" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_bauchschmerz" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_bauchschmerz" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Durchfall/Verstopfung <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="mcas_durchfall" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_durchfall" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_durchfall" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_durchfall" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_durchfall" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Nahrungsunverträglichkeit <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="mcas_nahrung" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_nahrung" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_nahrung" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_nahrung" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_nahrung" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Medikamentenüberempfindlichkeit <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="mcas_medikament" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_medikament" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_medikament" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_medikament" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="mcas_medikament" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+      <div id="detail-funktion-view" style="display: none;">
+        <div class="block">
+          <h3 class="block-title">Alltagsfunktionen beeinträchtigt</h3>
+
+          <fieldset class="scale-group">
+            <legend>Körperpflege <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="funktion_koerperpflege" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_koerperpflege" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_koerperpflege" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_koerperpflege" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_koerperpflege" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Anziehen <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="funktion_anziehen" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_anziehen" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_anziehen" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_anziehen" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_anziehen" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Essen/Trinken zubereiten <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="funktion_essen" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_essen" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_essen" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_essen" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_essen" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Gehen/Bewegung <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="funktion_gehen" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_gehen" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_gehen" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_gehen" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_gehen" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Aufrechte Position <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="funktion_aufrecht" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_aufrecht" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_aufrecht" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_aufrecht" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_aufrecht" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="scale-group">
+            <legend>Haushalt <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="funktion_haushalt" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_haushalt" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_haushalt" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_haushalt" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_haushalt" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Kommunikation <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="funktion_kommunikation" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_kommunikation" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_kommunikation" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_kommunikation" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_kommunikation" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Außer-Haus-Aktivität <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="funktion_ausser_haus" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_ausser_haus" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_ausser_haus" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_ausser_haus" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_ausser_haus" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Reaktion auf Licht/Sonne <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="funktion_sonne" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_sonne" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_sonne" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_sonne" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="funktion_sonne" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+        </div>
       </div>
 
       <button type="button" class="btn-save" id="btn-save-detail">Detailcheck speichern</button>

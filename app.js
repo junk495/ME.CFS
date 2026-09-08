@@ -24,6 +24,7 @@
     { key: 'datum', header: 'Datum' },
     { key: 'erfassungs_typ', header: 'Erfassungs-Typ' },
     { key: 'zustand_0_10', header: 'Zustand (0-10)' },
+    { key: 'bell_0_100', header: 'Bell (0-100)' },
     { key: 'fatigue_0_4', header: 'Fatigue (0-4)' },
     { key: 'pem_heute_0_4', header: 'PEM heute (0-4)' },
     { key: 'liegezeit_h', header: 'Liegezeit (h)' },
@@ -69,7 +70,37 @@
     { key: 'autonom_temperatur', header: 'Autonom Temperatur (0-4)' },
     { key: 'immun_grippegefuehl', header: 'Immun Grippegefuehl (0-4)' },
     { key: 'immun_hals', header: 'Immun Hals (0-4)' },
-    { key: 'mcas_flush', header: 'MCAS Flush (0-4)' }
+    { key: 'mcas_flush', header: 'MCAS Flush (0-4)' },
+    { key: 'schlaf_durchschlaf', header: 'Schlaf Durchschlafen (0-4)' },
+    { key: 'schlaf_rhythmus', header: 'Schlaf Rhythmus (0-4)' },
+    { key: 'schlaf_hypersomnie', header: 'Schlaf Hypersomnie (0-4)' },
+    { key: 'kognition_verlangsamt', header: 'Kognition Verlangsamt (0-4)' },
+    { key: 'kognition_multitasking', header: 'Kognition Multitasking (0-4)' },
+    { key: 'kognition_desorientierung', header: 'Kognition Desorientierung (0-4)' },
+    { key: 'reiz_geruch', header: 'Reiz Geruch (0-4)' },
+    { key: 'autonom_praesynkope', header: 'Autonom Praesynkope (0-4)' },
+    { key: 'autonom_synkope', header: 'Autonom Synkope (0-4)' },
+    { key: 'autonom_stehintoleranz', header: 'Autonom Stehintoleranz (0-4)' },
+    { key: 'neuroendokrin_hitze', header: 'Neuroendokrin Hitze (0-4)' },
+    { key: 'neuroendokrin_kaelte', header: 'Neuroendokrin Kaelte (0-4)' },
+    { key: 'neuroendokrin_appetit', header: 'Neuroendokrin Appetit (0-4)' },
+    { key: 'neuroendokrin_stress', header: 'Neuroendokrin Stress (0-4)' },
+    { key: 'immun_fieber', header: 'Immun Fieber (0-4)' },
+    { key: 'immun_allergie', header: 'Immun Allergie (0-4)' },
+    { key: 'mcas_uebelkeit', header: 'MCAS Uebelkeit (0-4)' },
+    { key: 'mcas_bauchschmerz', header: 'MCAS Bauchschmerz (0-4)' },
+    { key: 'mcas_durchfall', header: 'MCAS Durchfall (0-4)' },
+    { key: 'mcas_nahrung', header: 'MCAS Nahrung (0-4)' },
+    { key: 'mcas_medikament', header: 'MCAS Medikament (0-4)' },
+    { key: 'funktion_koerperpflege', header: 'Funktion Koerperpflege (0-4)' },
+    { key: 'funktion_anziehen', header: 'Funktion Anziehen (0-4)' },
+    { key: 'funktion_essen', header: 'Funktion Essen (0-4)' },
+    { key: 'funktion_gehen', header: 'Funktion Gehen (0-4)' },
+    { key: 'funktion_aufrecht', header: 'Funktion Aufrecht (0-4)' },
+    { key: 'funktion_haushalt', header: 'Funktion Haushalt (0-4)' },
+    { key: 'funktion_kommunikation', header: 'Funktion Kommunikation (0-4)' },
+    { key: 'funktion_ausser_haus', header: 'Funktion Ausser Haus (0-4)' },
+    { key: 'funktion_sonne', header: 'Funktion Sonne (0-4)' }
   ];
 
   // ---------- Datums-Helfer ----------
@@ -106,6 +137,23 @@
     document.getElementById('pem-verlauf-view').style.display = showAusloeser ? 'none' : 'block';
     document.getElementById('tab-pem-ausloeser').classList.toggle('is-active', showAusloeser);
     document.getElementById('tab-pem-verlauf').classList.toggle('is-active', !showAusloeser);
+  };
+
+  // ---------- Detailcheck-Sub-Tab-Navigation ----------
+  const switchDetailTab = (tabName) => {
+    const views = {
+      basis: 'detail-basis-view',
+      spezifisch: 'detail-spezifisch-view',
+      funktion: 'detail-funktion-view'
+    };
+    Object.keys(views).forEach((name) => {
+      const el = document.getElementById(views[name]);
+      if (el) el.style.display = name === tabName ? 'block' : 'none';
+    });
+    ['basis', 'spezifisch', 'funktion'].forEach((name) => {
+      const btn = document.getElementById(`tab-detail-${name}`);
+      if (btn) btn.classList.toggle('is-active', name === tabName);
+    });
   };
 
   // ---------- Formular lesen (leer = null) ----------
@@ -408,6 +456,14 @@
     const tabPemVerlauf = document.getElementById('tab-pem-verlauf');
     if (tabPemAusloeser) tabPemAusloeser.addEventListener('click', () => switchPemTab('ausloeser'));
     if (tabPemVerlauf) tabPemVerlauf.addEventListener('click', () => switchPemTab('verlauf'));
+
+    // Detailcheck-Sub-Tabs
+    const tabDetailBasis = document.getElementById('tab-detail-basis');
+    const tabDetailSpezifisch = document.getElementById('tab-detail-spezifisch');
+    const tabDetailFunktion = document.getElementById('tab-detail-funktion');
+    if (tabDetailBasis) tabDetailBasis.addEventListener('click', () => switchDetailTab('basis'));
+    if (tabDetailSpezifisch) tabDetailSpezifisch.addEventListener('click', () => switchDetailTab('spezifisch'));
+    if (tabDetailFunktion) tabDetailFunktion.addEventListener('click', () => switchDetailTab('funktion'));
 
     const saveBtn = document.getElementById('btn-save-tagescheck');
     if (saveBtn) saveBtn.addEventListener('click', handleSave);
