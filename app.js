@@ -19,6 +19,28 @@
     'teilhabe_0_4'
   ];
 
+  // Spaltenreihenfolge für den CSV-Export (key → Excel-Spalte)
+  const EXPORT_COLUMNS = [
+    { key: 'datum', header: 'Datum' },
+    { key: 'erfassungs_typ', header: 'Erfassungs-Typ' },
+    { key: 'zustand_0_10', header: 'Zustand (0-10)' },
+    { key: 'fatigue_0_4', header: 'Fatigue (0-4)' },
+    { key: 'pem_heute_0_4', header: 'PEM heute (0-4)' },
+    { key: 'liegezeit_h', header: 'Liegezeit (h)' },
+    { key: 'hilfebedarf_min', header: 'Hilfebedarf (min)' },
+    { key: 'schlafqualitaet_0_4', header: 'Schlafqualitaet (0-4)' },
+    { key: 'belastung_koerperlich_0_4', header: 'Koerperliche Belastung (0-4)' },
+    { key: 'belastung_kognitiv_0_4', header: 'Kognitive Belastung (0-4)' },
+    { key: 'belastung_reiz_0_4', header: 'Reizbelastung (0-4)' },
+    { key: 'pacing_0_4', header: 'Pacing (0-4)' },
+    { key: 'arbeitsfaehigkeit_0_4', header: 'Arbeitsfaehigkeit (0-4)' },
+    { key: 'teilhabe_0_4', header: 'Teilhabe (0-4)' },
+    { key: 'schlafdauer_h', header: 'Schlafdauer (h)' },
+    { key: 'schritte', header: 'Schritte' },
+    { key: 'kontext', header: 'Kontext' },
+    { key: 'notiz', header: 'Notiz' }
+  ];
+
   // ---------- Datums-Helfer ----------
   const todayKey = () => {
     const now = new Date();
@@ -168,6 +190,96 @@
     return dateStr;
   };
 
+  // ---------- CSV-Export ----------
+  const getAllEntries = () => {
+    const entries = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith(STORAGE_PREFIX)) {
+        try {
+          entries.push(JSON.parse(localStorage.getItem(key)));
+        } catch (e) {
+          // beschädigte Einträge überspringen
+        }
+      }
+    }
+    // chronologisch aufsteigend nach Datum sortieren (YYYY-MM-DD)
+    entries.sort((a, b) => String(a.datum || '').localeCompare(String(b.datum || '')));
+    return entries;
+  };
+
+  const formatCell = (value) => {
+    if (value === null || value === undefined) return '';
+    if (typeof value === 'number') {
+      // Dezimalpunkt → Komma für Excel (deutsches Zahlenformat)
+      return String(value).replace('.', ',');
+    }
+    // Textwerte: Zeilenumbrüche und Semikolons neutralisieren
+    return String(value)
+      .replace(/\r?\n/g, ' ')
+      .replace(/;/g, ',');
+  };
+
+  const buildCSV = (entries) => {
+    const header = EXPORT_COLUMNS.map((col) => col.header).join(';');
+    const rows = entries.map((entry) =>
+      EXPORT_COLUMNS.map((col) => formatCell(entry[col.key])).join(';')
+    );
+    return [header, ...rows].join('\r\n');
+  };
+
+  const downloadCSV = (csvString, filename) => {
+    // BOM für korrekte UTF-8-Erkennung in Excel
+    const blob = new Blob(['\uFEFF' + csvString], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  const handleExport = () => {
+    const entries = getAllEntries();
+    if (entries.length === 0) {
+      alert('Keine gespeicherten Daten vorhanden.');
+      return;
+    }
+    downloadCSV(buildCSV(entries), 'mecfs_export.csv');
+  };
+
+  // ---------- Alle Daten löschen ----------
+  const resetForm = () => {
+    const container = document.getElementById('view-tagescheck');
+    container.querySelectorAll('input[type="radio"]').forEach((radio) => {
+      radio.checked = false;
+    });
+    container
+      .querySelectorAll('input[type="number"], input[type="text"], textarea')
+      .forEach((input) => {
+        input.value = '';
+      });
+  };
+
+  const handleDeleteAll = () => {
+    const confirmed = window.confirm(
+      'Bist du sicher? Alle lokal gespeicherten Daten werden unwiderruflich gelöscht.'
+    );
+    if (!confirmed) return;
+
+    const keysToRemove = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith(STORAGE_PREFIX)) keysToRemove.push(key);
+    }
+    keysToRemove.forEach((key) => localStorage.removeItem(key));
+
+    alert('Daten gelöscht');
+    resetForm();
+  };
+
   // ---------- Initialisierung ----------
   const init = () => {
     const dateStr = initDateDisplay();
@@ -178,6 +290,12 @@
 
     const saveBtn = document.getElementById('btn-save-tagescheck');
     if (saveBtn) saveBtn.addEventListener('click', handleSave);
+
+    const exportBtn = document.getElementById('btn-export-csv');
+    if (exportBtn) exportBtn.addEventListener('click', handleExport);
+
+    const deleteBtn = document.getElementById('btn-delete-all');
+    if (deleteBtn) deleteBtn.addEventListener('click', handleDeleteAll);
 
     loadEntry(dateStr);
   };
