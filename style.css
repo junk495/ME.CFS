@@ -63,6 +63,21 @@ body {
   color: var(--text-muted);
 }
 
+.app-date-picker {
+  margin: 0.2rem 0 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 1rem;
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+.app-date-picker:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
 /* ---------- Hauptbereich ---------- */
 .app-main {
   max-width: 560px;
@@ -293,6 +308,38 @@ body {
 .tab:focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: -2px;
+}
+
+/* ---------- PEM-Sub-Tabs (Toggle-Pillen) ---------- */
+.pem-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.pem-tab {
+  flex: 1;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  background: var(--bg-input);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.pem-tab.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-fg);
+  font-weight: 600;
+}
+
+.pem-tab:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
 }
 
 /* ---------- Barrierefreiheit: reduzierte Bewegung ---------- */

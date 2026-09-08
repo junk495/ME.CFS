@@ -13,7 +13,7 @@
 <body>
   <header class="app-header">
     <h1 class="app-title">ME/CFS Tracker</h1>
-    <p class="app-date" id="datum-anzeige" aria-live="polite"></p>
+    <input type="date" id="date-picker" class="app-date-picker">
   </header>
 
   <main class="app-main">
@@ -191,30 +191,113 @@
     <section id="view-pem-crash" class="view">
       <h2 class="view-title">PEM-Crash</h2>
 
-      <div class="block">
-        <div class="field">
-          <label class="field-label" for="pem_belastungsdatum">Datum der vermuteten Belastung</label>
-          <input class="field-input" type="date" id="pem_belastungsdatum" name="pem_belastungsdatum" autocomplete="off">
+      <div class="pem-tabs">
+        <button type="button" id="tab-pem-ausloeser" class="pem-tab is-active">Auslöser</button>
+        <button type="button" id="tab-pem-verlauf" class="pem-tab">Verlauf</button>
+      </div>
+
+      <div id="pem-ausloeser-view">
+        <div class="block">
+          <div class="field">
+            <label class="field-label" for="pem_belastungsdatum">Datum der vermuteten Belastung</label>
+            <input class="field-input" type="date" id="pem_belastungsdatum" name="pem_belastungsdatum" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="pem_ausloeser">Auslöser / Aktivität</label>
+            <input class="field-input" type="text" id="pem_ausloeser" name="pem_ausloeser" placeholder="z. B. Spaziergang, Arztbesuch" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="pem_verzoegerung_h">Verzögerung bis Crash <span class="field-unit">(Stunden)</span></label>
+            <input class="field-input" type="number" id="pem_verzoegerung_h" name="pem_verzoegerung_h" inputmode="numeric" step="1" min="0" placeholder="z. B. 24" autocomplete="off">
+          </div>
+        </div>
+      </div>
+
+      <div id="pem-verlauf-view" style="display: none;">
+        <div class="block">
+          <div class="field">
+            <label class="field-label" for="pem_dauer_h">Bisherige Dauer <span class="field-unit">(Stunden)</span></label>
+            <input class="field-input" type="number" id="pem_dauer_h" name="pem_dauer_h" inputmode="numeric" step="1" min="0" placeholder="z. B. 36" autocomplete="off">
+          </div>
         </div>
 
-        <div class="field">
-          <label class="field-label" for="pem_ausloeser">Auslöser / Aktivität</label>
-          <input class="field-input" type="text" id="pem_ausloeser" name="pem_ausloeser" placeholder="z. B. Spaziergang, Arztbesuch" autocomplete="off">
+        <div class="block">
+          <h3 class="block-title">Verlauf</h3>
+
+          <fieldset class="scale-group">
+            <legend>Gesamtschwere <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="pem_gesamt_0_4" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="pem_gesamt_0_4" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="pem_gesamt_0_4" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="pem_gesamt_0_4" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="pem_gesamt_0_4" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Erholungsdauer gefühlt <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="pem_erholung_0_4" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="pem_erholung_0_4" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="pem_erholung_0_4" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="pem_erholung_0_4" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="pem_erholung_0_4" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Zunahme: Fatigue <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="pem_fatigue_0_4" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="pem_fatigue_0_4" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="pem_fatigue_0_4" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="pem_fatigue_0_4" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="pem_fatigue_0_4" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Zunahme: Kognition/Brain Fog <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="pem_kognition_0_4" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="pem_kognition_0_4" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="pem_kognition_0_4" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="pem_kognition_0_4" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="pem_kognition_0_4" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Zunahme: Schmerzen <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="pem_schmerz_0_4" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="pem_schmerz_0_4" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="pem_schmerz_0_4" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="pem_schmerz_0_4" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="pem_schmerz_0_4" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="scale-group">
+            <legend>Zunahme: Krankheitsgefühl <span class="scale-hint">(0–4)</span></legend>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="pem_grippe_0_4" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="pem_grippe_0_4" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="pem_grippe_0_4" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="pem_grippe_0_4" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="pem_grippe_0_4" value="4"><span>4</span></label>
+            </div>
+          </fieldset>
         </div>
 
-        <div class="field">
-          <label class="field-label" for="pem_verzoegerung_h">Verzögerung bis Crash <span class="field-unit">(Stunden)</span></label>
-          <input class="field-input" type="number" id="pem_verzoegerung_h" name="pem_verzoegerung_h" inputmode="numeric" step="1" min="0" placeholder="z. B. 24" autocomplete="off">
-        </div>
-
-        <div class="field">
-          <label class="field-label" for="pem_dauer_h">Bisherige Dauer <span class="field-unit">(Stunden)</span></label>
-          <input class="field-input" type="number" id="pem_dauer_h" name="pem_dauer_h" inputmode="numeric" step="1" min="0" placeholder="z. B. 36" autocomplete="off">
-        </div>
-
-        <div class="field">
-          <label class="field-label" for="pem_symptome">Stärkste Symptomzunahme &amp; Funktionsverlust</label>
-          <textarea class="field-input field-input--textarea" id="pem_symptome" name="pem_symptome" rows="3" placeholder="Freitext" autocomplete="off"></textarea>
+        <div class="block">
+          <div class="field">
+            <label class="field-label" for="pem_symptome">Stärkste Symptomzunahme &amp; Funktionsverlust</label>
+            <textarea class="field-input field-input--textarea" id="pem_symptome" name="pem_symptome" rows="3" placeholder="Freitext" autocomplete="off"></textarea>
+          </div>
         </div>
       </div>
 

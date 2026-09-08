@@ -43,6 +43,12 @@
     { key: 'pem_ausloeser', header: 'Ausloeser' },
     { key: 'pem_verzoegerung_h', header: 'Verzoegerung (h)' },
     { key: 'pem_dauer_h', header: 'PEM Dauer (h)' },
+    { key: 'pem_gesamt_0_4', header: 'PEM Gesamtschwere (0-4)' },
+    { key: 'pem_erholung_0_4', header: 'PEM Erholungsdauer (0-4)' },
+    { key: 'pem_fatigue_0_4', header: 'PEM Zunahme Fatigue (0-4)' },
+    { key: 'pem_kognition_0_4', header: 'PEM Zunahme Kognition (0-4)' },
+    { key: 'pem_schmerz_0_4', header: 'PEM Zunahme Schmerzen (0-4)' },
+    { key: 'pem_grippe_0_4', header: 'PEM Zunahme Krankheitsgefuehl (0-4)' },
     { key: 'pem_symptome', header: 'PEM Symptome' },
     { key: 'schmerz_muskel', header: 'Schmerz Muskel (0-4)' },
     { key: 'schmerz_gelenk', header: 'Schmerz Gelenk (0-4)' },
@@ -77,6 +83,12 @@
 
   const storageKey = (dateStr) => STORAGE_PREFIX + dateStr;
 
+  // Gewähltes Datum aus dem Date-Picker (Fallback: heute)
+  const selectedDate = () => {
+    const el = document.getElementById('date-picker');
+    return el && el.value ? el.value : todayKey();
+  };
+
   // ---------- Tab-Navigation ----------
   const switchView = (viewName) => {
     document.querySelectorAll('.view').forEach((view) => {
@@ -85,6 +97,15 @@
     document.querySelectorAll('.tab').forEach((tab) => {
       tab.classList.toggle('is-active', tab.dataset.view === viewName);
     });
+  };
+
+  // ---------- PEM-Sub-Tab-Navigation ----------
+  const switchPemTab = (tabName) => {
+    const showAusloeser = tabName === 'ausloeser';
+    document.getElementById('pem-ausloeser-view').style.display = showAusloeser ? 'block' : 'none';
+    document.getElementById('pem-verlauf-view').style.display = showAusloeser ? 'none' : 'block';
+    document.getElementById('tab-pem-ausloeser').classList.toggle('is-active', showAusloeser);
+    document.getElementById('tab-pem-verlauf').classList.toggle('is-active', !showAusloeser);
   };
 
   // ---------- Formular lesen (leer = null) ----------
@@ -195,8 +216,7 @@
 
   // ---------- Speichern-Handler ----------
   const handleSave = () => {
-    const dateStr = todayKey();
-    saveEntry(dateStr, collectFormData());
+    saveEntry(selectedDate(), collectFormData());
     showSavedFeedback(document.getElementById('btn-save-tagescheck'));
   };
 
@@ -205,6 +225,18 @@
     const data = {};
     const container = document.getElementById('view-pem-crash');
 
+    // Skalen (Radio-Gruppen): gewählt = Zahl, sonst null
+    const radioNames = [];
+    container.querySelectorAll('input[type="radio"]').forEach((radio) => {
+      if (!radioNames.includes(radio.name)) radioNames.push(radio.name);
+    });
+
+    radioNames.forEach((name) => {
+      const checked = container.querySelector(`input[name="${name}"]:checked`);
+      data[name] = checked ? Number(checked.value) : null;
+    });
+
+    // Text-/Zahlen-/Datumsfelder
     container
       .querySelectorAll('input[type="date"], input[type="text"], input[type="number"], textarea')
       .forEach((input) => {
@@ -226,7 +258,7 @@
   };
 
   const handleSavePem = () => {
-    saveEntry(todayKey(), collectPemData());
+    saveEntry(selectedDate(), collectPemData());
     showSavedFeedback(document.getElementById('btn-save-pem'));
   };
 
@@ -249,22 +281,15 @@
   };
 
   const handleSaveDetail = () => {
-    saveEntry(todayKey(), collectDetailData());
+    saveEntry(selectedDate(), collectDetailData());
     showSavedFeedback(document.getElementById('btn-save-detail'));
   };
 
-  // ---------- Datumsanzeige im Header ----------
+  // ---------- Datum im Header initialisieren ----------
   const initDateDisplay = () => {
     const dateStr = todayKey();
-    const el = document.getElementById('datum-anzeige');
-    if (el) {
-      el.textContent = new Date(`${dateStr}T00:00:00`).toLocaleDateString('de-DE', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
-    }
+    const el = document.getElementById('date-picker');
+    if (el) el.value = dateStr;
     return dateStr;
   };
 
@@ -330,15 +355,18 @@
 
   // ---------- Alle Daten löschen ----------
   const resetForm = () => {
-    const container = document.getElementById('view-tagescheck');
-    container.querySelectorAll('input[type="radio"]').forEach((radio) => {
-      radio.checked = false;
-    });
-    container
-      .querySelectorAll('input[type="number"], input[type="text"], textarea')
-      .forEach((input) => {
-        input.value = '';
+    ['view-tagescheck', 'view-pem-crash', 'view-detailcheck'].forEach((viewId) => {
+      const container = document.getElementById(viewId);
+      if (!container) return;
+      container.querySelectorAll('input[type="radio"]').forEach((radio) => {
+        radio.checked = false;
       });
+      container
+        .querySelectorAll('input[type="number"], input[type="text"], input[type="date"], textarea')
+        .forEach((input) => {
+          input.value = '';
+        });
+    });
   };
 
   const handleDeleteAll = () => {
@@ -365,6 +393,21 @@
     document.querySelectorAll('.tab').forEach((tab) => {
       tab.addEventListener('click', () => switchView(tab.dataset.view));
     });
+
+    // Date-Picker: beim Wechsel Formular leeren und neuen Tag laden
+    const datePicker = document.getElementById('date-picker');
+    if (datePicker) {
+      datePicker.addEventListener('change', () => {
+        resetForm();
+        loadEntry(datePicker.value);
+      });
+    }
+
+    // PEM-Sub-Tabs
+    const tabPemAusloeser = document.getElementById('tab-pem-ausloeser');
+    const tabPemVerlauf = document.getElementById('tab-pem-verlauf');
+    if (tabPemAusloeser) tabPemAusloeser.addEventListener('click', () => switchPemTab('ausloeser'));
+    if (tabPemVerlauf) tabPemVerlauf.addEventListener('click', () => switchPemTab('verlauf'));
 
     const saveBtn = document.getElementById('btn-save-tagescheck');
     if (saveBtn) saveBtn.addEventListener('click', handleSave);
