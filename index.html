@@ -25,18 +25,22 @@
 
         <fieldset class="scale-group">
           <legend>Zustand <span class="scale-hint">(0–10)</span></legend>
-          <div class="scale-options scale-options--wrap">
-            <label class="scale-option"><input type="radio" name="zustand_0_10" value="0"><span>0</span></label>
-            <label class="scale-option"><input type="radio" name="zustand_0_10" value="1"><span>1</span></label>
-            <label class="scale-option"><input type="radio" name="zustand_0_10" value="2"><span>2</span></label>
-            <label class="scale-option"><input type="radio" name="zustand_0_10" value="3"><span>3</span></label>
-            <label class="scale-option"><input type="radio" name="zustand_0_10" value="4"><span>4</span></label>
-            <label class="scale-option"><input type="radio" name="zustand_0_10" value="5"><span>5</span></label>
-            <label class="scale-option"><input type="radio" name="zustand_0_10" value="6"><span>6</span></label>
-            <label class="scale-option"><input type="radio" name="zustand_0_10" value="7"><span>7</span></label>
-            <label class="scale-option"><input type="radio" name="zustand_0_10" value="8"><span>8</span></label>
-            <label class="scale-option"><input type="radio" name="zustand_0_10" value="9"><span>9</span></label>
-            <label class="scale-option"><input type="radio" name="zustand_0_10" value="10"><span>10</span></label>
+          <div class="scale-rows">
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="zustand_0_10" value="0"><span>0</span></label>
+              <label class="scale-option"><input type="radio" name="zustand_0_10" value="1"><span>1</span></label>
+              <label class="scale-option"><input type="radio" name="zustand_0_10" value="2"><span>2</span></label>
+              <label class="scale-option"><input type="radio" name="zustand_0_10" value="3"><span>3</span></label>
+              <label class="scale-option"><input type="radio" name="zustand_0_10" value="4"><span>4</span></label>
+              <label class="scale-option"><input type="radio" name="zustand_0_10" value="5"><span>5</span></label>
+            </div>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="zustand_0_10" value="6"><span>6</span></label>
+              <label class="scale-option"><input type="radio" name="zustand_0_10" value="7"><span>7</span></label>
+              <label class="scale-option"><input type="radio" name="zustand_0_10" value="8"><span>8</span></label>
+              <label class="scale-option"><input type="radio" name="zustand_0_10" value="9"><span>9</span></label>
+              <label class="scale-option"><input type="radio" name="zustand_0_10" value="10"><span>10</span></label>
+            </div>
           </div>
         </fieldset>
 
@@ -61,6 +65,11 @@
             <label class="scale-option"><input type="radio" name="pem_heute_0_4" value="4"><span>4</span></label>
           </div>
         </fieldset>
+
+        <div class="field">
+          <label class="field-label" for="schlafdauer_h">Schlafdauer <span class="field-unit">(Stunden)</span></label>
+          <input class="field-input" type="number" id="schlafdauer_h" name="schlafdauer_h" inputmode="decimal" step="0.25" min="0" placeholder="z. B. 7.5" autocomplete="off">
+        </div>
 
         <div class="field">
           <label class="field-label" for="liegezeit_h">Liegezeit <span class="field-unit">(Stunden)</span></label>
@@ -156,11 +165,6 @@
 
       <div class="block">
         <h3 class="block-title">Optional</h3>
-
-        <div class="field">
-          <label class="field-label" for="schlafdauer_h">Schlafdauer <span class="field-unit">(Stunden)</span></label>
-          <input class="field-input" type="number" id="schlafdauer_h" name="schlafdauer_h" inputmode="decimal" step="0.25" min="0" placeholder="z. B. 7.5" autocomplete="off">
-        </div>
 
         <div class="field">
           <label class="field-label" for="schritte">Schritte</label>

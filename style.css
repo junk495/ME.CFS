@@ -141,8 +141,10 @@ body {
   gap: 0.5rem;
 }
 
-.scale-options--wrap {
-  flex-wrap: wrap;
+.scale-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .scale-option {
