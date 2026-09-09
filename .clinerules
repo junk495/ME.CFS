@@ -7,7 +7,7 @@ Hosting-Umgebung: GitHub Pages (rein statisches Hosting, HTTPS).
 - Struktur & Design: HTML5, CSS3. (Keine komplexen Build-Tools wie Webpack oder Vite).
 - Logik: Modernes Vanilla JavaScript (ES6+).
 - Speicherung: Ausschließlich `localStorage` (oder `IndexedDB`).
-- Export: SheetJS (xlsx) zur Generierung von Excel-Dateien direkt im Browser.
+- Export: CSV (Semikolon-getrennt, Excel-kompatibel) direkt im Browser.
 - PWA-Kern: `manifest.json` und `sw.js` (Service Worker) für Caching und Offline-Betrieb.
 
 # Strikte Regeln für die Code-Generierung (KI-Direktiven)
@@ -35,3 +35,29 @@ Hosting-Umgebung: GitHub Pages (rein statisches Hosting, HTTPS).
 5. DATENMODELLIERUNG & EXPORT:
    - Speicherstrukturen (JSON) für die Tagesprotokolle müssen flach gehalten werden, um das spätere Mapping auf Excel-Spalten zu erleichtern.
    - Wenn optionale Eingabefelder übersprungen werden, muss der Wert zwingend als `null` gespeichert werden (niemals als `0` oder `""`), damit Durchschnittsberechnungen beim späteren Excel-Export nicht verfälscht werden.
+
+# Dokumentation (Markdown-Dateien)
+
+Die Dokumentation besteht aus acht Markdown-Dateien mit klar getrennten Zuständigkeiten. Sie sind Teil des Projekts und müssen bei Code-Änderungen mitgepflegt werden.
+
+## Definition & Zuständigkeiten
+
+- `README.md` — Projektüberblick & Einstieg: Live-App-Link, Installation, Kernfunktionen, Verlinkung aller anderen MDs (Links öffnen in neuem Tab). NICHT hinein: ausführliche Bedienung, Feld-Details, medizinischer Hintergrund.
+- `BEDIENUNGSANLEITUNG.md` — Anwender-Dokumentation ohne Technik-Jargon: Tabs, Skalen, Zeitreise, Export, Export-Erinnerung, Hilfe-Boxen. NICHT hinein: Feld-Keys, Code, Versionshistorie.
+- `ERLAEUTERUNGEN.md` — Fachlich-medizinische Grundlagen (für Ärzt:innen/Fachpersonal): PEM, 0–4-Skala, GdB (Österreich), Quellen. NICHT hinein: Bedienung, Code, Versionshistorie.
+- `FAQ.md` — Häufige Fragen (Anwender): „Warum CSV?", Datensicherheit, Updates, Installation, Skala. NICHT hinein: Schritt-für-Schritt-Anleitungen (→ Bedienungsanleitung), Code-Details.
+- `DATENMODELL.md` — Technische Referenz: alle Feld-Keys, Labels, Skalen/Typen, CSV-Spaltenreihenfolge, localStorage-Schlüssel, null-Konvention. NICHT hinein: Anwender-Erklärungen, Versionshistorie.
+- `CHANGELOG.md` — Versionshistorie (je Version die Änderungen). NICHT hinein: aktuelle Feature-Beschreibung (→ README), Bedienung (→ Bedienungsanleitung).
+- `DEV_GUIDE.md` — Entwickler-Handbuch: Projektstruktur, Datenkonventionen, app.js-Übersicht, Release-Prozess, lokale Entwicklung. NICHT hinein: Anwender-Inhalte.
+- `LICENSE.md` — Lizenz (CC BY-NC-SA 4.0) + medizinischer Haftungsausschluss.
+
+## Pflege-Regeln (KI-Direktiven)
+
+- Die MDs sind verbindliche Projektdokumentation. Bei Code-Änderungen MÜSSEN die betroffenen MDs im selben Schritt aktualisiert werden.
+- Konkrete Zuordnung:
+  - Neues Feld / geänderte Skala / geänderter CSV-Export → `DATENMODELL.md` (+ ggf. `BEDIENUNGSANLEITUNG.md`, `ERLAEUTERUNGEN.md`).
+  - Neue Funktion / neuer Tab / geändertes UI → `BEDIENUNGSANLEITUNG.md` (+ ggf. `README.md`, `FAQ.md`).
+  - Neue Version (`VERSION` in `sw.js` erhöhen) → `CHANGELOG.md`.
+  - Änderung an Lizenz/Rechtlichem → `LICENSE.md`.
+- Keine Duplikate: Jeder Inhalt gehört in genau EINE MD. Wird derselbe Inhalt mehrfach benötigt, wird verlinkt statt kopiert.
+- Die MDs müssen fachlich korrekt und mit dem Code konsistent sein — veraltete Aussagen (z. B. falsches Export-Format) sind sofort zu korrigieren.
