@@ -47,7 +47,7 @@ Die Dokumentation besteht aus acht Markdown-Dateien mit klar getrennten Zuständ
 - `ERLAEUTERUNGEN.md` — Fachlich-medizinische Grundlagen (für Ärzt:innen/Fachpersonal): PEM, 0–4-Skala, GdB (Österreich), Quellen. NICHT hinein: Bedienung, Code, Versionshistorie.
 - `FAQ.md` — Häufige Fragen (Anwender): „Warum CSV?", Datensicherheit, Updates, Installation, Skala. NICHT hinein: Schritt-für-Schritt-Anleitungen (→ Bedienungsanleitung), Code-Details.
 - `DATENMODELL.md` — Technische Referenz: alle Feld-Keys, Labels, Skalen/Typen, CSV-Spaltenreihenfolge, localStorage-Schlüssel, null-Konvention. NICHT hinein: Anwender-Erklärungen, Versionshistorie.
-- `CHANGELOG.md` — Versionshistorie (je Version die Änderungen). NICHT hinein: aktuelle Feature-Beschreibung (→ README), Bedienung (→ Bedienungsanleitung).
+- `CHANGELOG.md` — Versionshistorie (je Version die Änderungen **an der App**: Funktionen, Felder, UI, Verhalten). NICHT hinein: aktuelle Feature-Beschreibung (→ README), Bedienung (→ Bedienungsanleitung), Änderungen an Dokumentation, Lizenz oder anderen Nicht-App-Dateien.
 - `DEV_GUIDE.md` — Entwickler-Handbuch: Projektstruktur, Datenkonventionen, app.js-Übersicht, Release-Prozess, lokale Entwicklung. NICHT hinein: Anwender-Inhalte.
 - `LICENSE.md` — Lizenz (CC BY-NC-SA 4.0) + medizinischer Haftungsausschluss.
 
