@@ -972,6 +972,12 @@
     <button type="button" class="tab" data-view="export">Export</button>
   </nav>
 
+  <div id="update-toast" class="update-toast" role="status" aria-live="polite">
+    <span class="update-toast__text">Neue Version verfügbar</span>
+    <button type="button" id="btn-reload" class="update-toast__btn">Neu laden</button>
+    <button type="button" id="btn-dismiss-update" class="update-toast__close" aria-label="Hinweis schließen">✕</button>
+  </div>
+
   <script src="app.js" defer></script>
 </body>
 </html>

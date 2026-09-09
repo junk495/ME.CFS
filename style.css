@@ -407,3 +407,61 @@ body {
   color: var(--text);
   font-weight: 600;
 }
+
+/* ---------- Update-Hinweis (Toast) ---------- */
+.update-toast {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  z-index: 50;
+}
+
+.update-toast.is-visible {
+  display: flex;
+}
+
+.update-toast__text {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.update-toast__btn {
+  min-height: 40px;
+  padding: 0 1rem;
+  background: var(--accent);
+  color: var(--accent-fg);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.update-toast__close {
+  min-width: 40px;
+  min-height: 40px;
+  background: transparent;
+  color: var(--text-muted);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.update-toast__btn:focus-visible,
+.update-toast__close:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}

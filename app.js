@@ -532,8 +532,35 @@
     init();
   }
 
+  // ---------- Update-Hinweis (weiches Update) ----------
+  const showUpdateToast = () => {
+    const toast = document.getElementById('update-toast');
+    if (toast) toast.classList.add('is-visible');
+  };
+
+  const hideUpdateToast = () => {
+    const toast = document.getElementById('update-toast');
+    if (toast) toast.classList.remove('is-visible');
+  };
+
+  const reloadBtn = document.getElementById('btn-reload');
+  if (reloadBtn) {
+    reloadBtn.addEventListener('click', () => window.location.reload());
+  }
+
+  const dismissBtn = document.getElementById('btn-dismiss-update');
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', hideUpdateToast);
+  }
+
   // ---------- Service Worker registrieren (PWA/Offline) ----------
   if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.addEventListener('message', (event) => {
+      if (event.data && event.data.type === 'UPDATE_READY') {
+        showUpdateToast();
+      }
+    });
+
     window.addEventListener('load', () => {
       navigator.serviceWorker
         .register('./sw.js')
