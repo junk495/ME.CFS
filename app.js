@@ -7,6 +7,8 @@
 
   // ---------- Konstanten ----------
   const STORAGE_PREFIX = 'mecfs_tagescheck_';
+  const EXPORT_REMINDER_KEY = 'mecfs_export_reminder_ts';
+  const EXPORT_REMINDER_INTERVAL = 3 * 24 * 60 * 60 * 1000; // 3 Tage
 
   // Felder des "Standard"-Checks; bestimmen den erfassungs_typ.
   const STANDARD_FIELDS = [
@@ -399,6 +401,7 @@
       return;
     }
     downloadCSV(buildCSV(entries), 'mecfs_export.csv');
+    markExportReminded();
   };
 
   const handleShare = async () => {
@@ -407,6 +410,7 @@
       alert('Keine gespeicherten Daten vorhanden.');
       return;
     }
+    markExportReminded();
 
     const csvString = buildCSV(entries);
     const filename = 'mecfs_export.csv';
@@ -463,6 +467,51 @@
     alert('Daten gelöscht');
     resetForm();
   };
+
+  // ---------- Export-Erinnerung (alle 3 Tage) ----------
+  const hasAnyData = () => {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith(STORAGE_PREFIX)) return true;
+    }
+    return false;
+  };
+
+  const markExportReminded = () => {
+    localStorage.setItem(EXPORT_REMINDER_KEY, String(Date.now()));
+  };
+
+  const isExportReminderDue = () => {
+    if (!hasAnyData()) return false;
+    const raw = localStorage.getItem(EXPORT_REMINDER_KEY);
+    if (!raw) return true;
+    const last = Number(raw);
+    if (!Number.isFinite(last)) return true;
+    return Date.now() - last >= EXPORT_REMINDER_INTERVAL;
+  };
+
+  const showExportReminder = () => {
+    const toast = document.getElementById('reminder-toast');
+    if (toast) toast.classList.add('is-visible');
+  };
+
+  const hideExportReminder = () => {
+    const toast = document.getElementById('reminder-toast');
+    if (toast) toast.classList.remove('is-visible');
+  };
+
+  const gotoExportBtn = document.getElementById('btn-goto-export');
+  if (gotoExportBtn) {
+    gotoExportBtn.addEventListener('click', () => {
+      hideExportReminder();
+      switchView('export');
+    });
+  }
+
+  const dismissReminderBtn = document.getElementById('btn-dismiss-reminder');
+  if (dismissReminderBtn) {
+    dismissReminderBtn.addEventListener('click', hideExportReminder);
+  }
 
   // ---------- Initialisierung ----------
   const init = () => {
@@ -524,6 +573,12 @@
     if (detailSaveBtn) detailSaveBtn.addEventListener('click', handleSaveDetail);
 
     loadEntry(dateStr);
+
+    // Export-Erinnerung (falls fällig)
+    if (isExportReminderDue()) {
+      showExportReminder();
+      markExportReminded();
+    }
   };
 
   if (document.readyState === 'loading') {

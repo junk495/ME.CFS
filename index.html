@@ -957,6 +957,10 @@
           <p><strong>Datei teilen / senden:</strong> Öffnet das System-Menü deines Handys. Damit kannst du die Tabelle z.B. per E-Mail an den Arzt senden oder in einer privaten Cloud speichern.</p>
         </div>
       </details>
+      <div class="block">
+        <p><strong>Wichtig zur Datensicherheit:</strong> Deine Einträge werden ausschließlich <strong>lokal auf diesem Gerät</strong> gespeichert — kein Server, keine Cloud. Browser können lokale Daten bei Speicherknappheit oder längerer Nicht-Nutzung löschen (iOS-Safari teils schon nach 7 Tagen, wenn die App nicht installiert ist). Installiere die App deshalb am besten als PWA („Zum Home-Bildschirm") und <strong>exportiere regelmäßig</strong>, um deine Daten zu sichern.</p>
+      </div>
+
       <p>Hier kannst du alle gespeicherten Tagesprotokolle als CSV-Datei für Excel herunterladen.</p>
       <button id="btn-export-csv" class="btn-save">Daten als CSV exportieren</button>
       <button id="btn-share-csv" class="btn-save" style="margin-top: 1rem; background: var(--bg-input); border-color: var(--border); color: var(--text);">Datei teilen / senden</button>
@@ -976,6 +980,12 @@
     <span class="update-toast__text">Neue Version verfügbar</span>
     <button type="button" id="btn-reload" class="update-toast__btn">Neu laden</button>
     <button type="button" id="btn-dismiss-update" class="update-toast__close" aria-label="Hinweis schließen">✕</button>
+  </div>
+
+  <div id="reminder-toast" class="update-toast" role="status" aria-live="polite">
+    <span class="update-toast__text">Erinnerung: Exportiere deine Daten regelmäßig, um sie zu sichern.</span>
+    <button type="button" id="btn-goto-export" class="update-toast__btn">Zum Export</button>
+    <button type="button" id="btn-dismiss-reminder" class="update-toast__close" aria-label="Hinweis schließen">✕</button>
   </div>
 
   <script src="app.js" defer></script>
