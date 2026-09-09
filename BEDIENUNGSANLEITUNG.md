@@ -9,6 +9,8 @@ Das Design folgt vier einfachen Grundsätzen:
 3. **Absolute Privatsphäre:** Es gibt keinen Server und keine Cloud im Hintergrund. Alles, was du hier einträgst, bleibt zu 100 % lokal auf deinem eigenen Handy.
 4. **Maximale Flexibilität:** Du kannst deine Daten jederzeit als Excel-lesbare Tabelle exportieren oder sie direkt über dein Handy an Ärzte, Gutachter oder in deine private Dateiablage weiterleiten.
 
+**Kleine Hilfen:** In jedem Tab findest du oben eine aufklappbare Hilfe (📖), die die wichtigsten Begriffe kurz erklärt. Erscheint eine neue App-Version, zeigt die App unten den Hinweis „Neue Version verfügbar" mit „Neu laden".
+
 ---
 
 ## 📅 Das Datum (Die Zeitreise-Funktion)
@@ -121,4 +123,11 @@ Da die App keine Daten ins Internet sendet, bist du der Herr über deine Tabelle
 * **Daten als CSV exportieren:** Lädt die gesamten Daten als saubere Datei auf dein Gerät herunter. Du kannst sie am PC direkt in Excel öffnen und dort Diagramme bauen oder sie für den Arzt ausdrucken.
 * **Datei teilen / senden:** Öffnet das typische "Teilen"-Menü deines Handys. Damit kannst du die Tabelle direkt per E-Mail verschicken, über Messenger teilen oder in deine private Cloud (wie Google Drive oder iCloud) hochladen.
 * **Alle Daten löschen:** Löscht sämtliche Eingaben unwiderruflich von deinem Gerät. (Nutze dies nur, wenn du deine Daten vorher sicher exportiert hast!)
+
+### Export-Erinnerung
+
+* **Erinnerung aktivieren:** Ist der Haken gesetzt, erinnert dich die App daran, regelmäßig zu exportieren (Standard: aktiviert).
+* **Intervall (Tage):** Wie oft die Erinnerung erscheinen soll (Standard: 3 Tage). Das Feld ist ausgegraut, solange der Haken nicht gesetzt ist.
+
+**Wichtig zur Datensicherheit:** Deine Daten liegen ausschließlich lokal auf diesem Gerät — es gibt keinen Server und keine Cloud. Browser können lokale Daten bei Speicherknappheit oder längerer Nicht-Nutzung löschen (iOS-Safari teils schon nach 7 Tagen, wenn die App nicht installiert ist). Installiere die App deshalb am besten als PWA („Zum Home-Bildschirm") und exportiere regelmäßig, um deine Daten zu sichern.
 

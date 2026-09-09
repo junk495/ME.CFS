@@ -17,7 +17,7 @@ Die App verwendet zur Minimierung des kognitiven Aufwands einheitlich eine Skala
 *   **3 = Schwer:** Stark/häufig (Aktivität nur stark reduziert oder mit Hilfe möglich; deutliche Nachwirkung/PEM).
 *   **4 = Sehr schwer:** Extrem/nahezu dauerhaft (Aktivität nicht möglich bzw. extrem belastend; Bett-/hausgebunden, massive Reiz- und Belastungsintoleranz).
 
-*(Hinweis: Auf Skalen zur Einschätzung des Gesamtzustands (0-10) gilt: Höhere Werte bedeuten einen besseren Zustand.)*
+*(Hinweis: Auf Skalen zur Einschätzung des Gesamtzustands (0-10) und der Bell-Skala (0-100) gilt: Höhere Werte bedeuten einen besseren Zustand.)*
 
 ## 3. Post-Exertional Malaise (PEM)
 Die Dokumentation eines "Crashs" (PEM) erfordert in der Regel die Erfassung folgender Parameter:
@@ -43,4 +43,4 @@ Nach der österreichischen Einschätzungsverordnung (BGBl. II Nr. 261/2010 idgF)
 *   **Österreichische Einschätzungsverordnung (RIS):** [Rechtsinformationssystem des Bundes](https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20006879)
 
 ## Datenschutz-Hinweis
-Gesundheitsdaten sind hochsensibel. Diese PWA speichert alle eingegebenen Daten ausschließlich lokal auf dem Endgerät (Smartphone/PC) im sogenannten `localStorage` des Browsers. Es erfolgt keine Übertragung an externe Server. Bei Nutzung der Export-Funktion liegt es in der Verantwortung der Nutzer:innen, die exportierte Datei (z.B. Excel) sicher zu speichern und nur gezielt weiterzugeben.
+Gesundheitsdaten sind hochsensibel. Diese PWA speichert alle eingegebenen Daten ausschließlich lokal auf dem Endgerät (Smartphone/PC) im sogenannten `localStorage` des Browsers. Es erfolgt keine Übertragung an externe Server. Bei Nutzung der Export-Funktion liegt es in der Verantwortung der Nutzer:innen, die exportierte CSV-Datei (öffnet sich direkt in Excel) sicher zu speichern und nur gezielt weiterzugeben.

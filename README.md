@@ -8,7 +8,15 @@ Entwickelt mit Fokus auf Pacing und minimale kognitive Belastung am Smartphone (
 ## 📚 Dokumentation & Hilfe
 
 *   **Bedienungsanleitung** (für Anwender:innen): <a href="./BEDIENUNGSANLEITUNG.md" target="_blank" rel="noopener noreferrer">BEDIENUNGSANLEITUNG.md</a> — Schritt-für-Schritt-Erklärung aller Tabs, Skalen und der Zeitreise-Funktion, frei von Technik-Jargon.
+*   **Häufige Fragen (FAQ):** <a href="./FAQ.md" target="_blank" rel="noopener noreferrer">FAQ.md</a> — Antworten zu Datensicherheit, Installation, Updates und Export.
 *   **Fachliche Grundlagen** (für Ärzt:innen & Fachpersonal): <a href="./ERLAEUTERUNGEN.md" target="_blank" rel="noopener noreferrer">ERLAEUTERUNGEN.md</a> — Hintergrund zu PEM, der 0–4-Skala, GdB (Österreich) und Quellenangaben.
+*   **Datenmodell & Speicherstruktur:** <a href="./DATENMODELL.md" target="_blank" rel="noopener noreferrer">DATENMODELL.md</a> — Referenz aller Felder, Skalen und der CSV-Spalten.
+
+## 🛠 Projekt & Entwicklung
+
+*   **Changelog:** <a href="./CHANGELOG.md" target="_blank" rel="noopener noreferrer">CHANGELOG.md</a> — Versionshistorie.
+*   **Entwickler-Handbuch:** <a href="./DEV_GUIDE.md" target="_blank" rel="noopener noreferrer">DEV_GUIDE.md</a> — Projektstruktur, Datenkonventionen, Release-Prozess.
+*   **Lizenz & Haftungsausschluss:** <a href="./LICENSE.md" target="_blank" rel="noopener noreferrer">LICENSE.md</a> — MIT-Lizenz und medizinischer Haftungsausschluss.
 
 ## Warum diese App?
 
@@ -20,7 +28,9 @@ Herkömmliche Excel-Tabellen zur Dokumentation (z.B. für GdB-Verfahren in Öste
 *   **100 % lokaler Datenschutz:** Alle Gesundheitsdaten verbleiben ausschließlich lokal auf dem Endgerät (im `localStorage` des Browsers). Es gibt keine Cloud-Anbindung und keinen Backend-Server.
 *   **Vollständig Offline-fähig:** Nach dem ersten Aufruf funktioniert die App komplett ohne aktive Internetverbindung.
 *   **Reizarmes Design:** Dunkles Theme, klare Kontraste, keine Animationen, kein horizontales Scrollen.
-*   **Excel-Export:** Die gesammelten Daten können jederzeit per Knopfdruck als formatierte `.xlsx`-Datei exportiert werden.
+*   **Excel-Export:** Die Daten können jederzeit als CSV-Datei (Semikolon-getrennt, direkt in Excel öffnbar) exportiert oder über die Teilen-Funktion weitergegeben werden.
+*   **Zeitreise:** Über den Datums-Wähler lassen sich Einträge auch nachträglich für vergangene Tage erfassen (z. B. Crash-Tage später nachtragen).
+*   **Konfigurierbare Export-Erinnerung:** Erinnert auf Wunsch in einstellbaren Abständen daran, die Daten regelmäßig zu sichern.
 
 ## Installation am Smartphone
 
