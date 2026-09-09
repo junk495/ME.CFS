@@ -6,7 +6,7 @@
 // ---------- Versionierung ----------
 // WICHTIG: Bei jedem Release die VERSION erhöhen (z. B. 'v3', 'v4', ...).
 // So erkennt der Browser den neuen Service Worker und leert den alten Cache.
-const VERSION = 'v5';
+const VERSION = 'v6';
 const CACHE_NAME = `mecfs-tracker-${VERSION}`;
 
 // Beim ersten Install zu cachende Dateien (App-Shell)

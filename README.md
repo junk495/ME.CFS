@@ -16,7 +16,7 @@ Entwickelt mit Fokus auf Pacing und minimale kognitive Belastung am Smartphone (
 
 *   **Changelog:** <a href="./CHANGELOG.md" target="_blank" rel="noopener noreferrer">CHANGELOG.md</a> — Versionshistorie.
 *   **Entwickler-Handbuch:** <a href="./DEV_GUIDE.md" target="_blank" rel="noopener noreferrer">DEV_GUIDE.md</a> — Projektstruktur, Datenkonventionen, Release-Prozess.
-*   **Lizenz & Haftungsausschluss:** <a href="./LICENSE.md" target="_blank" rel="noopener noreferrer">LICENSE.md</a> — MIT-Lizenz und medizinischer Haftungsausschluss.
+*   **Lizenz & Haftungsausschluss:** <a href="./LICENSE.md" target="_blank" rel="noopener noreferrer">LICENSE.md</a> — CC BY-NC-SA 4.0 und medizinischer Haftungsausschluss.
 
 ## Warum diese App?
 
@@ -31,6 +31,13 @@ Herkömmliche Excel-Tabellen zur Dokumentation (z.B. für GdB-Verfahren in Öste
 *   **Excel-Export:** Die Daten können jederzeit als CSV-Datei (Semikolon-getrennt, direkt in Excel öffnbar) exportiert oder über die Teilen-Funktion weitergegeben werden.
 *   **Zeitreise:** Über den Datums-Wähler lassen sich Einträge auch nachträglich für vergangene Tage erfassen (z. B. Crash-Tage später nachtragen).
 *   **Konfigurierbare Export-Erinnerung:** Erinnert auf Wunsch in einstellbaren Abständen daran, die Daten regelmäßig zu sichern.
+
+## 🚧 Roadmap / Geplante Funktionen
+
+*   **Backup & Wiederherstellung:** JSON-Export/-Import, um Daten nach Gerätewechsel oder Browser-Datenverlust verlustfrei wiederherzustellen.
+*   **Verlauf/Übersicht:** In-App-Ansicht der letzten Tage (Trends auf einen Blick, ohne Excel).
+*   **Warnung bei ungespeicherten Änderungen:** Hinweis beim Schließen/Neuladen, falls noch nicht gespeicherte Eingaben existieren.
+*   **Code-Struktur:** `app.js` bei Bedarf in kleinere Module aufteilen.
 
 ## Installation am Smartphone
 

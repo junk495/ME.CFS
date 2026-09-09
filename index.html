@@ -9,8 +9,13 @@
   <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="ME/CFS Tracker">
 </head>
 <body>
+  <div id="save-status" class="sr-only" aria-live="polite"></div>
+
   <header class="app-header">
     <h1 class="app-title">ME/CFS Tracker</h1>
     <input type="date" id="date-picker" class="app-date-picker">
@@ -328,7 +333,7 @@
         </div>
       </div>
 
-      <button type="button" class="btn-save" id="btn-save-pem">PEM-Daten speichern</button>
+      <button type="button" class="btn-save" id="btn-save-pem">Speichern</button>
     </section>
 
     <!-- ===================== DETAILCHECK ===================== -->
@@ -945,7 +950,7 @@
         </div>
       </div>
 
-      <button type="button" class="btn-save" id="btn-save-detail">Detailcheck speichern</button>
+      <button type="button" class="btn-save" id="btn-save-detail">Speichern</button>
 
     </section>
 

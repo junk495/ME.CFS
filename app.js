@@ -126,6 +126,9 @@
 
   // ---------- Tab-Navigation ----------
   const switchView = (viewName) => {
+    // Auto-Save: aktuellen Stand speichern, bevor gewechselt wird
+    saveAll(selectedDate());
+
     document.querySelectorAll('.view').forEach((view) => {
       view.classList.toggle('is-active', view.id === `view-${viewName}`);
     });
@@ -260,15 +263,20 @@
     button.disabled = true;
     button.textContent = 'Gespeichert ✓';
 
+    // Für Screenreader ansagen (visuell unsichtbar)
+    const status = document.getElementById('save-status');
+    if (status) status.textContent = 'Gespeichert';
+
     setTimeout(() => {
       button.disabled = false;
       button.textContent = originalText;
+      if (status) status.textContent = '';
     }, 2000);
   };
 
   // ---------- Speichern-Handler ----------
   const handleSave = () => {
-    saveEntry(selectedDate(), collectFormData());
+    saveAll(selectedDate());
     showSavedFeedback(document.getElementById('btn-save-tagescheck'));
   };
 
@@ -310,7 +318,7 @@
   };
 
   const handleSavePem = () => {
-    saveEntry(selectedDate(), collectPemData());
+    saveAll(selectedDate());
     showSavedFeedback(document.getElementById('btn-save-pem'));
   };
 
@@ -323,6 +331,10 @@
     if (!input.value.includes('[')) {
       input.value = timeString + input.value;
     }
+
+    // Zeitstempel sofort speichern
+    saveAll(selectedDate());
+    showSavedFeedback(document.getElementById('btn-akut-time'));
   };
 
   // ---------- Detailcheck-Daten lesen & speichern ----------
@@ -343,8 +355,14 @@
     return data;
   };
 
+  // ---------- Alles speichern (alle drei Tabs) ----------
+  const saveAll = (dateStr) => {
+    const data = Object.assign({}, collectFormData(), collectPemData(), collectDetailData());
+    return saveEntry(dateStr, data);
+  };
+
   const handleSaveDetail = () => {
-    saveEntry(selectedDate(), collectDetailData());
+    saveAll(selectedDate());
     showSavedFeedback(document.getElementById('btn-save-detail'));
   };
 
