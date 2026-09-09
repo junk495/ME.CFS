@@ -208,18 +208,29 @@
       <details class="help-box">
         <summary class="help-summary">📖 Hilfe zur Crash-Dokumentation</summary>
         <div class="help-content">
-          <p><strong>Nutzung:</strong> Dies ist ein Ereignis-Logbuch. Nutze den Datums-Wähler oben im Header, um Crashs Pacing-gerecht nachzutragen.</p>
-          <p><strong>Auslöser:</strong> Trage hier am Tag des Ereignisses den Auslöser und die zeitliche Verzögerung bis zum Absturz ein.</p>
-          <p><strong>Verlauf:</strong> Wenn du dich erholt hast, wechsle auf das Crash-Datum zurück. Trage hier die Dauer ein und wie stark sich die Symptome <em>im Vergleich zu deinem Normalzustand</em> verschlimmert haben (0 = keine Zunahme, 4 = extreme Zunahme).</p>
+          <p><strong>Das Akut-Prinzip:</strong> Dieser Tab ist kein normales Tagebuch, sondern ein Notfall-Logbuch.</p>
+          <p><strong>1. Im Crash (Akut):</strong> Drücke am Tag des Crash-Beginns nur den "Crash-Beginn jetzt eintragen"-Button. Trage optional ein kurzes Stichwort zum Auslöser ein. Speichern und Handy weglegen.</p>
+          <p><strong>2. Nach dem Crash (Auswertung):</strong> Wenn sich der Nebel Tage später lichtet, nutze den Datums-Wähler ganz oben, um zum Tag des Crashs zurückzureisen. Wechsle auf den Tab "Auswertung" und trage in Ruhe das Belastungsdatum, die Dauer und die Symptomzunahmen nach.</p>
         </div>
       </details>
 
       <div class="pem-tabs">
-        <button type="button" id="tab-pem-ausloeser" class="pem-tab is-active">Auslöser</button>
-        <button type="button" id="tab-pem-verlauf" class="pem-tab">Verlauf</button>
+        <button type="button" id="tab-pem-ausloeser" class="pem-tab is-active">Akut</button>
+        <button type="button" id="tab-pem-verlauf" class="pem-tab">Auswertung</button>
       </div>
 
       <div id="pem-ausloeser-view">
+        <div class="block">
+          <button type="button" id="btn-akut-time" class="btn-save" style="margin-bottom: 1rem; background: var(--bg-input); border-color: var(--border); color: var(--text);">⚡ Crash-Beginn jetzt eintragen</button>
+
+          <div class="field">
+            <label class="field-label" for="pem_ausloeser">Uhrzeit &amp; Kurznotiz (Vermuteter Auslöser)</label>
+            <input class="field-input" type="text" id="pem_ausloeser" name="pem_ausloeser" placeholder="z. B. Spaziergang, Arztbesuch" autocomplete="off">
+          </div>
+        </div>
+      </div>
+
+      <div id="pem-verlauf-view" style="display: none;">
         <div class="block">
           <div class="field">
             <label class="field-label" for="pem_belastungsdatum">Datum der vermuteten Belastung</label>
@@ -227,18 +238,11 @@
           </div>
 
           <div class="field">
-            <label class="field-label" for="pem_ausloeser">Auslöser / Aktivität</label>
-            <input class="field-input" type="text" id="pem_ausloeser" name="pem_ausloeser" placeholder="z. B. Spaziergang, Arztbesuch" autocomplete="off">
-          </div>
-
-          <div class="field">
             <label class="field-label" for="pem_verzoegerung_h">Verzögerung bis Crash <span class="field-unit">(Stunden)</span></label>
             <input class="field-input" type="number" id="pem_verzoegerung_h" name="pem_verzoegerung_h" inputmode="numeric" step="1" min="0" placeholder="z. B. 24" autocomplete="off">
           </div>
         </div>
-      </div>
 
-      <div id="pem-verlauf-view" style="display: none;">
         <div class="block">
           <div class="field">
             <label class="field-label" for="pem_dauer_h">Bisherige Dauer <span class="field-unit">(Stunden)</span></label>

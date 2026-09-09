@@ -5,7 +5,12 @@ Die Version wird in `sw.js` (`const VERSION`) gepflegt — bei jedem Release hoc
 
 Nur Änderungen, die die App selbst betreffen (Funktionen, Felder, UI, Verhalten), werden aufgeführt. Änderungen an Dokumentation, Lizenz oder anderen Nicht-App-Dateien gehören nicht hierher. Versionen ohne App-Änderungen werden übersprungen.
 
-## [v4] – aktuell
+## [v5] – aktuell
+
+- **PEM-Tab** Pacing-gerecht in **Akut** (Crash-Beginn) und **Auswertung** (rückwirkend) geteilt.
+- **Zeitstempel-Button** „⚡ Crash-Beginn jetzt eintragen" im Akut-Tab (setzt automatisch die Uhrzeit in die Kurznotiz).
+
+## [v4]
 
 - **Konfigurierbare Export-Erinnerung** (Haken + Intervall in Tagen, Standard 3 Tage).
 - **Export-Erinnerung** + Datensicherheits-Hinweis im Export-Tab.

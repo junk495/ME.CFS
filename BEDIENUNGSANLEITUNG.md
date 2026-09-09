@@ -65,16 +65,19 @@ Hier erfasst du deinen grundlegenden Alltag. Dieser Bereich ist in drei Blöcke 
 
 ## ⚡ Tab 2: PEM-Crash (Wenn der Akku leer ist)
 
-Dieser Tab ist kein tägliches Tagebuch, sondern ein "Ereignis-Logbuch". Du nutzt ihn nur, wenn du einen Crash hast. Er ist in zwei Unter-Ansichten (Sub-Tabs) geteilt:
+Dieser Tab ist kein tägliches Tagebuch, sondern ein "Notfall-Logbuch". Nach dem Pacing-Prinzip ist er in zwei Unter-Ansichten (Sub-Tabs) geteilt, um im Akutfall kaum Energie zu kosten:
 
-### Auslöser (Am Anfang des Crashs eintragen)
+### Akut (Am Tag des Crash-Beginns)
 
-* **Datum der Belastung:** Wann fand die Überlastung statt?
-* **Auslöser / Aktivität:** Was war zu viel? (z. B. "Einkaufen gehen", "Langes Gespräch", "Lärm").
-* **Verzögerung bis Crash (Stunden):** Wie lange hat es nach der Belastung gedauert, bis der Absturz kam? (z. B. 24 Stunden).
+* **"Crash-Beginn jetzt eintragen":** Ein Tipp setzt automatisch die aktuelle Uhrzeit in das Feld — mehr musst du im Akutfall nicht tun.
+* **Uhrzeit & Kurznotiz (Vermuteter Auslöser):** Optional ein kurzes Stichwort zum Auslöser (z. B. "Einkaufen", "Lärm"). Speichern und Handy weglegen.
 
-### Verlauf (Am Ende des Crashs nachtragen)
+### Auswertung (Tage später, in Ruhe)
 
+Wenn sich der Nebel lichtet: Nutze den Datums-Wähler oben, um zum Tag des Crashs zurückzuspringen. Wechsle auf den Sub-Tab "Auswertung" und trage nach:
+
+* **Datum der Belastung:** Wann fand die auslösende Überlastung statt?
+* **Verzögerung bis Crash (Stunden):** Wie lange hat es nach der Belastung gedauert, bis der Absturz kam?
 * **Bisherige Dauer (Stunden):** Wie lange hielt der Crash an?
 * **Gesamtschwere & Erholungsdauer (0–4):** Wie schlimm war der Crash insgesamt und wie ungewöhnlich zäh war die Erholung?
 * **Zunahme (Fatigue, Kognition, Schmerzen, Krankheitsgefühl) (0–4):** Wie stark haben sich diese spezifischen Symptome *im Vergleich zu deinem Normalzustand* verschlechtert?

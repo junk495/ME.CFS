@@ -20,11 +20,11 @@ Die App verwendet zur Minimierung des kognitiven Aufwands einheitlich eine Skala
 *(Hinweis: Auf Skalen zur Einschätzung des Gesamtzustands (0-10) und der Bell-Skala (0-100) gilt: Höhere Werte bedeuten einen besseren Zustand.)*
 
 ## 3. Post-Exertional Malaise (PEM)
-Die Dokumentation eines "Crashs" (PEM) erfordert in der Regel die Erfassung folgender Parameter:
-*   **Auslöser:** Die spezifische körperliche, kognitive, orthostatische oder sensorische Belastung.
-*   **Verzögerung:** Der zeitverzögerte Beginn der Symptomverschlechterung (oft 12-48h nach Belastung).
-*   **Dauer:** Wie lange der Crash anhält.
-*   **Auswirkung:** Stärkste Symptomzunahme und daraus resultierender Funktionsverlust.
+Die Dokumentation eines "Crashs" (PEM) erfolgt Pacing-gerecht in zwei Schritten, um die kognitive Belastung im Akutfall zu minimieren:
+
+**Schritt 1 (Akut):** Am Tag des Crash-Beginns wird lediglich ein Zeitstempel und ggf. eine Kurznotiz zum vermuteten Auslöser erfasst.
+
+**Schritt 2 (Auswertung):** Erst nach Abklingen des Crashs (Tage später) wird zum Datum des Crash-Beginns zurückgesprungen. Hier erfolgt rückwirkend die Auswertung: Datum der auslösenden Belastung, Dauer, gefühlte Erholungszeit und die stärkste Symptomzunahme im Vergleich zum Basislevel.
 
 **Warnung:** Es darf niemals eine absichtliche, provozierende Überlastung zur reinen Datenerhebung herbeigeführt werden! (Pacing hat oberste Priorität).
 

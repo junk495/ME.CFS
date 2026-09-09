@@ -314,6 +314,17 @@
     showSavedFeedback(document.getElementById('btn-save-pem'));
   };
 
+  const handleAkutTime = () => {
+    const input = document.getElementById('pem_ausloeser');
+    if (!input) return;
+    const now = new Date();
+    const timeString = `[${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}] `;
+
+    if (!input.value.includes('[')) {
+      input.value = timeString + input.value;
+    }
+  };
+
   // ---------- Detailcheck-Daten lesen & speichern ----------
   const collectDetailData = () => {
     const data = {};
@@ -603,6 +614,9 @@
     const tabPemVerlauf = document.getElementById('tab-pem-verlauf');
     if (tabPemAusloeser) tabPemAusloeser.addEventListener('click', () => switchPemTab('ausloeser'));
     if (tabPemVerlauf) tabPemVerlauf.addEventListener('click', () => switchPemTab('verlauf'));
+
+    const akutTimeBtn = document.getElementById('btn-akut-time');
+    if (akutTimeBtn) akutTimeBtn.addEventListener('click', handleAkutTime);
 
     // Detailcheck-Sub-Tabs
     const tabDetailBasis = document.getElementById('tab-detail-basis');
