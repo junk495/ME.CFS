@@ -8,7 +8,9 @@
   // ---------- Konstanten ----------
   const STORAGE_PREFIX = 'mecfs_tagescheck_';
   const EXPORT_REMINDER_KEY = 'mecfs_export_reminder_ts';
-  const EXPORT_REMINDER_INTERVAL = 3 * 24 * 60 * 60 * 1000; // 3 Tage
+  const SETTINGS_KEY = 'mecfs_settings';
+  const DEFAULT_REMINDER_INTERVAL_DAYS = 3;
+  const MIN_REMINDER_INTERVAL_DAYS = 1;
 
   // Felder des "Standard"-Checks; bestimmen den erfassungs_typ.
   const STANDARD_FIELDS = [
@@ -468,7 +470,32 @@
     resetForm();
   };
 
-  // ---------- Export-Erinnerung (alle 3 Tage) ----------
+  // ---------- Export-Erinnerung (konfigurierbar) ----------
+  const getSettings = () => {
+    const defaults = {
+      reminderEnabled: true,
+      reminderIntervalDays: DEFAULT_REMINDER_INTERVAL_DAYS
+    };
+    try {
+      const raw = localStorage.getItem(SETTINGS_KEY);
+      if (!raw) return defaults;
+      const parsed = JSON.parse(raw);
+      const days = Number(parsed.reminderIntervalDays);
+      return {
+        reminderEnabled:
+          typeof parsed.reminderEnabled === 'boolean' ? parsed.reminderEnabled : defaults.reminderEnabled,
+        reminderIntervalDays:
+          Number.isFinite(days) && days >= MIN_REMINDER_INTERVAL_DAYS ? days : defaults.reminderIntervalDays
+      };
+    } catch (e) {
+      return defaults;
+    }
+  };
+
+  const saveSettings = (settings) => {
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+  };
+
   const hasAnyData = () => {
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
@@ -482,12 +509,14 @@
   };
 
   const isExportReminderDue = () => {
+    const settings = getSettings();
+    if (!settings.reminderEnabled) return false;
     if (!hasAnyData()) return false;
     const raw = localStorage.getItem(EXPORT_REMINDER_KEY);
     if (!raw) return true;
     const last = Number(raw);
     if (!Number.isFinite(last)) return true;
-    return Date.now() - last >= EXPORT_REMINDER_INTERVAL;
+    return Date.now() - last >= settings.reminderIntervalDays * 24 * 60 * 60 * 1000;
   };
 
   const showExportReminder = () => {
@@ -498,6 +527,35 @@
   const hideExportReminder = () => {
     const toast = document.getElementById('reminder-toast');
     if (toast) toast.classList.remove('is-visible');
+  };
+
+  const initReminderSettings = () => {
+    const checkbox = document.getElementById('reminder-enabled');
+    const intervalInput = document.getElementById('reminder-interval');
+    if (!checkbox || !intervalInput) return;
+
+    const settings = getSettings();
+    checkbox.checked = settings.reminderEnabled;
+    intervalInput.value = String(settings.reminderIntervalDays);
+    intervalInput.disabled = !settings.reminderEnabled;
+
+    checkbox.addEventListener('change', () => {
+      const current = getSettings();
+      current.reminderEnabled = checkbox.checked;
+      saveSettings(current);
+      intervalInput.disabled = !checkbox.checked;
+    });
+
+    intervalInput.addEventListener('change', () => {
+      let days = parseInt(intervalInput.value, 10);
+      if (!Number.isFinite(days) || days < MIN_REMINDER_INTERVAL_DAYS) {
+        days = DEFAULT_REMINDER_INTERVAL_DAYS;
+      }
+      intervalInput.value = String(days);
+      const current = getSettings();
+      current.reminderIntervalDays = days;
+      saveSettings(current);
+    });
   };
 
   const gotoExportBtn = document.getElementById('btn-goto-export');
@@ -573,6 +631,8 @@
     if (detailSaveBtn) detailSaveBtn.addEventListener('click', handleSaveDetail);
 
     loadEntry(dateStr);
+
+    initReminderSettings();
 
     // Export-Erinnerung (falls fällig)
     if (isExportReminderDue()) {

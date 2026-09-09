@@ -964,6 +964,23 @@
       <p>Hier kannst du alle gespeicherten Tagesprotokolle als CSV-Datei für Excel herunterladen.</p>
       <button id="btn-export-csv" class="btn-save">Daten als CSV exportieren</button>
       <button id="btn-share-csv" class="btn-save" style="margin-top: 1rem; background: var(--bg-input); border-color: var(--border); color: var(--text);">Datei teilen / senden</button>
+
+      <div class="block">
+        <h3 class="block-title">Export-Erinnerung</h3>
+
+        <div class="field">
+          <label class="field-label toggle-row" for="reminder-enabled">
+            <input type="checkbox" id="reminder-enabled" checked>
+            <span>Erinnerung aktivieren</span>
+          </label>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="reminder-interval">Intervall <span class="field-unit">(Tage)</span></label>
+          <input class="field-input" type="number" id="reminder-interval" inputmode="numeric" step="1" min="1" value="3" autocomplete="off">
+        </div>
+      </div>
+
       <button id="btn-delete-all" class="btn-save" style="background: transparent; border: 1px solid #ff4d4d; color: #ff4d4d; margin-top: 3rem;">Alle lokalen Daten löschen</button>
     </section>
 
