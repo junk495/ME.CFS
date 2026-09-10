@@ -28,13 +28,13 @@ Herkömmliche Excel-Tabellen zur Dokumentation (z.B. für GdB-Verfahren in Öste
 *   **100 % lokaler Datenschutz:** Alle Gesundheitsdaten verbleiben ausschließlich lokal auf dem Endgerät (im `localStorage` des Browsers). Es gibt keine Cloud-Anbindung und keinen Backend-Server.
 *   **Vollständig Offline-fähig:** Nach dem ersten Aufruf funktioniert die App komplett ohne aktive Internetverbindung.
 *   **Reizarmes Design:** Dunkles Theme, klare Kontraste, keine Animationen, kein horizontales Scrollen.
-*   **Excel-Export:** Die Daten können jederzeit als CSV-Datei (Semikolon-getrennt, direkt in Excel öffnbar) exportiert oder über die Teilen-Funktion weitergegeben werden.
+*   **Export:** Die Daten können jederzeit als CSV-Datei (Semikolon-getrennt, direkt in Excel öffnbar) oder als JSON (Backup & Import in die Auswertungs-App ME.CFS.graph) exportiert und über die Teilen-Funktion weitergegeben werden.
 *   **Zeitreise:** Über den Datums-Wähler lassen sich Einträge auch nachträglich für vergangene Tage erfassen (z. B. Crash-Tage später nachtragen).
 *   **Konfigurierbare Export-Erinnerung:** Erinnert auf Wunsch in einstellbaren Abständen daran, die Daten regelmäßig zu sichern.
 
 ## 🚧 Roadmap / Geplante Funktionen
 
-*   **Backup & Wiederherstellung:** JSON-Export/-Import, um Daten nach Gerätewechsel oder Browser-Datenverlust verlustfrei wiederherzustellen.
+*   **Backup & Wiederherstellung:** JSON-Import, um Daten nach Gerätewechsel oder Browser-Datenverlust verlustfrei wiederherzustellen (JSON-Export ist bereits umgesetzt).
 *   **Verlauf/Übersicht:** In-App-Ansicht der letzten Tage (Trends auf einen Blick, ohne Excel).
 *   **Warnung bei ungespeicherten Änderungen:** Hinweis beim Schließen/Neuladen, falls noch nicht gespeicherte Eingaben existieren.
 *   **Code-Struktur:** `app.js` bei Bedarf in kleinere Module aufteilen.

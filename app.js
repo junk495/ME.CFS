@@ -466,6 +466,61 @@
     }
   };
 
+  const buildJSON = (entries) => JSON.stringify(entries, null, 2);
+
+  const downloadJSON = (jsonString, filename) => {
+    const blob = new Blob([jsonString], { type: 'application/json;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  const handleExportJSON = () => {
+    const entries = getAllEntries();
+    if (entries.length === 0) {
+      alert('Keine gespeicherten Daten vorhanden.');
+      return;
+    }
+    downloadJSON(buildJSON(entries), 'mecfs_export.json');
+    markExportReminded();
+  };
+
+  const handleShareJSON = async () => {
+    const entries = getAllEntries();
+    if (entries.length === 0) {
+      alert('Keine gespeicherten Daten vorhanden.');
+      return;
+    }
+    markExportReminded();
+
+    const jsonString = buildJSON(entries);
+    const filename = 'mecfs_export.json';
+    const blob = new Blob([jsonString], { type: 'application/json' });
+
+    if (navigator.share && navigator.canShare) {
+      const file = new File([blob], filename, { type: 'application/json' });
+      if (navigator.canShare({ files: [file] })) {
+        try {
+          await navigator.share({
+            title: 'ME/CFS Symptom-Tracker Export (JSON)',
+            files: [file]
+          });
+        } catch (err) {
+          console.log('Teilen abgebrochen:', err);
+        }
+      } else {
+        alert('Dein Browser unterstützt das direkte Teilen von Dateien leider nicht.');
+      }
+    } else {
+      alert('Die Teilen-Funktion wird auf diesem Gerät/Browser nicht unterstützt. Nutze den normalen Export.');
+    }
+  };
+
   // ---------- Alle Daten löschen ----------
   const resetForm = () => {
     ['view-tagescheck', 'view-pem-crash', 'view-detailcheck'].forEach((viewId) => {
@@ -652,6 +707,12 @@
 
     const shareBtn = document.getElementById('btn-share-csv');
     if (shareBtn) shareBtn.addEventListener('click', handleShare);
+
+    const exportJsonBtn = document.getElementById('btn-export-json');
+    if (exportJsonBtn) exportJsonBtn.addEventListener('click', handleExportJSON);
+
+    const shareJsonBtn = document.getElementById('btn-share-json');
+    if (shareJsonBtn) shareJsonBtn.addEventListener('click', handleShareJSON);
 
     const deleteBtn = document.getElementById('btn-delete-all');
     if (deleteBtn) deleteBtn.addEventListener('click', handleDeleteAll);

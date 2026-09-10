@@ -5,7 +5,11 @@ Die Version wird in `sw.js` (`const VERSION`) gepflegt — bei jedem Release hoc
 
 Nur Änderungen, die die App selbst betreffen (Funktionen, Felder, UI, Verhalten), werden aufgeführt. Änderungen an Dokumentation, Lizenz oder anderen Nicht-App-Dateien gehören nicht hierher. Versionen ohne App-Änderungen werden übersprungen.
 
-## [v6] – aktuell
+## [v7] – aktuell
+
+- **JSON-Export:** Daten können jetzt zusätzlich als JSON heruntergeladen oder geteilt werden (verlustfreies Backup & direkter Import in die Auswertungs-App **ME.CFS.graph**).
+
+## [v6]
 
 - Einheitliche **„Speichern"**-Buttons auf allen drei Tabs.
 - **Auto-Save:** Beim Wechsel des Haupt-Tabs wird automatisch gespeichert.

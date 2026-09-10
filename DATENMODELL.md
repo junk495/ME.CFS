@@ -144,6 +144,12 @@ Dieses Dokument beschreibt die technische Datenstruktur des ME/CFS Symptom-Track
   - Textfelder: Zeilenumbrüche und Semikolons werden ersetzt, damit die Struktur erhalten bleibt.
 - **Spaltenreihenfolge:** entspricht der Reihenfolge in `EXPORT_COLUMNS` (app.js) — die Tabellen oben folgen dieser Reihenfolge (Datum → … → Funktion Sonne).
 
+## JSON-Export
+
+- **Format:** ein JSON-Array von Tages-Objekten (`[ { "datum": "YYYY-MM-DD", ... }, ... ]`).
+- **Keys:** identisch mit den Feld-Keys der Tabellen oben; fehlende Werte sind `null`.
+- **Zweck:** verlustfreies Backup und direkter Import in die Auswertungs-App **ME.CFS.graph**.
+
 ## Anzahl der Felder
 
 Insgesamt **80 CSV-Spalten**: 2 Meta-Felder + 78 erfasste Werte (Tagescheck, PEM, Detailcheck).

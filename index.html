@@ -963,6 +963,7 @@
         <div class="help-content">
           <p><strong>Datenschutz:</strong> Deine Daten verlassen niemals dein Gerät. Die Erstellung der Datei passiert zu 100 % lokal.</p>
           <p><strong>Daten als CSV exportieren:</strong> Speichert die Tabelle direkt im Download-Ordner deines Geräts (ideal für den Import in Excel).</p>
+          <p><strong>Daten als JSON exportieren:</strong> Speichert die Daten verlustfrei als Backup – ideal für den direkten Import in die Auswertungs-App (ME.CFS.graph).</p>
           <p><strong>Datei teilen / senden:</strong> Öffnet das System-Menü deines Handys. Damit kannst du die Tabelle z.B. per E-Mail an den Arzt senden oder in einer privaten Cloud speichern.</p>
         </div>
       </details>
@@ -970,9 +971,13 @@
         <p><strong>Wichtig zur Datensicherheit:</strong> Deine Einträge werden ausschließlich <strong>lokal auf diesem Gerät</strong> gespeichert — kein Server, keine Cloud. Browser können lokale Daten bei Speicherknappheit oder längerer Nicht-Nutzung löschen (iOS-Safari teils schon nach 7 Tagen, wenn die App nicht installiert ist). Installiere die App deshalb am besten als PWA („Zum Home-Bildschirm") und <strong>exportiere regelmäßig</strong>, um deine Daten zu sichern.</p>
       </div>
 
-      <p>Hier kannst du alle gespeicherten Tagesprotokolle als CSV-Datei für Excel herunterladen.</p>
+      <p>Hier kannst du alle gespeicherten Tagesprotokolle als Datei herunterladen oder teilen.</p>
       <button id="btn-export-csv" class="btn-save">Daten als CSV exportieren</button>
       <button id="btn-share-csv" class="btn-save" style="margin-top: 1rem; background: var(--bg-input); border-color: var(--border); color: var(--text);">Datei teilen / senden</button>
+
+      <h3 class="block-title" style="margin-top: 2rem;">JSON (für die Auswertungs-App & Backups)</h3>
+      <button id="btn-export-json" class="btn-save">Daten als JSON exportieren</button>
+      <button id="btn-share-json" class="btn-save" style="margin-top: 1rem; background: var(--bg-input); border-color: var(--border); color: var(--text);">JSON-Datei teilen / senden</button>
 
       <div class="block">
         <h3 class="block-title">Export-Erinnerung</h3>

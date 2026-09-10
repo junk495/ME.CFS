@@ -124,7 +124,8 @@ Dieser Bereich ist entscheidend für Pflegegeld- oder GdB-Anträge. Hier bewerte
 Da die App keine Daten ins Internet sendet, bist du der Herr über deine Tabelle.
 
 * **Daten als CSV exportieren:** Lädt die gesamten Daten als saubere Datei auf dein Gerät herunter. Du kannst sie am PC direkt in Excel öffnen und dort Diagramme bauen oder sie für den Arzt ausdrucken.
-* **Datei teilen / senden:** Öffnet das typische "Teilen"-Menü deines Handys. Damit kannst du die Tabelle direkt per E-Mail verschicken, über Messenger teilen oder in deine private Cloud (wie Google Drive oder iCloud) hochladen.
+* **Daten als JSON exportieren:** Lädt die Daten verlustfrei als Backup herunter – ideal, um sie direkt in die Auswertungs-App (ME.CFS.graph) zu importieren.
+* **Datei teilen / senden:** Öffnet das typische "Teilen"-Menü deines Handys. Damit kannst du die Tabelle (CSV oder JSON) direkt per E-Mail verschicken, über Messenger teilen oder in deine private Cloud (wie Google Drive oder iCloud) hochladen.
 * **Alle Daten löschen:** Löscht sämtliche Eingaben unwiderruflich von deinem Gerät. (Nutze dies nur, wenn du deine Daten vorher sicher exportiert hast!)
 
 ### Export-Erinnerung
