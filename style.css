@@ -279,6 +279,13 @@ body {
   outline-offset: 2px;
 }
 
+/* ---------- Import-Status ---------- */
+.import-status {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
 /* ---------- Untere Tab-Leiste ---------- */
 .tab-bar {
   position: fixed;

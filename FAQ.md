@@ -26,6 +26,10 @@ Ein Update erscheint **nicht automatisch** beim Git-Sync. Der Ablauf: Der Entwic
 
 Eine sanfte Erinnerung, die dich in einstellbaren Abständen (Standard: alle 3 Tage) daran erinnert, deine Daten zu exportieren. Du kannst sie im Export-Tab ein- oder ausschalten und das Intervall anpassen.
 
+## Wie stelle ich mein Backup wieder her?
+
+Öffne den Tab **Export** und tippe auf **„JSON-Backup importieren"**. Wähle die zuvor als JSON exportierte Datei. Die Daten werden ausschließlich lokal auf deinem Gerät wiederhergestellt — fehlende Tage werden ergänzt, bereits vorhandene Tage nur nach Rückfrage überschrieben.
+
 ## Sind meine Daten privat?
 
 Ja. Alle Gesundheitsdaten bleiben auf deinem Gerät. Es findet **keine Übertragung** an externe Server statt. Erst wenn du selbst „Teilen / senden" nutzt, übergibst du die Datei bewusst an eine Ziel-App (z. B. E-Mail oder Cloud).

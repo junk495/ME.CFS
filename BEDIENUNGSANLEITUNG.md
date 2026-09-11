@@ -128,6 +128,10 @@ Da die App keine Daten ins Internet sendet, bist du der Herr über deine Tabelle
 * **Datei teilen / senden:** Öffnet das typische "Teilen"-Menü deines Handys. Damit kannst du die Tabelle (CSV oder JSON) direkt per E-Mail verschicken, über Messenger teilen oder in deine private Cloud (wie Google Drive oder iCloud) hochladen.
 * **Alle Daten löschen:** Löscht sämtliche Eingaben unwiderruflich von deinem Gerät. (Nutze dies nur, wenn du deine Daten vorher sicher exportiert hast!)
 
+### Backup wiederherstellen (JSON-Import)
+
+* **JSON-Backup importieren:** Tippe auf den Button und wähle die zuvor als JSON exportierte Datei. Fehlende Tage werden ergänzt; sind einzelne Tage bereits vorhanden, fragt die App nach, ob diese überschrieben werden sollen. Die Datei wird ausschließlich lokal gelesen — nichts wird hochgeladen.
+
 ### Export-Erinnerung
 
 * **Erinnerung aktivieren:** Ist der Haken gesetzt, erinnert dich die App daran, regelmäßig zu exportieren (Standard: aktiviert).

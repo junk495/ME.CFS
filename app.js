@@ -107,6 +107,9 @@
     { key: 'funktion_sonne', header: 'Funktion Sonne (0-4)' }
   ];
 
+  // Alle bekannten Feld-Keys (Whitelist für den JSON-Import)
+  const KNOWN_KEYS = new Set(EXPORT_COLUMNS.map((col) => col.key));
+
   // ---------- Datums-Helfer ----------
   const todayKey = () => {
     const now = new Date();
@@ -521,6 +524,120 @@
     }
   };
 
+  // ---------- JSON-Import (Backup-Wiederherstellung) ----------
+  const recordsFromJSON = (text) => {
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch (e) {
+      throw new Error('Die Datei ist kein gültiges JSON.');
+    }
+
+    const arr = Array.isArray(data)
+      ? data
+      : Array.isArray(data && data.records)
+        ? data.records
+        : Array.isArray(data && data.data)
+          ? data.data
+          : null;
+
+    if (!arr) {
+      throw new Error('Die JSON-Datei enthält keine Datensätze.');
+    }
+    return arr;
+  };
+
+  // Bereinigt einen Import-Eintrag: nur bekannte Keys, leer = null, datum prüfen.
+  const sanitizeImportedEntry = (item) => {
+    if (!item || typeof item !== 'object' || Array.isArray(item)) return null;
+
+    const datum = String(item.datum || '').trim();
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(datum)) return null;
+
+    const rec = {};
+    KNOWN_KEYS.forEach((key) => {
+      if (!(key in item)) return;
+      const value = item[key];
+      // null-Konvention: leere Werte als null speichern (niemals 0 oder "")
+      if (value === null || value === undefined || value === '') {
+        rec[key] = null;
+      } else {
+        rec[key] = value;
+      }
+    });
+
+    rec.datum = datum;
+
+    // erfassungs_typ konsistent ableiten (wie in saveEntry)
+    const hasStandard = STANDARD_FIELDS.some(
+      (field) => rec[field] !== null && rec[field] !== undefined
+    );
+    rec.erfassungs_typ = hasStandard ? 'standard' : 'minimal';
+
+    return rec;
+  };
+
+  const handleImportFile = (file) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      let rawRecords;
+      try {
+        rawRecords = recordsFromJSON(String(reader.result));
+      } catch (e) {
+        alert('Import fehlgeschlagen: ' + e.message);
+        return;
+      }
+
+      // Bereinigen & nur gültige Einträge behalten; letzter Eintrag je Datum gewinnt.
+      const byDate = {};
+      rawRecords.forEach((item) => {
+        const rec = sanitizeImportedEntry(item);
+        if (rec) byDate[rec.datum] = rec;
+      });
+
+      const dates = Object.keys(byDate);
+      if (!dates.length) {
+        alert('Es wurden keine gültigen Tageseinträge gefunden (es fehlt ein gültiges Datum).');
+        return;
+      }
+
+      // Konfliktprüfung: bereits vorhandene Tage
+      const conflicts = dates.filter((dateStr) => localStorage.getItem(storageKey(dateStr)) !== null);
+      if (conflicts.length > 0) {
+        const ok = window.confirm(
+          conflicts.length + ' von ' + dates.length + ' Tagen sind bereits lokal vorhanden.\n\n' +
+          'OK = vorhandene Tage überschreiben\nAbbrechen = Import abbrechen'
+        );
+        if (!ok) return;
+      }
+
+      let added = 0;
+      let overwritten = 0;
+      dates.forEach((dateStr) => {
+        const key = storageKey(dateStr);
+        if (localStorage.getItem(key) !== null) overwritten += 1;
+        else added += 1;
+        localStorage.setItem(key, JSON.stringify(byDate[dateStr]));
+      });
+
+      markExportReminded();
+
+      // Aktuell angezeigten Tag aktualisieren, falls er importiert wurde
+      const currentDate = selectedDate();
+      if (byDate[currentDate]) loadEntry(currentDate);
+
+      const status = document.getElementById('import-status');
+      if (status) {
+        status.textContent = added + ' Tage neu importiert, ' + overwritten + ' Tage überschrieben.';
+      }
+      alert('Import abgeschlossen: ' + added + ' Tage neu, ' + overwritten + ' überschrieben.');
+    };
+    reader.onerror = () => {
+      alert('Datei konnte nicht gelesen werden.');
+    };
+    reader.readAsText(file);
+  };
+
   // ---------- Alle Daten löschen ----------
   const resetForm = () => {
     ['view-tagescheck', 'view-pem-crash', 'view-detailcheck'].forEach((viewId) => {
@@ -713,6 +830,18 @@
 
     const shareJsonBtn = document.getElementById('btn-share-json');
     if (shareJsonBtn) shareJsonBtn.addEventListener('click', handleShareJSON);
+
+    const importBtn = document.getElementById('btn-import-json');
+    const importFile = document.getElementById('import-file');
+    if (importBtn && importFile) {
+      importBtn.addEventListener('click', () => importFile.click());
+      importFile.addEventListener('change', () => {
+        if (importFile.files && importFile.files[0]) {
+          handleImportFile(importFile.files[0]);
+        }
+        importFile.value = '';
+      });
+    }
 
     const deleteBtn = document.getElementById('btn-delete-all');
     if (deleteBtn) deleteBtn.addEventListener('click', handleDeleteAll);

@@ -150,6 +150,12 @@ Dieses Dokument beschreibt die technische Datenstruktur des ME/CFS Symptom-Track
 - **Keys:** identisch mit den Feld-Keys der Tabellen oben; fehlende Werte sind `null`.
 - **Zweck:** verlustfreies Backup und direkter Import in die Auswertungs-App **ME.CFS.graph**.
 
+## JSON-Import (Backup-Wiederherstellung)
+
+- **Format:** identisch mit dem JSON-Export (Array von Tages-Objekten). Zusätzlich werden `{ "records": [...] }` und `{ "data": [...] }` akzeptiert.
+- **Regeln:** Nur bekannte Feld-Keys (Whitelist aus `EXPORT_COLUMNS`) werden übernommen; unbekannte Keys werden ignoriert. Leere Werte werden als `null` gespeichert. Einträge ohne gültiges `datum` (`YYYY-MM-DD`) werden übersprungen. `erfassungs_typ` wird wie beim Speichern neu abgeleitet.
+- **Verhalten:** Fehlende Tage werden ergänzt; bereits vorhandene Tage werden nur nach Rückfrage überschrieben.
+
 ## Anzahl der Felder
 
 Insgesamt **80 CSV-Spalten**: 2 Meta-Felder + 78 erfasste Werte (Tagescheck, PEM, Detailcheck).

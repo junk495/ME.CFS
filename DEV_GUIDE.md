@@ -30,6 +30,7 @@ Kurze Referenz für die Wartung und Weiterentwicklung des ME/CFS Symptom-Tracker
 | Formular lesen | `collectFormData` (Tagescheck), `collectPemData`, `collectDetailData` |
 | Speichern/Laden | `saveEntry`, `loadEntry`, `resetForm`, `selectedDate` |
 | Export | `getAllEntries`, `buildCSV`, `downloadCSV`, `handleExport`, `handleShare` |
+| Import | `recordsFromJSON`, `sanitizeImportedEntry`, `handleImportFile` |
 | Erinnerung | `getSettings`, `saveSettings`, `isExportReminderDue`, `initReminderSettings` |
 
 ## Neues Feld hinzufügen (Checkliste)

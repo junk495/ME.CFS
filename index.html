@@ -979,6 +979,12 @@
       <button id="btn-export-json" class="btn-save">Daten als JSON exportieren</button>
       <button id="btn-share-json" class="btn-save" style="margin-top: 1rem; background: var(--bg-input); border-color: var(--border); color: var(--text);">JSON-Datei teilen / senden</button>
 
+      <h3 class="block-title" style="margin-top: 2rem;">Backup wiederherstellen (JSON-Import)</h3>
+      <p>Stelle ein zuvor exportiertes JSON-Backup wieder her — z. B. nach einem Gerätewechsel oder Browser-Datenverlust. Die Datei wird ausschließlich lokal gelesen, nichts wird hochgeladen.</p>
+      <input type="file" id="import-file" accept=".json,application/json" hidden>
+      <button id="btn-import-json" class="btn-save">JSON-Backup importieren</button>
+      <p id="import-status" class="import-status" role="status" aria-live="polite"></p>
+
       <div class="block">
         <h3 class="block-title">Export-Erinnerung</h3>
 

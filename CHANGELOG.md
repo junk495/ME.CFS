@@ -5,7 +5,11 @@ Die Version wird in `sw.js` (`const VERSION`) gepflegt — bei jedem Release hoc
 
 Nur Änderungen, die die App selbst betreffen (Funktionen, Felder, UI, Verhalten), werden aufgeführt. Änderungen an Dokumentation, Lizenz oder anderen Nicht-App-Dateien gehören nicht hierher. Versionen ohne App-Änderungen werden übersprungen.
 
-## [v7] – aktuell
+## [v8] – aktuell
+
+- **JSON-Import (Backup-Wiederherstellung):** Ein zuvor exportiertes JSON-Backup lässt sich jetzt wieder importieren (z. B. nach Gerätewechsel oder Datenverlust). Fehlende Tage werden ergänzt; bereits vorhandene Tage werden nur nach Rückfrage überschrieben.
+
+## [v7]
 
 - **JSON-Export:** Daten können jetzt zusätzlich als JSON heruntergeladen oder geteilt werden (verlustfreies Backup & direkter Import in die Auswertungs-App **ME.CFS.graph**).
 
