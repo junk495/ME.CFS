@@ -8,11 +8,15 @@ Deine Daten liegen **ausschließlich lokal** auf deinem Gerät (im `localStorage
 - bei **längerer Nicht-Nutzung** (iOS-Safari teils schon nach 7 Tagen, wenn die App **nicht** installiert ist),
 - wenn du **Browser-/Website-Daten löschst** oder die App deinstallierst.
 
-**Gegenmaßnahmen:** Installiere die App als PWA („Zum Home-Bildschirm") und **exportiere regelmäßig** — das ist die einzige echte Sicherung.
+**Gegenmaßnahmen:** Installiere die App als PWA („App installieren" unter Android/Chrome, „Zum Home-Bildschirm" unter iOS/Safari) und **exportiere regelmäßig** — das ist die einzige echte Sicherung.
 
 ## Wie installiere ich die App?
 
-Öffne die App im mobilen Browser und wähle **„Zum Home-Bildschirm hinzufügen"** (Add to Home Screen). Danach startet sie wie eine normale App über das Icon. Es ist kein App-Store nötig.
+Öffne die App im Browser und installiere sie:
+- **Android (Chrome):** Im Browser-Menü **„App installieren"** wählen.
+- **iOS (Safari):** Im Teilen-Menü **„Zum Home-Bildschirm"** wählen.
+
+Danach startet sie wie eine normale App über ihr Icon. Ein App-Store ist nicht nötig.
 
 ## Warum exportiert die App CSV und nicht Excel (.xlsx)?
 

@@ -45,8 +45,10 @@ Herkömmliche Excel-Tabellen zur Dokumentation (z.B. für GdB-Verfahren in Öste
 Da es sich um eine Progressive Web App (PWA) handelt, ist keine Installation über den Google Play Store oder Apple App Store nötig:
 
 1. Den Link <a href="https://junk495.github.io/ME.CFS/" target="_blank" rel="noopener noreferrer">https://junk495.github.io/ME.CFS/</a> im mobilen Browser (z. B. Chrome, Firefox oder Safari) öffnen.
-2. Im Browser-Menü die Option **"Zum Startbildschirm hinzufügen"** (Add to Home Screen) wählen.
-3. Die App kann nun wie eine reguläre App über das Icon auf dem Homescreen gestartet werden.
+2. Die App installieren:
+   - **Android (Chrome):** Im Browser-Menü **„App installieren"** wählen (oder dem Install-Hinweis/Banner folgen).
+   - **iOS (Safari):** Im Teilen-Menü **„Zum Home-Bildschirm"** wählen.
+3. Die App startet danach wie eine reguläre App über ihr Icon — ohne Adressleiste und offline-fähig.
 
 ## Technische Basis & Entwicklung
 

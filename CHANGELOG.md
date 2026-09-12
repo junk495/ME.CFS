@@ -5,6 +5,10 @@ Die Version wird in `sw.js` (`const VERSION`) gepflegt und folgt Semantic Versio
 
 Nur Änderungen, die die App selbst betreffen (Funktionen, Felder, UI, Verhalten), werden aufgeführt. Änderungen an Dokumentation, Lizenz oder anderen Nicht-App-Dateien gehören nicht hierher. Versionen ohne App-Änderungen werden übersprungen.
 
+## v9.0.2 – 2026-09-12
+
+- **Installations-Hinweis aktualisiert:** Der Text im Export-Tab nennt jetzt „App installieren" (Android/Chrome) bzw. „Zum Home-Bildschirm" (iOS/Safari).
+
 ## v9.0.1 – 2026-09-12
 
 - **Icon überarbeitet:** Neues, maskierbares Batterie-Icon (SVG + PNG 192/512). Auf Android erscheint es jetzt ohne den weißen Kreis (Legacy-Mask) als vollwertiges Adaptive Icon.

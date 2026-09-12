@@ -140,5 +140,5 @@ Da die App keine Daten ins Internet sendet, bist du der Herr über deine Tabelle
 * **Erinnerung aktivieren:** Ist der Haken gesetzt, erinnert dich die App daran, regelmäßig zu exportieren (Standard: aktiviert).
 * **Intervall (Tage):** Wie oft die Erinnerung erscheinen soll (Standard: 3 Tage). Das Feld ist ausgegraut, solange der Haken nicht gesetzt ist.
 
-**Wichtig zur Datensicherheit:** Deine Daten liegen ausschließlich lokal auf diesem Gerät — es gibt keinen Server und keine Cloud. Browser können lokale Daten bei Speicherknappheit oder längerer Nicht-Nutzung löschen (iOS-Safari teils schon nach 7 Tagen, wenn die App nicht installiert ist). Installiere die App deshalb am besten als PWA („Zum Home-Bildschirm") und exportiere regelmäßig, um deine Daten zu sichern.
+**Wichtig zur Datensicherheit:** Deine Daten liegen ausschließlich lokal auf diesem Gerät — es gibt keinen Server und keine Cloud. Browser können lokale Daten bei Speicherknappheit oder längerer Nicht-Nutzung löschen (iOS-Safari teils schon nach 7 Tagen, wenn die App nicht installiert ist). Installiere die App deshalb am besten als PWA („App installieren" unter Android/Chrome, „Zum Home-Bildschirm" unter iOS/Safari) und exportiere regelmäßig, um deine Daten zu sichern.
 
