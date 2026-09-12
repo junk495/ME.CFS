@@ -25,7 +25,8 @@ Hosting-Umgebung: GitHub Pages (rein statisches Hosting, HTTPS).
    - Designe für die Smartphone-Nutzung (Hochformat).
    - Verhindere horizontales Scrollen strikt.
    - Touch-Flächen (Buttons) müssen groß sein (mind. 44x44px).
-   - Nutze augenschonende, reizarme Farben (Dark Mode bevorzugt).
+   - Nutze augenschonende, reizarme Farben (Dark Mode bevorzugt), keine Animationen, hohe Kontraste.
+   - Keine hover-abhängigen Bedienelemente (alles per Tap erreichbar).
    - Verzichte auf Dropdown-Menüs für Skalen (0-4). Verwende stattdessen direkte Tap-Buttons oder Ziffernblock-Eingaben.
 
 4. SINGLE PAGE APPLICATION (SPA) STRUKTUR:
