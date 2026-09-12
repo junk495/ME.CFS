@@ -12,6 +12,7 @@ Kurze Referenz für die Wartung und Weiterentwicklung des ME/CFS Symptom-Tracker
 | `core.js` | Reine Hilfsfunktionen (Zahlen-/CSV-Parsing) — von `app.js` und `tests.html` genutzt |
 | `tests.html` | Entwicklungs-Testseite für `core.js` (nicht Teil der App, nur lokal öffnen) |
 | `manifest.json` | PWA-Manifest |
+| `icon.svg`, `icons/` | App-Icon (SVG-Quelle + PNG 192/512, maskierbar) |
 | `sw.js` | Service Worker (Cache-First, Versionierung) |
 | `*.md` | Dokumentation |
 

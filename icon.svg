@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="ME/CFS Tracker Icon">
+  <rect width="512" height="512" fill="#101316"/>
+  <rect x="122" y="190" width="236" height="132" rx="30" fill="none" stroke="#3d6c9e" stroke-width="18"/>
+  <rect x="358" y="230" width="26" height="52" rx="6" fill="#3d6c9e"/>
+  <rect x="140" y="208" width="130" height="96" rx="14" fill="#3d6c9e"/>
+</svg>

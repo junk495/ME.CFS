@@ -6,7 +6,7 @@
 // ---------- Versionierung ----------
 // WICHTIG: Bei jedem Release die VERSION erhöhen (Semantic Versioning, z. B. 'v9.0.1' oder 'v9.1.0').
 // So erkennt der Browser den neuen Service Worker und leert den alten Cache.
-const VERSION = 'v9.0.0';
+const VERSION = 'v9.0.1';
 const CACHE_NAME = `mecfs-tracker-${VERSION}`;
 
 // Beim ersten Install zu cachende Dateien (App-Shell)
@@ -17,6 +17,7 @@ const CACHE_URLS = [
   'core.js',
   'app.js',
   'manifest.json',
+  'icon.svg',
   'icons/icon-192.png',
   'icons/icon-512.png'
 ];
