@@ -9,6 +9,8 @@ Kurze Referenz für die Wartung und Weiterentwicklung des ME/CFS Symptom-Tracker
 | `index.html` | SPA — alle Ansichten als `<section>`, Navigation per `display` |
 | `style.css` | Reines CSS (Dark-Theme, Mobile-First, keine Frameworks) |
 | `app.js` | Komplette Logik (Vanilla JS, IIFE) |
+| `core.js` | Reine Hilfsfunktionen (Zahlen-/CSV-Parsing) — von `app.js` und `tests.html` genutzt |
+| `tests.html` | Entwicklungs-Testseite für `core.js` (nicht Teil der App, nur lokal öffnen) |
 | `manifest.json` | PWA-Manifest |
 | `sw.js` | Service Worker (Cache-First, Versionierung) |
 | `*.md` | Dokumentation |
@@ -30,7 +32,8 @@ Kurze Referenz für die Wartung und Weiterentwicklung des ME/CFS Symptom-Tracker
 | Formular lesen | `collectFormData` (Tagescheck), `collectPemData`, `collectDetailData` |
 | Speichern/Laden | `saveEntry`, `loadEntry`, `resetForm`, `selectedDate` |
 | Export | `getAllEntries`, `buildCSV`, `downloadCSV`, `handleExport`, `handleShare` |
-| Import | `recordsFromJSON`, `sanitizeImportedEntry`, `handleImportFile` |
+| Import | `recordsFromJSON`, `recordsFromCSV`, `sanitizeImportedEntry`, `handleImportFile` |
+| Auto-Save & Navigation | `scheduleAutoSave`, `navigateToDate`, `shiftDate` |
 | Erinnerung | `getSettings`, `saveSettings`, `isExportReminderDue`, `initReminderSettings` |
 
 ## Neues Feld hinzufügen (Checkliste)
@@ -38,6 +41,7 @@ Kurze Referenz für die Wartung und Weiterentwicklung des ME/CFS Symptom-Tracker
 1. HTML-Feld mit eindeutigem `name` im passenden Tab ergänzen.
 2. Key in `EXPORT_COLUMNS` (app.js) eintragen — bestimmt die CSV-Spaltenreihenfolge.
 3. Bei Skalen (0–4): als Radio-Gruppe mit dem `name`-Key anlegen; `collect*` liest sie automatisch über `name`.
+4. Das Feld im Daten-Vertrag mit **ME.CFS.graph** nachziehen (siehe `.clinerules`, Regel 6: `DATENMODELL.md` beider Projekte gemeinsam aktualisieren).
 
 ## Release-Prozess
 

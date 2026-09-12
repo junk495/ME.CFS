@@ -5,7 +5,16 @@ Die Version wird in `sw.js` (`const VERSION`) gepflegt — bei jedem Release hoc
 
 Nur Änderungen, die die App selbst betreffen (Funktionen, Felder, UI, Verhalten), werden aufgeführt. Änderungen an Dokumentation, Lizenz oder anderen Nicht-App-Dateien gehören nicht hierher. Versionen ohne App-Änderungen werden übersprungen.
 
-## [v8] – aktuell
+## [v9] – aktuell
+
+- **Auto-Save:** Eingaben werden jetzt automatisch gesichert (bei Eingabe, Tab-Wechsel und beim Verlassen der App) — kein manuelles Speichern mehr nötig.
+- **CSV-Import:** Zuvor exportierte CSV-Dateien lassen sich wieder importieren (zusätzlich zum JSON-Backup).
+- **CSV-Export verbessert:** Semikolons in Textfeldern bleiben erhalten (korrektes Quoting statt Ersetzen).
+- **Vor/Zurück-Navigation:** Pfeil-Buttons neben dem Datum erleichtern das Nachtragen vergangener Tage.
+- **Link zur Auswertung:** „In ME.CFS.graph auswerten" öffnet die Auswertungs-App direkt.
+- **Offline-Icons:** App-Icons werden jetzt mit gecacht.
+
+## [v8]
 
 - **JSON-Import (Backup-Wiederherstellung):** Ein zuvor exportiertes JSON-Backup lässt sich jetzt wieder importieren (z. B. nach Gerätewechsel oder Datenverlust). Fehlende Tage werden ergänzt; bereits vorhandene Tage werden nur nach Rückfrage überschrieben.
 

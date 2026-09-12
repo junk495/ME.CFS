@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ME/CFS Tracker – Tests (nur Entwicklung)</title>
+  <style>
+    body { font-family: monospace; margin: 2rem; background: #101316; color: #e7eaee; line-height: 1.5; }
+    h1 { font-size: 1.2rem; }
+    ul { list-style: none; padding: 0; }
+    .pass { color: #4caf50; }
+    .fail { color: #ff4d4d; }
+    .summary { margin-top: 1rem; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <h1>core.js – Tests</h1>
+  <p>Diese Seite ist nur für die Entwicklung gedacht. Sie ist nicht Teil der App und wird nicht im Service Worker gecacht.</p>
+  <ul id="results"></ul>
+  <script src="core.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var results = document.getElementById('results');
+      var failures = 0;
+      var total = 0;
+
+      function check(name, actual, expected) {
+        total++;
+        var ok = JSON.stringify(actual) === JSON.stringify(expected);
+        var li = document.createElement('li');
+        if (ok) {
+          li.className = 'pass';
+          li.textContent = '✓ ' + name;
+        } else {
+          failures++;
+          li.className = 'fail';
+          li.textContent = '✗ ' + name + ' — erwartet ' + JSON.stringify(expected) + ', erhalten ' + JSON.stringify(actual);
+        }
+        results.appendChild(li);
+      }
+
+      var pn = MECFS_core.parseNumber;
+      var pcs = MECFS_core.parseCSVLine;
+      var cell = MECFS_core.csvCell;
+
+      // parseNumber
+      check('parseNumber "7,5"', pn('7,5'), 7.5);
+      check('parseNumber "1.234,56"', pn('1.234,56'), 1234.56);
+      check('parseNumber "5000"', pn('5000'), 5000);
+      check('parseNumber ""', pn(''), null);
+      check('parseNumber null', pn(null), null);
+      check('parseNumber 42', pn(42), 42);
+
+      // parseCSVLine
+      check('parseCSVLine einfach', pcs('a;b;c'), ['a', 'b', 'c']);
+      check('parseCSVLine quoted', pcs('a;"b;c";d'), ['a', 'b;c', 'd']);
+      check('parseCSVLine escaped quotes', pcs('"a""b"'), ['a"b']);
+
+      // csvCell
+      check('csvCell null', cell(null), '');
+      check('csvCell number', cell(7.5), '7,5');
+      check('csvCell text', cell('ok'), 'ok');
+      check('csvCell text mit Semikolon', cell('ok;dann'), '"ok;dann"');
+      check('csvCell text mit Zeilenumbruch', cell('a\nb'), 'a b');
+      check('csvCell text mit Anführungszeichen', cell('a"b'), '"a""b"');
+
+      var summary = document.createElement('p');
+      summary.className = 'summary ' + (failures ? 'fail' : 'pass');
+      summary.textContent = total + ' Tests, ' + failures + ' Fehler.';
+      document.body.insertBefore(summary, results.nextSibling);
+    })();
+  </script>
+</body>
+</html>

@@ -16,7 +16,7 @@ Das Design folgt vier einfachen Grundsätzen:
 ## 📅 Das Datum (Die Zeitreise-Funktion)
 
 Ganz oben auf dem Bildschirm siehst du das Datum. **Die App zwingt dich nicht, jeden Tag aktiv zu sein.** Wenn du im Crash liegst und das Handy tagelang nicht anschaust, ist das völlig in Ordnung.
-Sobald du wieder Energie hast, tippst du einfach auf das Datum, stellst es auf die vergangenen Tage zurück und trägst deine Werte nachträglich in aller Ruhe ein.
+Sobald du wieder Energie hast, tippst du einfach auf das Datum, stellst es auf die vergangenen Tage zurück und trägst deine Werte nachträglich in aller Ruhe ein. Mit den Pfeil-Buttons ‹ / › neben dem Datum blätterst du bequem einen Tag vor oder zurück. **Deine Eingaben werden automatisch gespeichert** — du musst nicht extra auf „Speichern" tippen.
 
 ---
 
@@ -127,10 +127,13 @@ Da die App keine Daten ins Internet sendet, bist du der Herr über deine Tabelle
 * **Daten als JSON exportieren:** Lädt die Daten verlustfrei als Backup herunter – ideal, um sie direkt in die Auswertungs-App (ME.CFS.graph) zu importieren.
 * **Datei teilen / senden:** Öffnet das typische "Teilen"-Menü deines Handys. Damit kannst du die Tabelle (CSV oder JSON) direkt per E-Mail verschicken, über Messenger teilen oder in deine private Cloud (wie Google Drive oder iCloud) hochladen.
 * **Alle Daten löschen:** Löscht sämtliche Eingaben unwiderruflich von deinem Gerät. (Nutze dies nur, wenn du deine Daten vorher sicher exportiert hast!)
+* **In ME.CFS.graph auswerten:** Öffnet die Auswertungs-App (Verlauf, Heatmap, Crash-Risiko). Nutze beide Apps im selben Browser — deine Daten werden dann per Tipp übernommen.
 
-### Backup wiederherstellen (JSON-Import)
+### Daten wiederherstellen (Import)
 
-* **JSON-Backup importieren:** Tippe auf den Button und wähle die zuvor als JSON exportierte Datei. Fehlende Tage werden ergänzt; sind einzelne Tage bereits vorhanden, fragt die App nach, ob diese überschrieben werden sollen. Die Datei wird ausschließlich lokal gelesen — nichts wird hochgeladen.
+* **JSON-Backup importieren:** Tippe auf den Button und wähle die zuvor als JSON exportierte Datei.
+* **CSV-Datei importieren:** Wähle die zuvor exportierte CSV-Datei (z. B. wenn du sie in Excel bearbeitet hast).
+* Bei beiden gilt: Fehlende Tage werden ergänzt; sind einzelne Tage bereits vorhanden, fragt die App nach, ob diese überschrieben werden sollen. Die Datei wird ausschließlich lokal gelesen — nichts wird hochgeladen.
 
 ### Export-Erinnerung
 

@@ -141,7 +141,7 @@ Dieses Dokument beschreibt die technische Datenstruktur des ME/CFS Symptom-Track
 - **Formatierung:**
   - Leere Felder → leeres Feld (`;;`).
   - Zahlen mit Dezimalstellen → Dezimal**komma** (z. B. `7.5` → `7,5`).
-  - Textfelder: Zeilenumbrüche und Semikolons werden ersetzt, damit die Struktur erhalten bleibt.
+  - Textfelder: Zeilenumbrüche werden zu Leerzeichen; Semikolons und Anführungszeichen bleiben durch Quoting (`"..."`, `""`) erhalten.
 - **Spaltenreihenfolge:** entspricht der Reihenfolge in `EXPORT_COLUMNS` (app.js) — die Tabellen oben folgen dieser Reihenfolge (Datum → … → Funktion Sonne).
 
 ## JSON-Export
@@ -155,6 +155,13 @@ Dieses Dokument beschreibt die technische Datenstruktur des ME/CFS Symptom-Track
 - **Format:** identisch mit dem JSON-Export (Array von Tages-Objekten). Zusätzlich werden `{ "records": [...] }` und `{ "data": [...] }` akzeptiert.
 - **Regeln:** Nur bekannte Feld-Keys (Whitelist aus `EXPORT_COLUMNS`) werden übernommen; unbekannte Keys werden ignoriert. Leere Werte werden als `null` gespeichert. Einträge ohne gültiges `datum` (`YYYY-MM-DD`) werden übersprungen. `erfassungs_typ` wird wie beim Speichern neu abgeleitet.
 - **Verhalten:** Fehlende Tage werden ergänzt; bereits vorhandene Tage werden nur nach Rückfrage überschrieben.
+
+## CSV-Import (Wiederherstellung)
+
+- **Format:** identisch mit dem CSV-Export (Semikolon-getrennt, UTF-8, BOM-tolerant).
+- **Zuordnung:** Die Kopfzeile wird anhand der Spaltennamen aus `EXPORT_COLUMNS` zugeordnet (nicht an der Position).
+- **Regeln:** Leere Felder → `null`; Dezimalkomma wird korrekt geparst; Text-/Datumsfelder werden als Text übernommen. Einträge ohne gültiges `datum` (`YYYY-MM-DD`) werden übersprungen. `erfassungs_typ` wird neu abgeleitet.
+- **Verhalten:** wie beim JSON-Import (fehlende Tage ergänzen, vorhandene nur nach Rückfrage überschreiben).
 
 ## Anzahl der Felder
 

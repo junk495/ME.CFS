@@ -28,7 +28,11 @@ Eine sanfte Erinnerung, die dich in einstellbaren Abständen (Standard: alle 3 T
 
 ## Wie stelle ich mein Backup wieder her?
 
-Öffne den Tab **Export** und tippe auf **„JSON-Backup importieren"**. Wähle die zuvor als JSON exportierte Datei. Die Daten werden ausschließlich lokal auf deinem Gerät wiederhergestellt — fehlende Tage werden ergänzt, bereits vorhandene Tage nur nach Rückfrage überschrieben.
+Öffne den Tab **Export** und tippe auf **„JSON-Backup importieren"** (oder **„CSV-Datei importieren"** für eine CSV-Datei). Wähle die zuvor exportierte Datei. Die Daten werden ausschließlich lokal auf deinem Gerät wiederhergestellt — fehlende Tage werden ergänzt, bereits vorhandene Tage nur nach Rückfrage überschrieben.
+
+## Werden meine Eingaben automatisch gespeichert?
+
+Ja. Die App speichert deine Eingaben automatisch (bei der Eingabe, beim Tab-Wechsel und beim Verlassen der App). Du musst nicht extra auf „Speichern" tippen.
 
 ## Sind meine Daten privat?
 

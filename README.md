@@ -29,15 +29,16 @@ Herkömmliche Excel-Tabellen zur Dokumentation (z.B. für GdB-Verfahren in Öste
 *   **Vollständig Offline-fähig:** Nach dem ersten Aufruf funktioniert die App komplett ohne aktive Internetverbindung.
 *   **Reizarmes Design:** Dunkles Theme, klare Kontraste, keine Animationen, kein horizontales Scrollen.
 *   **Export:** Die Daten können jederzeit als CSV-Datei (Semikolon-getrennt, direkt in Excel öffnbar) oder als JSON (Backup & Import in die Auswertungs-App ME.CFS.graph) exportiert und über die Teilen-Funktion weitergegeben werden.
-*   **Backup & Wiederherstellung:** Ein zuvor exportiertes JSON-Backup lässt sich jederzeit wieder importieren — z. B. nach einem Gerätewechsel oder Browser-Datenverlust.
-*   **Zeitreise:** Über den Datums-Wähler lassen sich Einträge auch nachträglich für vergangene Tage erfassen (z. B. Crash-Tage später nachtragen).
+*   **Auto-Save:** Eingaben werden automatisch gesichert (bei Eingabe, Tab-Wechsel und beim Verlassen der App) — kein manuelles Speichern nötig.
+*   **Backup & Wiederherstellung:** Ein zuvor exportiertes Backup (JSON oder CSV) lässt sich jederzeit wieder importieren — z. B. nach einem Gerätewechsel oder Browser-Datenverlust.
+*   **Zeitreise:** Über den Datums-Wähler oder die Vor/Zurück-Buttons lassen sich Einträge auch nachträglich für vergangene Tage erfassen (z. B. Crash-Tage später nachtragen).
+*   **Auswertung:** Über „In ME.CFS.graph auswerten" springst du direkt in die Auswertungs-App (Verlauf, Heatmap, Crash-Risiko).
 *   **Konfigurierbare Export-Erinnerung:** Erinnert auf Wunsch in einstellbaren Abständen daran, die Daten regelmäßig zu sichern.
 
 ## 🚧 Roadmap / Geplante Funktionen
 
 *   **Verlauf/Übersicht:** In-App-Ansicht der letzten Tage (Trends auf einen Blick, ohne Excel).
-*   **Warnung bei ungespeicherten Änderungen:** Hinweis beim Schließen/Neuladen, falls noch nicht gespeicherte Eingaben existieren.
-*   **Code-Struktur:** `app.js` bei Bedarf in kleinere Module aufteilen.
+*   **Code-Struktur:** `app.js` bei Bedarf weiter in kleinere Module aufteilen (reine Helfer sind bereits nach `core.js` ausgelagert).
 
 ## Installation am Smartphone
 

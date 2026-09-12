@@ -36,6 +36,11 @@ Hosting-Umgebung: GitHub Pages (rein statisches Hosting, HTTPS).
    - Speicherstrukturen (JSON) für die Tagesprotokolle müssen flach gehalten werden, um das spätere Mapping auf Excel-Spalten zu erleichtern.
    - Wenn optionale Eingabefelder übersprungen werden, muss der Wert zwingend als `null` gespeichert werden (niemals als `0` oder `""`), damit Durchschnittsberechnungen beim späteren Excel-Export nicht verfälscht werden.
 
+6. DATENMODELL-KOMPATIBILITÄT (ME.CFS.graph):
+   - Die Feld-Keys und CSV-Spaltennamen (`EXPORT_COLUMNS` in `app.js`) bilden den Daten-Vertrag mit der Auswertungs-App ME.CFS.graph.
+   - Feld-Keys, CSV-Header und Skalen-Richtungen dürfen NUR geändert werden, wenn ME.CFS.graph (gleicher Stand) im selben Schritt mit angepasst wird — sonst gehen Werte in der Auswertung still verloren.
+   - Bei jeder Änderung am Datenmodell MÜSSEN die `DATENMODELL.md`-Dateien beider Projekte gemeinsam aktualisiert werden.
+
 # Dokumentation (Markdown-Dateien)
 
 Die Dokumentation besteht aus acht Markdown-Dateien mit klar getrennten Zuständigkeiten. Sie sind Teil des Projekts und müssen bei Code-Änderungen mitgepflegt werden.

@@ -395,17 +395,7 @@
     return entries;
   };
 
-  const formatCell = (value) => {
-    if (value === null || value === undefined) return '';
-    if (typeof value === 'number') {
-      // Dezimalpunkt → Komma für Excel (deutsches Zahlenformat)
-      return String(value).replace('.', ',');
-    }
-    // Textwerte: Zeilenumbrüche und Semikolons neutralisieren
-    return String(value)
-      .replace(/\r?\n/g, ' ')
-      .replace(/;/g, ',');
-  };
+  const formatCell = (value) => MECFS_core.csvCell(value);
 
   const buildCSV = (entries) => {
     const header = EXPORT_COLUMNS.map((col) => col.header).join(';');
@@ -547,6 +537,50 @@
     return arr;
   };
 
+  // Text-/Datumsfelder (nicht numerisch) für den CSV-Import
+  const TEXT_KEYS = new Set([
+    'datum',
+    'erfassungs_typ',
+    'kontext',
+    'notiz',
+    'pem_ausloeser',
+    'pem_symptome',
+    'pem_belastungsdatum'
+  ]);
+
+  // CSV-Header → Key (aus EXPORT_COLUMNS)
+  const HEADER_TO_KEY = {};
+  EXPORT_COLUMNS.forEach((col) => { HEADER_TO_KEY[col.header] = col.key; });
+
+  const recordsFromCSV = (text) => {
+    const clean = String(text).replace(/\uFEFF/g, '');
+    const lines = clean.split(/\r?\n/).filter((l) => l.trim() !== '');
+    if (lines.length < 2) return [];
+
+    const headers = MECFS_core.parseCSVLine(lines[0]).map((h) => String(h).trim());
+    const keyByIndex = headers.map((h) => HEADER_TO_KEY[h] || null);
+
+    const out = [];
+    for (let r = 1; r < lines.length; r++) {
+      const cells = MECFS_core.parseCSVLine(lines[r]);
+      const rec = {};
+      for (let c = 0; c < cells.length; c++) {
+        const key = keyByIndex[c];
+        if (!key) continue;
+        const raw = cells[c];
+        if (raw === '') {
+          rec[key] = null;
+        } else if (TEXT_KEYS.has(key)) {
+          rec[key] = raw;
+        } else {
+          rec[key] = MECFS_core.parseNumber(raw);
+        }
+      }
+      out.push(rec);
+    }
+    return out;
+  };
+
   // Bereinigt einen Import-Eintrag: nur bekannte Keys, leer = null, datum prüfen.
   const sanitizeImportedEntry = (item) => {
     if (!item || typeof item !== 'object' || Array.isArray(item)) return null;
@@ -580,9 +614,14 @@
   const handleImportFile = (file) => {
     const reader = new FileReader();
     reader.onload = () => {
+      const text = String(reader.result);
+      const ext = (file.name || '').toLowerCase();
+      const trimmed = text.trim();
+      const isJSON = ext.endsWith('.json') || trimmed.charAt(0) === '{' || trimmed.charAt(0) === '[';
+
       let rawRecords;
       try {
-        rawRecords = recordsFromJSON(String(reader.result));
+        rawRecords = isJSON ? recordsFromJSON(text) : recordsFromCSV(text);
       } catch (e) {
         alert('Import fehlgeschlagen: ' + e.message);
         return;
@@ -669,6 +708,35 @@
 
     alert('Daten gelöscht');
     resetForm();
+  };
+
+  // ---------- Auto-Save & Datums-Navigation ----------
+  let activeDate = null;
+  let autoSaveTimer = null;
+
+  const scheduleAutoSave = () => {
+    clearTimeout(autoSaveTimer);
+    autoSaveTimer = setTimeout(() => saveAll(selectedDate()), 300);
+  };
+
+  const navigateToDate = (dateStr) => {
+    clearTimeout(autoSaveTimer);
+    if (activeDate) saveAll(activeDate);
+    activeDate = dateStr;
+    const el = document.getElementById('date-picker');
+    if (el) el.value = dateStr;
+    resetForm();
+    loadEntry(dateStr);
+  };
+
+  const shiftDate = (deltaDays) => {
+    if (!activeDate) return;
+    const d = new Date(activeDate + 'T00:00:00');
+    d.setDate(d.getDate() + deltaDays);
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    navigateToDate(`${y}-${m}-${day}`);
   };
 
   // ---------- Export-Erinnerung (konfigurierbar) ----------
@@ -785,19 +853,37 @@
     }
 
     const dateStr = initDateDisplay();
+    activeDate = dateStr;
 
     document.querySelectorAll('.tab').forEach((tab) => {
       tab.addEventListener('click', () => switchView(tab.dataset.view));
     });
 
-    // Date-Picker: beim Wechsel Formular leeren und neuen Tag laden
+    // Date-Picker: beim Wechsel den neuen Tag laden (alter Tag wird vorher gesichert)
     const datePicker = document.getElementById('date-picker');
     if (datePicker) {
       datePicker.addEventListener('change', () => {
-        resetForm();
-        loadEntry(datePicker.value);
+        navigateToDate(datePicker.value);
       });
     }
+
+    // Vor/Zurück-Navigation (Zeitreise)
+    const prevDayBtn = document.getElementById('btn-prev-day');
+    const nextDayBtn = document.getElementById('btn-next-day');
+    if (prevDayBtn) prevDayBtn.addEventListener('click', () => shiftDate(-1));
+    if (nextDayBtn) nextDayBtn.addEventListener('click', () => shiftDate(1));
+
+    // Auto-Save: Eingaben automatisch sichern (nervenschonend, kein „Speichern" nötig)
+    ['view-tagescheck', 'view-pem-crash', 'view-detailcheck'].forEach((viewId) => {
+      const container = document.getElementById(viewId);
+      if (!container) return;
+      container.addEventListener('input', scheduleAutoSave);
+      container.addEventListener('change', scheduleAutoSave);
+    });
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') saveAll(selectedDate());
+    });
+    window.addEventListener('pagehide', () => saveAll(selectedDate()));
 
     // PEM-Sub-Tabs
     const tabPemAusloeser = document.getElementById('tab-pem-ausloeser');
@@ -840,6 +926,18 @@
           handleImportFile(importFile.files[0]);
         }
         importFile.value = '';
+      });
+    }
+
+    const importCsvBtn = document.getElementById('btn-import-csv');
+    const importCsvFile = document.getElementById('import-csv-file');
+    if (importCsvBtn && importCsvFile) {
+      importCsvBtn.addEventListener('click', () => importCsvFile.click());
+      importCsvFile.addEventListener('change', () => {
+        if (importCsvFile.files && importCsvFile.files[0]) {
+          handleImportFile(importCsvFile.files[0]);
+        }
+        importCsvFile.value = '';
       });
     }
 
