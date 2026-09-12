@@ -41,6 +41,18 @@ Hosting-Umgebung: GitHub Pages (rein statisches Hosting, HTTPS).
    - Feld-Keys, CSV-Header und Skalen-Richtungen dürfen NUR geändert werden, wenn ME.CFS.graph (gleicher Stand) im selben Schritt mit angepasst wird — sonst gehen Werte in der Auswertung still verloren.
    - Bei jeder Änderung am Datenmodell MÜSSEN die `DATENMODELL.md`-Dateien beider Projekte gemeinsam aktualisiert werden.
 
+# Versionierung (Semantic Versioning)
+
+- Die Versionsnummer wird an **zwei** Stellen geführt und MUSS immer übereinstimmen:
+  1. `VERSION` in `sw.js` (steuert den Cache-Namen und damit den Update-Hinweis für Nutzer:innen).
+  2. Oberster Eintrag in `CHANGELOG.md`.
+- Schema: `MAJOR.MINOR.PATCH` (z. B. `v9.0.0`).
+  - `MAJOR` (x.0.0): grundlegende Neuausrichtung oder inkompatible Änderung.
+  - `MINOR` (0.x.0): neue Funktion oder neuer Tab (abwärtskompatibel).
+  - `PATCH` (0.0.x): reine Fehlerkorrekturen und kleinere Verbesserungen ohne neue Funktion.
+- Bei **jedem** Release werden `sw.js` (`VERSION`) und `CHANGELOG.md` **gemeinsam im selben Schritt** aktualisiert. Sie dürfen nie auseinanderlaufen.
+- Ein Changelog-Eintrag dokumentiert ausschließlich die Änderungen **an der App** (Funktionen, Felder, UI, Verhalten, Bugfixes). Änderungen an Dokumentation oder Lizenz erhalten keinen eigenen Versions-Eintrag.
+
 # Dokumentation (Markdown-Dateien)
 
 Die Dokumentation besteht aus acht Markdown-Dateien mit klar getrennten Zuständigkeiten. Sie sind Teil des Projekts und müssen bei Code-Änderungen mitgepflegt werden.

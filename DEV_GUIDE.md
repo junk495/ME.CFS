@@ -46,8 +46,8 @@ Kurze Referenz für die Wartung und Weiterentwicklung des ME/CFS Symptom-Tracker
 ## Release-Prozess
 
 1. Code ändern.
-2. `VERSION` in `sw.js` erhöhen (z. B. `'v2'` → `'v3'`).
-3. Eintrag in `CHANGELOG.md` ergänzen.
+2. `VERSION` in `sw.js` erhöhen — Semantic Versioning (`MAJOR.MINOR.PATCH`), z. B. `'v9.0.0'` → `'v9.1.0'` (neue Funktion) oder `'v9.0.1'` (Bugfix).
+3. Eintrag in `CHANGELOG.md` mit derselben Versionsnummer ergänzen.
 4. Pushen → GitHub Pages deployt automatisch.
 5. Nutzer erhalten beim nächsten Öffnen den Hinweis „Neue Version verfügbar".
 
