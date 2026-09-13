@@ -21,6 +21,7 @@ Kurze Referenz für die Wartung und Weiterentwicklung des ME/CFS Symptom-Tracker
 - **Speicherschlüssel:** `mecfs_tagescheck_YYYY-MM-DD` (flaches JSON pro Tag).
 - **null-Konvention:** Leere Felder werden als `null` gespeichert (nie `0` oder `""`).
 - **Einstellungen:** `mecfs_settings` (JSON: `reminderEnabled`, `reminderIntervalDays`).
+- **Schriftgröße (Darstellung):** `mecfs_tracker_large_font` (`'1'` = große Schrift, unabhängig von der Auswertungs-App).
 - **Erinnerungs-Zeitstempel:** `mecfs_export_reminder_ts`.
 - Ausführliche Feld-Referenz: siehe `DATENMODELL.md`.
 
@@ -29,7 +30,7 @@ Kurze Referenz für die Wartung und Weiterentwicklung des ME/CFS Symptom-Tracker
 | Bereich | Funktionen |
 |---|---|
 | Konstanten | `STORAGE_PREFIX`, `EXPORT_COLUMNS`, `STANDARD_FIELDS`, Settings-Konstanten |
-| Navigation | `switchView`, `switchPemTab`, `switchDetailTab` |
+| Navigation | `switchView`, `switchTagescheckTab`, `switchPemTab`, `switchDetailTab` |
 | Formular lesen | `collectFormData` (Tagescheck), `collectPemData`, `collectDetailData` |
 | Speichern/Laden | `saveEntry`, `loadEntry`, `resetForm`, `selectedDate` |
 | Export | `getAllEntries`, `buildCSV`, `downloadCSV`, `handleExport`, `handleShare` |

@@ -24,7 +24,7 @@ Herkömmliche Excel-Tabellen zur Dokumentation (z.B. für GdB-Verfahren in Öste
 
 ## Kernfunktionen
 
-*   **Pacing-optimierte Eingabe:** Unterteilung in einen täglichen Minimal- und Standardcheck. An schlechten Tagen (Crash/PEM) dauert die Eingabe nur wenige Sekunden.
+*   **Pacing-optimierte Eingabe:** Unterteilung in die drei Bereiche **Minimal**, **Standard** und **Messwerte**. An schlechten Tagen (Crash/PEM) dauert die Eingabe nur wenige Sekunden.
 *   **100 % lokaler Datenschutz:** Alle Gesundheitsdaten verbleiben ausschließlich lokal auf dem Endgerät (im `localStorage` des Browsers). Es gibt keine Cloud-Anbindung und keinen Backend-Server.
 *   **Vollständig Offline-fähig:** Nach dem ersten Aufruf funktioniert die App komplett ohne aktive Internetverbindung.
 *   **Reizarmes Design:** Dunkles Theme, klare Kontraste, keine Animationen, kein horizontales Scrollen.
