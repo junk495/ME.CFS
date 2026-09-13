@@ -42,10 +42,10 @@ Felder mit einem **★** fließen in die **Crash-Risiko-Einschätzung** der Ausw
 
 ### Minimal (Pflicht an schlechten Tagen)
 
-* **Zustand (0–10):** Wie fühlst du dich insgesamt? (0 = miserabel/Crash, 10 = völlig gesund).
-* **Fatigue / Erschöpfung (0–4):** Die bleierne, körperliche und geistige Erschöpfung, die sich durch Schlaf nicht bessert.
-* **PEM heute (0–4):** Spürst du heute Auswirkungen einer vergangenen Überlastung (Post-Exertional Malaise)?
-* **Schlafdauer (Stunden):** Die reine Dauer des Schlafs der letzten Nacht (z. B. 7,5).
+* ★ **Zustand (0–10):** Wie fühlst du dich insgesamt? (0 = miserabel/Crash, 10 = völlig gesund).
+* ★ **Fatigue / Erschöpfung (0–4):** Die bleierne, körperliche und geistige Erschöpfung, die sich durch Schlaf nicht bessert.
+* ★ **PEM heute (0–4):** Spürst du heute Auswirkungen einer vergangenen Überlastung (Post-Exertional Malaise)?
+* ★ **Schlafdauer (Stunden):** Die reine Dauer des Schlafs der letzten Nacht (z. B. 7,5).
 * **Liegezeit (Stunden):** Wie viele Stunden des Tages musstest du liegend oder ruhend verbringen? (Ein sehr wichtiger Wert für Gutachter!).
 * **Hilfebedarf (Minuten):** Wie viele Minuten am Tag brauchtest du aktive Hilfe von anderen (z. B. beim Kochen, Waschen, Einkaufen)?
 * **Kontext:** Kurze Stichworte zum Tag (z. B. "Arztbesuch", "Menstruation", "Infekt").
@@ -53,20 +53,20 @@ Felder mit einem **★** fließen in die **Crash-Risiko-Einschätzung** der Ausw
 
 ### Standard (Optional, für gute Tage)
 
-* **Schlafqualität (0–4):** Wie erholsam war der Schlaf? (0 = sehr gut, 4 = extrem schlecht).
-* **Belastung (Körperlich, Kognitiv, Reize) (0–4):** Wie hoch war die Belastung in diesen drei Bereichen heute?
+* ★ **Schlafqualität (0–4):** Wie erholsam war der Schlaf? (0 = sehr gut, 4 = extrem schlecht).
+* ★ **Belastung (Körperlich, Kognitiv, Reize) (0–4):** Wie hoch war die Belastung in diesen drei Bereichen heute?
 * **Pacing (0–4):** Wie gut konntest du deine Energiegrenzen heute einhalten? (0 = perfekt eingehalten, 4 = massiv überschritten).
 * **Arbeitsfähigkeit & Teilhabe (0–4):** Wie sehr war deine Fähigkeit zu arbeiten oder am sozialen Leben teilzunehmen heute eingeschränkt? (0 = keine Einschränkung, 4 = völlig unmöglich).
-* **Bell-Selbsteinschätzung (0–100):** Ein medizinisch anerkannter Score für ME/CFS. (z. B. 30 = Hausgebunden, ruht viel; 50 = Kann leichte Arbeit verrichten, braucht viel Ruhe).
+* ★ **Bell-Selbsteinschätzung (0–100):** Ein medizinisch anerkannter Score für ME/CFS. (z. B. 30 = Hausgebunden, ruht viel; 50 = Kann leichte Arbeit verrichten, braucht viel Ruhe).
 
 ### Messwerte (optional)
 
 Hier kannst du objektive Messwerte notieren (z. B. aus einer Smartwatch, einem Blutdruckmessgerät oder einer Waage). Alle Felder sind freiwillig — leere Felder werden einfach übersprungen.
 
+* ★ **Ruhepuls (bpm):** Puls in völliger Ruhe (z. B. morgens vor dem Aufstehen).
+* ★ **HRV (ms):** Herzfrequenz-Variabilität (z. B. RMSSD).
 * **Schritte:** Tages-Schrittzahl.
-* **Ruhepuls (bpm):** Puls in völliger Ruhe (z. B. morgens vor dem Aufstehen).
 * **Puls Durchschnitt / Maximum (bpm):** Tagesmittel und höchster Wert.
-* **HRV (ms):** Herzfrequenz-Variabilität (z. B. RMSSD).
 * **SpO₂ (%):** Sauerstoffsättigung.
 * **Atemfrequenz (1/min):** Atemzüge pro Minute.
 * **Körpertemperatur (°C).**
