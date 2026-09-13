@@ -5,6 +5,17 @@ Die Version wird in `sw.js` (`const VERSION`) gepflegt und folgt Semantic Versio
 
 Nur Änderungen, die die App selbst betreffen (Funktionen, Felder, UI, Verhalten), werden aufgeführt. Änderungen an Dokumentation, Lizenz oder anderen Nicht-App-Dateien gehören nicht hierher. Versionen ohne App-Änderungen werden übersprungen.
 
+## v9.1.0 – 2026-09-13
+
+### Neu
+
+- **Messwerte-Bereich:** Der Tagescheck ist jetzt wie der Detailcheck in drei auswählbare Bereiche (**Minimal / Standard / Messwerte**) gegliedert. Im neuen Bereich „Messwerte" können objektive Messwerte notiert werden: Ruhepuls, Puls Ø/Maximum, HRV, SpO₂, Atemfrequenz, Körpertemperatur, Blutdruck (systolisch/diastolisch), Gewicht und Schritte.
+
+### Geändert
+
+- **Tagescheck gegliedert:** Die bisherigen Blöcke „Minimal / Standard / Optional" wurden in drei Buttons umgewandelt — konsistent mit dem Detailcheck.
+- **Schritte** ist vom Bereich „Optional" nach „Messwerte" umgezogen; **Kontext** und **Notiz** gehören jetzt zum Bereich „Minimal".
+
 ## v9.0.4 – 2026-09-12
 
 ### Geändert

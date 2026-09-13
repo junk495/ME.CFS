@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#101316">
-  <meta name="app-version" content="v9.0.4">
+  <meta name="app-version" content="v9.1.0">
   <meta name="description" content="ME/CFS Symptom-Tracker – offlinefähige PWA zur täglichen Dokumentation">
   <title>ME/CFS Symptom-Tracker</title>
   <link rel="stylesheet" href="style.css">
@@ -42,6 +42,13 @@
         </div>
       </details>
 
+      <div class="pem-tabs">
+        <button type="button" id="tab-tagescheck-minimal" class="pem-tab is-active">Minimal</button>
+        <button type="button" id="tab-tagescheck-standard" class="pem-tab">Standard</button>
+        <button type="button" id="tab-tagescheck-messwerte" class="pem-tab">Messwerte</button>
+      </div>
+
+      <div id="tagescheck-minimal-view">
       <div class="block">
         <h3 class="block-title">Minimal <span class="block-badge">Pflicht</span></h3>
 
@@ -102,8 +109,20 @@
           <label class="field-label" for="hilfebedarf_min">Hilfebedarf <span class="field-unit">(Minuten)</span></label>
           <input class="field-input" type="number" id="hilfebedarf_min" name="hilfebedarf_min" inputmode="numeric" step="1" min="0" placeholder="z. B. 30" autocomplete="off">
         </div>
+
+        <div class="field">
+          <label class="field-label" for="kontext">Kontext</label>
+          <input class="field-input" type="text" id="kontext" name="kontext" placeholder="z. B. Arztbesuch" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="notiz">Notiz</label>
+          <textarea class="field-input field-input--textarea" id="notiz" name="notiz" rows="3" placeholder="Freitext" autocomplete="off"></textarea>
+        </div>
+      </div>
       </div>
 
+      <div id="tagescheck-standard-view" style="display: none;">
       <div class="block">
         <h3 class="block-title">Standard <span class="block-badge">optional</span></h3>
 
@@ -189,9 +208,11 @@
           <input class="field-input" type="number" id="bell_0_100" name="bell_0_100" inputmode="numeric" step="10" min="0" max="100" placeholder="z. B. 30" autocomplete="off">
         </div>
       </div>
+      </div>
 
+      <div id="tagescheck-messwerte-view" style="display: none;">
       <div class="block">
-        <h3 class="block-title">Optional</h3>
+        <h3 class="block-title">Messwerte <span class="block-badge">optional</span></h3>
 
         <div class="field">
           <label class="field-label" for="schritte">Schritte</label>
@@ -199,14 +220,55 @@
         </div>
 
         <div class="field">
-          <label class="field-label" for="kontext">Kontext</label>
-          <input class="field-input" type="text" id="kontext" name="kontext" placeholder="z. B. Arztbesuch" autocomplete="off">
+          <label class="field-label" for="puls_ruhe">Ruhepuls <span class="field-unit">(bpm)</span></label>
+          <input class="field-input" type="number" id="puls_ruhe" name="puls_ruhe" inputmode="numeric" step="1" min="0" max="250" placeholder="z. B. 68" autocomplete="off">
         </div>
 
         <div class="field">
-          <label class="field-label" for="notiz">Notiz</label>
-          <textarea class="field-input field-input--textarea" id="notiz" name="notiz" rows="3" placeholder="Freitext" autocomplete="off"></textarea>
+          <label class="field-label" for="puls_avg">Puls Durchschnitt <span class="field-unit">(bpm)</span></label>
+          <input class="field-input" type="number" id="puls_avg" name="puls_avg" inputmode="numeric" step="1" min="0" max="250" placeholder="z. B. 78" autocomplete="off">
         </div>
+
+        <div class="field">
+          <label class="field-label" for="puls_max">Puls Maximum <span class="field-unit">(bpm)</span></label>
+          <input class="field-input" type="number" id="puls_max" name="puls_max" inputmode="numeric" step="1" min="0" max="250" placeholder="z. B. 120" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="hrv">Herzfrequenz-Variabilität (HRV) <span class="field-unit">(ms)</span></label>
+          <input class="field-input" type="number" id="hrv" name="hrv" inputmode="decimal" step="0.1" min="0" placeholder="z. B. 42" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="spo2">Sauerstoffsättigung (SpO₂) <span class="field-unit">(%)</span></label>
+          <input class="field-input" type="number" id="spo2" name="spo2" inputmode="numeric" step="1" min="0" max="100" placeholder="z. B. 97" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="atemfrequenz">Atemfrequenz <span class="field-unit">(1/min)</span></label>
+          <input class="field-input" type="number" id="atemfrequenz" name="atemfrequenz" inputmode="numeric" step="1" min="0" max="60" placeholder="z. B. 14" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="temperatur">Körpertemperatur <span class="field-unit">(°C)</span></label>
+          <input class="field-input" type="number" id="temperatur" name="temperatur" inputmode="decimal" step="0.1" min="0" max="45" placeholder="z. B. 36.6" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="blutdruck_sys">Blutdruck systolisch <span class="field-unit">(mmHg)</span></label>
+          <input class="field-input" type="number" id="blutdruck_sys" name="blutdruck_sys" inputmode="numeric" step="1" min="0" max="300" placeholder="z. B. 120" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="blutdruck_dia">Blutdruck diastolisch <span class="field-unit">(mmHg)</span></label>
+          <input class="field-input" type="number" id="blutdruck_dia" name="blutdruck_dia" inputmode="numeric" step="1" min="0" max="200" placeholder="z. B. 80" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="gewicht">Gewicht <span class="field-unit">(kg)</span></label>
+          <input class="field-input" type="number" id="gewicht" name="gewicht" inputmode="decimal" step="0.1" min="0" max="500" placeholder="z. B. 72.5" autocomplete="off">
+        </div>
+      </div>
       </div>
 
       <button type="button" class="btn-save" id="btn-save-tagescheck">Speichern</button>

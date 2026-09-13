@@ -36,7 +36,7 @@ Um langes Tippen zu vermeiden, nutzen fast alle Felder eine einfache 5-Stufen-Sk
 
 ## 📋 Tab 1: Tagescheck (Der tägliche Begleiter)
 
-Hier erfasst du deinen grundlegenden Alltag. Dieser Bereich ist in drei Blöcke unterteilt, je nachdem, wie viel Energie du heute fürs Ausfüllen hast.
+Hier erfasst du deinen grundlegenden Alltag. Dieser Bereich ist — wie der Detailcheck — in drei auswählbare Bereiche (Buttons) unterteilt, je nachdem, wie viel Energie du heute fürs Ausfüllen hast.
 
 ### Minimal (Pflicht an schlechten Tagen)
 
@@ -46,6 +46,8 @@ Hier erfasst du deinen grundlegenden Alltag. Dieser Bereich ist in drei Blöcke 
 * **Schlafdauer (Stunden):** Die reine Dauer des Schlafs der letzten Nacht (z. B. 7,5).
 * **Liegezeit (Stunden):** Wie viele Stunden des Tages musstest du liegend oder ruhend verbringen? (Ein sehr wichtiger Wert für Gutachter!).
 * **Hilfebedarf (Minuten):** Wie viele Minuten am Tag brauchtest du aktive Hilfe von anderen (z. B. beim Kochen, Waschen, Einkaufen)?
+* **Kontext:** Kurze Stichworte zum Tag (z. B. "Arztbesuch", "Menstruation", "Infekt").
+* **Notiz:** Platz für freie Gedanken oder Besonderheiten.
 
 ### Standard (Optional, für gute Tage)
 
@@ -55,11 +57,19 @@ Hier erfasst du deinen grundlegenden Alltag. Dieser Bereich ist in drei Blöcke 
 * **Arbeitsfähigkeit & Teilhabe (0–4):** Wie sehr war deine Fähigkeit zu arbeiten oder am sozialen Leben teilzunehmen heute eingeschränkt? (0 = keine Einschränkung, 4 = völlig unmöglich).
 * **Bell-Selbsteinschätzung (0–100):** Ein medizinisch anerkannter Score für ME/CFS. (z. B. 30 = Hausgebunden, ruht viel; 50 = Kann leichte Arbeit verrichten, braucht viel Ruhe).
 
-### Optional (Zusatzinfos)
+### Messwerte (optional)
 
-* **Schritte:** Falls du eine Smartwatch trägst, kannst du hier die Schrittzahl notieren.
-* **Kontext:** Kurze Stichworte zum Tag (z. B. "Arztbesuch", "Menstruation", "Infekt").
-* **Notiz:** Platz für freie Gedanken oder Besonderheiten.
+Hier kannst du objektive Messwerte notieren (z. B. aus einer Smartwatch, einem Blutdruckmessgerät oder einer Waage). Alle Felder sind freiwillig — leere Felder werden einfach übersprungen.
+
+* **Schritte:** Tages-Schrittzahl.
+* **Ruhepuls (bpm):** Puls in völliger Ruhe (z. B. morgens vor dem Aufstehen).
+* **Puls Durchschnitt / Maximum (bpm):** Tagesmittel und höchster Wert.
+* **HRV (ms):** Herzfrequenz-Variabilität (z. B. RMSSD).
+* **SpO₂ (%):** Sauerstoffsättigung.
+* **Atemfrequenz (1/min):** Atemzüge pro Minute.
+* **Körpertemperatur (°C).**
+* **Blutdruck (mmHg):** systolisch / diastolisch.
+* **Gewicht (kg).**
 
 ---
 

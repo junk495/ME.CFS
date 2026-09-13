@@ -31,6 +31,8 @@ Dieses Dokument beschreibt die technische Datenstruktur des ME/CFS Symptom-Track
 | `schlafdauer_h` | Schlafdauer | Zahl (Stunden, Dezimal) |
 | `liegezeit_h` | Liegezeit | Zahl (Stunden, Dezimal) |
 | `hilfebedarf_min` | Hilfebedarf | Zahl (Minuten) |
+| `kontext` | Kontext | Text |
+| `notiz` | Notiz | Text (mehrzeilig) |
 
 ### Tagescheck — Standard
 
@@ -45,13 +47,21 @@ Dieses Dokument beschreibt die technische Datenstruktur des ME/CFS Symptom-Track
 | `teilhabe_0_4` | Teilhabe | Skala 0–4 |
 | `bell_0_100` | Bell-Selbsteinschätzung | Skala 0–100 |
 
-### Tagescheck — Optional
+### Tagescheck — Messwerte
 
 | Key | Label | Typ |
 |---|---|---|
 | `schritte` | Schritte | Zahl (Ganzzahl) |
-| `kontext` | Kontext | Text |
-| `notiz` | Notiz | Text (mehrzeilig) |
+| `puls_ruhe` | Ruhepuls | Zahl (bpm) |
+| `puls_avg` | Puls Durchschnitt | Zahl (bpm) |
+| `puls_max` | Puls Maximum | Zahl (bpm) |
+| `hrv` | HRV (Herzfrequenz-Variabilität) | Zahl (ms) |
+| `spo2` | Sauerstoffsättigung (SpO₂) | Zahl (%) |
+| `atemfrequenz` | Atemfrequenz | Zahl (1/min) |
+| `temperatur` | Körpertemperatur | Zahl (°C) |
+| `blutdruck_sys` | Blutdruck systolisch | Zahl (mmHg) |
+| `blutdruck_dia` | Blutdruck diastolisch | Zahl (mmHg) |
+| `gewicht` | Gewicht | Zahl (kg) |
 
 ### PEM-Crash
 
@@ -165,5 +175,5 @@ Dieses Dokument beschreibt die technische Datenstruktur des ME/CFS Symptom-Track
 
 ## Anzahl der Felder
 
-Insgesamt **80 CSV-Spalten**: 2 Meta-Felder + 78 erfasste Werte (Tagescheck, PEM, Detailcheck).
+Insgesamt **90 CSV-Spalten**: 2 Meta-Felder + 88 erfasste Werte (Tagescheck, PEM, Detailcheck).
 

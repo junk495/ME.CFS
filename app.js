@@ -42,6 +42,16 @@
     { key: 'teilhabe_0_4', header: 'Teilhabe (0-4)' },
     { key: 'schlafdauer_h', header: 'Schlafdauer (h)' },
     { key: 'schritte', header: 'Schritte' },
+    { key: 'puls_ruhe', header: 'Ruhepuls (bpm)' },
+    { key: 'puls_avg', header: 'Puls Mittel (bpm)' },
+    { key: 'puls_max', header: 'Puls Maximum (bpm)' },
+    { key: 'hrv', header: 'HRV (ms)' },
+    { key: 'spo2', header: 'SpO2 (%)' },
+    { key: 'atemfrequenz', header: 'Atemfrequenz (1/min)' },
+    { key: 'temperatur', header: 'Temperatur (°C)' },
+    { key: 'blutdruck_sys', header: 'Blutdruck systolisch (mmHg)' },
+    { key: 'blutdruck_dia', header: 'Blutdruck diastolisch (mmHg)' },
+    { key: 'gewicht', header: 'Gewicht (kg)' },
     { key: 'kontext', header: 'Kontext' },
     { key: 'notiz', header: 'Notiz' },
     { key: 'pem_belastungsdatum', header: 'Belastungsdatum' },
@@ -162,6 +172,23 @@
     });
     ['basis', 'spezifisch', 'funktion'].forEach((name) => {
       const btn = document.getElementById(`tab-detail-${name}`);
+      if (btn) btn.classList.toggle('is-active', name === tabName);
+    });
+  };
+
+  // ---------- Tagescheck-Sub-Tab-Navigation ----------
+  const switchTagescheckTab = (tabName) => {
+    const views = {
+      minimal: 'tagescheck-minimal-view',
+      standard: 'tagescheck-standard-view',
+      messwerte: 'tagescheck-messwerte-view'
+    };
+    Object.keys(views).forEach((name) => {
+      const el = document.getElementById(views[name]);
+      if (el) el.style.display = name === tabName ? 'block' : 'none';
+    });
+    ['minimal', 'standard', 'messwerte'].forEach((name) => {
+      const btn = document.getElementById(`tab-tagescheck-${name}`);
       if (btn) btn.classList.toggle('is-active', name === tabName);
     });
   };
@@ -901,6 +928,14 @@
     if (tabDetailBasis) tabDetailBasis.addEventListener('click', () => switchDetailTab('basis'));
     if (tabDetailSpezifisch) tabDetailSpezifisch.addEventListener('click', () => switchDetailTab('spezifisch'));
     if (tabDetailFunktion) tabDetailFunktion.addEventListener('click', () => switchDetailTab('funktion'));
+
+    // Tagescheck-Sub-Tabs
+    const tabTagescheckMinimal = document.getElementById('tab-tagescheck-minimal');
+    const tabTagescheckStandard = document.getElementById('tab-tagescheck-standard');
+    const tabTagescheckMesswerte = document.getElementById('tab-tagescheck-messwerte');
+    if (tabTagescheckMinimal) tabTagescheckMinimal.addEventListener('click', () => switchTagescheckTab('minimal'));
+    if (tabTagescheckStandard) tabTagescheckStandard.addEventListener('click', () => switchTagescheckTab('standard'));
+    if (tabTagescheckMesswerte) tabTagescheckMesswerte.addEventListener('click', () => switchTagescheckTab('messwerte'));
 
     const saveBtn = document.getElementById('btn-save-tagescheck');
     if (saveBtn) saveBtn.addEventListener('click', handleSave);
