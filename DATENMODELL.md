@@ -21,6 +21,8 @@ Dieses Dokument beschreibt die technische Datenstruktur des ME/CFS Symptom-Track
 
 ## Felder nach Tab
 
+Felder mit ★ fließen in die Crash-Risiko-Einschätzung der Auswertungs-App (ME.CFS.graph) ein.
+
 ### Tagescheck — Minimal
 
 | Key | Label | Typ |

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#101316">
-  <meta name="app-version" content="v9.1.0">
+  <meta name="app-version" content="v9.3.0">
   <meta name="description" content="ME/CFS Symptom-Tracker – offlinefähige PWA zur täglichen Dokumentation">
   <title>ME/CFS Symptom-Tracker</title>
   <link rel="stylesheet" href="style.css">
@@ -39,6 +39,7 @@
           <p><strong>Die 0-4 Skala:</strong> 0 = Nicht vorhanden, 1 = Leicht (kaum Einschränkung), 2 = Mittel (Pause nötig), 3 = Schwer (stark reduziert), 4 = Sehr schwer (Aktivität unmöglich).</p>
           <p><strong>Ausnahmen:</strong> Beim Zustand (0-10) und der Bell-Skala (0-100) bedeuten <em>höhere</em> Werte einen <em>besseren</em> Zustand (volle Energie).</p>
           <p><strong>Fatigue vs. PEM:</strong> <em>Fatigue</em> ist die bleierne Grunderschöpfung. <em>PEM</em> (Post-Exertional Malaise) ist der Absturz nach einer physischen oder kognitiven Überlastung.</p>
+          <p><strong>★:</strong> Diese Werte fließen in die Crash-Risiko-Einschätzung der Auswertungs-App ein.</p>
         </div>
       </details>
 
@@ -53,7 +54,7 @@
         <h3 class="block-title">Minimal <span class="block-badge">Pflicht</span></h3>
 
         <fieldset class="scale-group">
-          <legend>Zustand <span class="scale-hint">(0–10)</span></legend>
+          <legend>Zustand <span class="risk-star">★</span> <span class="scale-hint">(0–10)</span></legend>
           <div class="scale-rows">
             <div class="scale-options">
               <label class="scale-option"><input type="radio" name="zustand_0_10" value="0"><span>0</span></label>
@@ -74,7 +75,7 @@
         </fieldset>
 
         <fieldset class="scale-group">
-          <legend>Fatigue / Erschöpfung <span class="scale-hint">(0–4)</span></legend>
+          <legend>Fatigue / Erschöpfung <span class="risk-star">★</span> <span class="scale-hint">(0–4)</span></legend>
           <div class="scale-options">
             <label class="scale-option"><input type="radio" name="fatigue_0_4" value="0"><span>0</span></label>
             <label class="scale-option"><input type="radio" name="fatigue_0_4" value="1"><span>1</span></label>
@@ -85,7 +86,7 @@
         </fieldset>
 
         <fieldset class="scale-group">
-          <legend>PEM heute <span class="scale-hint">(0–4)</span></legend>
+          <legend>PEM heute <span class="risk-star">★</span> <span class="scale-hint">(0–4)</span></legend>
           <div class="scale-options">
             <label class="scale-option"><input type="radio" name="pem_heute_0_4" value="0"><span>0</span></label>
             <label class="scale-option"><input type="radio" name="pem_heute_0_4" value="1"><span>1</span></label>
@@ -96,7 +97,7 @@
         </fieldset>
 
         <div class="field">
-          <label class="field-label" for="schlafdauer_h">Schlafdauer <span class="field-unit">(Stunden)</span></label>
+          <label class="field-label" for="schlafdauer_h">Schlafdauer <span class="risk-star">★</span> <span class="field-unit">(Stunden)</span></label>
           <input class="field-input" type="number" id="schlafdauer_h" name="schlafdauer_h" inputmode="decimal" step="0.25" min="0" max="24" placeholder="z. B. 7.5" autocomplete="off">
         </div>
 
@@ -127,7 +128,7 @@
         <h3 class="block-title">Standard <span class="block-badge">optional</span></h3>
 
         <fieldset class="scale-group">
-          <legend>Schlafqualität <span class="scale-hint">(0–4)</span></legend>
+          <legend>Schlafqualität <span class="risk-star">★</span> <span class="scale-hint">(0–4)</span></legend>
           <div class="scale-options">
             <label class="scale-option"><input type="radio" name="schlafqualitaet_0_4" value="0"><span>0</span></label>
             <label class="scale-option"><input type="radio" name="schlafqualitaet_0_4" value="1"><span>1</span></label>
@@ -138,7 +139,7 @@
         </fieldset>
 
         <fieldset class="scale-group">
-          <legend>Belastung körperlich <span class="scale-hint">(0–4)</span></legend>
+          <legend>Belastung körperlich <span class="risk-star">★</span> <span class="scale-hint">(0–4)</span></legend>
           <div class="scale-options">
             <label class="scale-option"><input type="radio" name="belastung_koerperlich_0_4" value="0"><span>0</span></label>
             <label class="scale-option"><input type="radio" name="belastung_koerperlich_0_4" value="1"><span>1</span></label>
@@ -149,7 +150,7 @@
         </fieldset>
 
         <fieldset class="scale-group">
-          <legend>Belastung kognitiv <span class="scale-hint">(0–4)</span></legend>
+          <legend>Belastung kognitiv <span class="risk-star">★</span> <span class="scale-hint">(0–4)</span></legend>
           <div class="scale-options">
             <label class="scale-option"><input type="radio" name="belastung_kognitiv_0_4" value="0"><span>0</span></label>
             <label class="scale-option"><input type="radio" name="belastung_kognitiv_0_4" value="1"><span>1</span></label>
@@ -160,7 +161,7 @@
         </fieldset>
 
         <fieldset class="scale-group">
-          <legend>Belastung Reize <span class="scale-hint">(0–4)</span></legend>
+          <legend>Belastung Reize <span class="risk-star">★</span> <span class="scale-hint">(0–4)</span></legend>
           <div class="scale-options">
             <label class="scale-option"><input type="radio" name="belastung_reiz_0_4" value="0"><span>0</span></label>
             <label class="scale-option"><input type="radio" name="belastung_reiz_0_4" value="1"><span>1</span></label>
@@ -204,7 +205,7 @@
         </fieldset>
 
         <div class="field">
-          <label class="field-label" for="bell_0_100">Bell-Selbsteinschätzung <span class="field-unit">(0–100)</span></label>
+          <label class="field-label" for="bell_0_100">Bell-Selbsteinschätzung <span class="risk-star">★</span> <span class="field-unit">(0–100)</span></label>
           <input class="field-input" type="number" id="bell_0_100" name="bell_0_100" inputmode="numeric" step="10" min="0" max="100" placeholder="z. B. 30" autocomplete="off">
         </div>
       </div>
@@ -215,13 +216,18 @@
         <h3 class="block-title">Messwerte <span class="block-badge">optional</span></h3>
 
         <div class="field">
-          <label class="field-label" for="schritte">Schritte</label>
-          <input class="field-input" type="number" id="schritte" name="schritte" inputmode="numeric" step="1" min="0" placeholder="z. B. 3000" autocomplete="off">
+          <label class="field-label" for="puls_ruhe">Ruhepuls <span class="risk-star">★</span> <span class="field-unit">(bpm)</span></label>
+          <input class="field-input" type="number" id="puls_ruhe" name="puls_ruhe" inputmode="numeric" step="1" min="0" max="250" placeholder="z. B. 68, morgens" autocomplete="off">
         </div>
 
         <div class="field">
-          <label class="field-label" for="puls_ruhe">Ruhepuls <span class="field-unit">(bpm)</span></label>
-          <input class="field-input" type="number" id="puls_ruhe" name="puls_ruhe" inputmode="numeric" step="1" min="0" max="250" placeholder="z. B. 68" autocomplete="off">
+          <label class="field-label" for="hrv">Herzfrequenz-Variabilität (HRV) <span class="risk-star">★</span> <span class="field-unit">(ms)</span></label>
+          <input class="field-input" type="number" id="hrv" name="hrv" inputmode="decimal" step="0.1" min="0" placeholder="z. B. 42" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="schritte">Schritte</label>
+          <input class="field-input" type="number" id="schritte" name="schritte" inputmode="numeric" step="1" min="0" placeholder="z. B. 3000" autocomplete="off">
         </div>
 
         <div class="field">
@@ -232,11 +238,6 @@
         <div class="field">
           <label class="field-label" for="puls_max">Puls Maximum <span class="field-unit">(bpm)</span></label>
           <input class="field-input" type="number" id="puls_max" name="puls_max" inputmode="numeric" step="1" min="0" max="250" placeholder="z. B. 120" autocomplete="off">
-        </div>
-
-        <div class="field">
-          <label class="field-label" for="hrv">Herzfrequenz-Variabilität (HRV) <span class="field-unit">(ms)</span></label>
-          <input class="field-input" type="number" id="hrv" name="hrv" inputmode="decimal" step="0.1" min="0" placeholder="z. B. 42" autocomplete="off">
         </div>
 
         <div class="field">
@@ -1074,6 +1075,17 @@
         <div class="field">
           <label class="field-label" for="reminder-interval">Intervall <span class="field-unit">(Tage)</span></label>
           <input class="field-input" type="number" id="reminder-interval" inputmode="numeric" step="1" min="1" value="3" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="block">
+        <h3 class="block-title">Darstellung</h3>
+
+        <div class="field">
+          <label class="field-label toggle-row" for="font-toggle">
+            <input type="checkbox" id="font-toggle">
+            <span>Große Schrift</span>
+          </label>
         </div>
       </div>
 

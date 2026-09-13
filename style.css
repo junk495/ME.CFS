@@ -17,6 +17,11 @@
   --accent-fg: #ffffff;
   --focus: #8fb8e8;
   --min-target: 44px;
+  --risk-star: #d9b65c;
+}
+
+.risk-star {
+  color: var(--risk-star);
 }
 
 /* ---------- Reset ---------- */
@@ -27,6 +32,10 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+}
+
+html.font-large {
+  font-size: 18px;
 }
 
 body {

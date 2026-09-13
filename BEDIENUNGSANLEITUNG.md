@@ -38,6 +38,8 @@ Um langes Tippen zu vermeiden, nutzen fast alle Felder eine einfache 5-Stufen-Sk
 
 Hier erfasst du deinen grundlegenden Alltag. Dieser Bereich ist — wie der Detailcheck — in drei auswählbare Bereiche (Buttons) unterteilt, je nachdem, wie viel Energie du heute fürs Ausfüllen hast.
 
+Felder mit einem **★** fließen in die **Crash-Risiko-Einschätzung** der Auswertungs-App (ME.CFS.graph) ein.
+
 ### Minimal (Pflicht an schlechten Tagen)
 
 * **Zustand (0–10):** Wie fühlst du dich insgesamt? (0 = miserabel/Crash, 10 = völlig gesund).
@@ -149,6 +151,10 @@ Da die App keine Daten ins Internet sendet, bist du der Herr über deine Tabelle
 
 * **Erinnerung aktivieren:** Ist der Haken gesetzt, erinnert dich die App daran, regelmäßig zu exportieren (Standard: aktiviert).
 * **Intervall (Tage):** Wie oft die Erinnerung erscheinen soll (Standard: 3 Tage). Das Feld ist ausgegraut, solange der Haken nicht gesetzt ist.
+
+### Darstellung
+
+* **Große Schrift:** Vergrößert die Schrift in der App (wird lokal gespeichert, unabhängig von der Auswertungs-App).
 
 **Wichtig zur Datensicherheit:** Deine Daten liegen ausschließlich lokal auf diesem Gerät — es gibt keinen Server und keine Cloud. Browser können lokale Daten bei Speicherknappheit oder längerer Nicht-Nutzung löschen (iOS-Safari teils schon nach 7 Tagen, wenn die App nicht installiert ist). Installiere die App deshalb am besten als PWA („App installieren" unter Android/Chrome, „Zum Home-Bildschirm" unter iOS/Safari) und exportiere regelmäßig, um deine Daten zu sichern.
 

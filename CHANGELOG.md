@@ -5,6 +5,24 @@ Die Version wird in `sw.js` (`const VERSION`) gepflegt und folgt Semantic Versio
 
 Nur Änderungen, die die App selbst betreffen (Funktionen, Felder, UI, Verhalten), werden aufgeführt. Änderungen an Dokumentation, Lizenz oder anderen Nicht-App-Dateien gehören nicht hierher. Versionen ohne App-Änderungen werden übersprungen.
 
+## v9.3.0 – 2026-09-13
+
+### Neu
+
+- **Große Schrift:** Im Export-Tab lässt sich jetzt eine größere Schrift aktivieren (wird lokal gespeichert, unabhängig von der Auswertungs-App).
+
+## v9.2.0 – 2026-09-13
+
+### Neu
+
+- **Crash-Risiko-Kennzeichnung:** Felder, die in die Crash-Risiko-Einschätzung der Auswertungs-App einfließen, sind jetzt mit einem ★ markiert (Zustand, Fatigue, PEM heute, Schlafdauer, Schlafqualität, Belastung, Bell, Ruhepuls, HRV).
+- **Messwerte sortiert:** Ruhepuls und HRV stehen jetzt ganz oben im Bereich „Messwerte".
+
+### Geändert
+
+- **Hilfe-Box:** erklärt die Bedeutung des ★.
+- **Platzhalter:** Ruhepuls weist jetzt auf die Messung am Morgen hin.
+
 ## v9.1.0 – 2026-09-13
 
 ### Neu

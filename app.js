@@ -989,6 +989,23 @@
 
     initReminderSettings();
 
+    // Große Schrift (Darstellung, unabhängig von der Auswertungs-App)
+    const fontKey = 'mecfs_tracker_large_font';
+    const fontToggle = document.getElementById('font-toggle');
+    const applyFontPreference = () => {
+      const on = localStorage.getItem(fontKey) === '1';
+      document.documentElement.classList.toggle('font-large', on);
+      if (fontToggle) fontToggle.checked = on;
+    };
+    if (fontToggle) {
+      fontToggle.addEventListener('change', () => {
+        if (fontToggle.checked) localStorage.setItem(fontKey, '1');
+        else localStorage.removeItem(fontKey);
+        document.documentElement.classList.toggle('font-large', fontToggle.checked);
+      });
+    }
+    applyFontPreference();
+
     // Export-Erinnerung (falls fällig)
     if (isExportReminderDue()) {
       showExportReminder();
