@@ -75,29 +75,7 @@ Hier kannst du objektive Messwerte notieren (z. B. aus einer Smartwatch, einem B
 
 ---
 
-## ⚡ Tab 2: PEM-Crash (Wenn der Akku leer ist)
-
-Dieser Tab ist kein tägliches Tagebuch, sondern ein "Notfall-Logbuch". Nach dem Pacing-Prinzip ist er in zwei Unter-Ansichten (Sub-Tabs) geteilt, um im Akutfall kaum Energie zu kosten:
-
-### Akut (Am Tag des Crash-Beginns)
-
-* **"Crash-Beginn jetzt eintragen":** Ein Tipp setzt automatisch die aktuelle Uhrzeit in das Feld — mehr musst du im Akutfall nicht tun.
-* **Uhrzeit & Kurznotiz (Vermuteter Auslöser):** Optional ein kurzes Stichwort zum Auslöser (z. B. "Einkaufen", "Lärm"). Speichern und Handy weglegen.
-
-### Auswertung (Tage später, in Ruhe)
-
-Wenn sich der Nebel lichtet: Nutze den Datums-Wähler oben, um zum Tag des Crashs zurückzuspringen. Wechsle auf den Sub-Tab "Auswertung" und trage nach:
-
-* **Datum der Belastung:** Wann fand die auslösende Überlastung statt?
-* **Verzögerung bis Crash (Stunden):** Wie lange hat es nach der Belastung gedauert, bis der Absturz kam?
-* **Bisherige Dauer (Stunden):** Wie lange hielt der Crash an?
-* **Gesamtschwere & Erholungsdauer (0–4):** Wie schlimm war der Crash insgesamt und wie ungewöhnlich zäh war die Erholung?
-* **Zunahme (Fatigue, Kognition, Schmerzen, Krankheitsgefühl) (0–4):** Wie stark haben sich diese spezifischen Symptome *im Vergleich zu deinem Normalzustand* verschlechtert?
-* **Stärkste Symptomzunahme (Freitext):** Beschreibe in eigenen Worten den stärksten Funktionsverlust (z.B. "Konnte nicht mehr sprechen, völlige Lichtempfindlichkeit").
-
----
-
-## 🔍 Tab 3: Detailcheck (Für Arztbesuche und Gutachten)
+## 🔍 Tab 2: Detailcheck (Für Arztbesuche und Gutachten)
 
 Hier kannst du extrem tief ins Detail gehen. Dieser Tab ist ideal, um vor einem wichtigen Arzttermin für einige Tage ein exaktes Symptomprofil zu erstellen. Wähle einfach den passenden Sub-Tab:
 
@@ -128,6 +106,28 @@ Dieser Bereich ist entscheidend für Pflegegeld- oder GdB-Anträge. Hier bewerte
 * Körperpflege, Anziehen, Zubereitung von Mahlzeiten.
 * Gehen, längeres Sitzen/Aufrechtsein, Haushaltstätigkeiten.
 * Kommunikation mit anderen, das Verlassen des Hauses und die Fähigkeit, Sonnenlicht zu ertragen.
+
+---
+
+## ⚡ Tab 3: PEM-Crash (Wenn der Akku leer ist)
+
+Dieser Tab ist kein tägliches Tagebuch, sondern ein "Notfall-Logbuch". Nach dem Pacing-Prinzip ist er in zwei Unter-Ansichten (Sub-Tabs) geteilt, um im Akutfall kaum Energie zu kosten:
+
+### Akut (Am Tag des Crash-Beginns)
+
+* **"Crash-Beginn jetzt eintragen":** Ein Tipp setzt automatisch die aktuelle Uhrzeit in das Feld — mehr musst du im Akutfall nicht tun.
+* **Uhrzeit & Kurznotiz (Vermuteter Auslöser):** Optional ein kurzes Stichwort zum Auslöser (z. B. "Einkaufen", "Lärm"). Speichern und Handy weglegen.
+
+### Auswertung (Tage später, in Ruhe)
+
+Wenn sich der Nebel lichtet: Nutze den Datums-Wähler oben, um zum Tag des Crashs zurückzuspringen. Wechsle auf den Sub-Tab "Auswertung" und trage nach:
+
+* **Datum der Belastung:** Wann fand die auslösende Überlastung statt?
+* **Verzögerung bis Crash (Stunden):** Wie lange hat es nach der Belastung gedauert, bis der Absturz kam?
+* **Bisherige Dauer (Stunden):** Wie lange hielt der Crash an?
+* **Gesamtschwere & Erholungsdauer (0–4):** Wie schlimm war der Crash insgesamt und wie ungewöhnlich zäh war die Erholung?
+* **Zunahme (Fatigue, Kognition, Schmerzen, Krankheitsgefühl) (0–4):** Wie stark haben sich diese spezifischen Symptome *im Vergleich zu deinem Normalzustand* verschlechtert?
+* **Stärkste Symptomzunahme (Freitext):** Beschreibe in eigenen Worten den stärksten Funktionsverlust (z.B. "Konnte nicht mehr sprechen, völlige Lichtempfindlichkeit").
 
 ---
 

@@ -5,6 +5,12 @@ Die Version wird in `sw.js` (`const VERSION`) gepflegt und folgt Semantic Versio
 
 Nur Änderungen, die die App selbst betreffen (Funktionen, Felder, UI, Verhalten), werden aufgeführt. Änderungen an Dokumentation, Lizenz oder anderen Nicht-App-Dateien gehören nicht hierher. Versionen ohne App-Änderungen werden übersprungen.
 
+## v9.3.1 – 2026-09-13
+
+### Geändert
+
+- **Tab-Reihenfolge:** Detailcheck steht jetzt vor PEM-Crash (Tagescheck → Detailcheck → PEM-Crash → Export).
+
 ## v9.3.0 – 2026-09-13
 
 ### Neu
