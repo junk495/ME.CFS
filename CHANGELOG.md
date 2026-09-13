@@ -5,6 +5,12 @@ Die Version wird in `sw.js` (`const VERSION`) gepflegt und folgt Semantic Versio
 
 Nur Änderungen, die die App selbst betreffen (Funktionen, Felder, UI, Verhalten), werden aufgeführt. Änderungen an Dokumentation, Lizenz oder anderen Nicht-App-Dateien gehören nicht hierher. Versionen ohne App-Änderungen werden übersprungen.
 
+## v9.0.3 – 2026-09-12
+
+### Geändert
+
+- **Eingabe-Validierung:** Schlafdauer und Liegezeit sind jetzt auf 0–24 Stunden begrenzt (verhindert versehentliche Ausreißer).
+
 ## v9.0.2 – 2026-09-12
 
 ### Geändert
