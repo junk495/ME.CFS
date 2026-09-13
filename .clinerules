@@ -44,9 +44,10 @@ Hosting-Umgebung: GitHub Pages (rein statisches Hosting, HTTPS).
 
 # Versionierung (Semantic Versioning)
 
-- Die Versionsnummer wird an **zwei** Stellen geführt und MUSS immer übereinstimmen:
+- Die Versionsnummer wird an **drei** Stellen geführt und MUSS immer übereinstimmen:
   1. `VERSION` in `sw.js` (steuert den Cache-Namen und damit den Update-Hinweis für Nutzer:innen).
-  2. Oberster Eintrag in `CHANGELOG.md`.
+  2. `<meta name="app-version" content="vX.Y.Z">` in `index.html` (Anzeige in der App).
+  3. Oberster Eintrag in `CHANGELOG.md`.
 - Schema: `MAJOR.MINOR.PATCH` (z. B. `v9.0.0`).
   - `MAJOR` (x.0.0): grundlegende Neuausrichtung oder inkompatible Änderung.
   - `MINOR` (0.x.0): neue Funktion oder neuer Tab (abwärtskompatibel).

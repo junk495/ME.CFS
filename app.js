@@ -988,7 +988,12 @@
     dismissBtn.addEventListener('click', hideUpdateToast);
   }
 
-  // ---------- Service Worker registrieren (PWA/Offline) ----------
+  // Version anzeigen (aus Meta-Tag <meta name="app-version">)
+  (() => {
+    const meta = document.querySelector('meta[name="app-version"]');
+    const el = document.getElementById('app-version');
+    if (meta && el) el.textContent = 'Version ' + meta.getAttribute('content');
+  })();  // ---------- Service Worker registrieren (PWA/Offline) ----------
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.addEventListener('message', (event) => {
       if (event.data && event.data.type === 'UPDATE_READY') {
