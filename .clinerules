@@ -65,21 +65,20 @@ Die Dokumentation ist auf zwei Orte verteilt und muss inhaltlich stets zusammenp
 - `CHANGELOG.md` — Versionshistorie (je Version die Änderungen **an der App**: Funktionen, Felder, UI, Verhalten). NICHT hinein: aktuelle Feature-Beschreibung (→ Wiki), Bedienung (→ Wiki), Änderungen an Dokumentation, Lizenz oder anderen Nicht-App-Dateien.
 - `LICENSE.md` — Lizenz (CC BY-NC-SA 4.0) + medizinischer Haftungsausschluss.
 
-## GitHub-Wiki (`ME.CFS.wiki`)
+## GitHub-Wiki (Projekt-Wiki für Tracker + Graph)
 
-- `Home.md` — Einstiegsseite des Wikis (Kurzvorstellung, Live-Link, Verlinkung aller Wiki-Seiten).
-- `BEDIENUNGSANLEITUNG.md` — Anwender-Dokumentation ohne Technik-Jargon: Tabs, Skalen, Zeitreise, Export, Export-Erinnerung, Hilfe-Boxen. NICHT hinein: Feld-Keys, Code, Versionshistorie.
-- `ERLAEUTERUNGEN.md` — Fachlich-medizinische Grundlagen (für Ärzt:innen/Fachpersonal): PEM, 0–4-Skala, GdB (Österreich), Quellen. NICHT hinein: Bedienung, Code, Versionshistorie.
-- `FAQ.md` — Häufige Fragen (Anwender): „Warum CSV?", Datensicherheit, Updates, Installation, Skala. NICHT hinein: Schritt-für-Schritt-Anleitungen (→ Bedienungsanleitung), Code-Details.
-- `DATENMODELL.md` — Technische Referenz: alle Feld-Keys, Labels, Skalen/Typen, CSV-Spaltenreihenfolge, localStorage-Schlüssel, null-Konvention. NICHT hinein: Anwender-Erklärungen, Versionshistorie.
-- `DEV_GUIDE.md` — Entwickler-Handbuch: Projektstruktur, Datenkonventionen, app.js-Übersicht, Release-Prozess, lokale Entwicklung. NICHT hinein: Anwender-Inhalte.
+- `Home.md` — Einstiegsseite des Wikis (beide Apps).
+- `Datenmodell.md` — Gemeinsame technische Referenz: Feld-Referenz, Skalen-Richtungen, Import-/Export, Risiko-Score.
+- `Erlaeuterungen.md` — Gemeinsame fachliche Grundlagen: ME/CFS, PEM, Skalen, Risiko-Regelwerk, Quellen.
+- `Bedienungsanleitung-Graph.md`, `FAQ-Graph.md`, `Dev-Guide-Graph.md` — Graph-spezifische Seiten.
+- `Bedienungsanleitung-Tracker.md`, `FAQ-Tracker.md`, `Dev-Guide-Tracker.md` — Tracker-spezifische Seiten.
 
 ## Pflege-Regeln (KI-Direktiven)
 
 - Repo-Dokumente und Wiki-Seiten sind verbindliche Projektdokumentation und müssen inhaltlich zusammenpassen. Bei Code-Änderungen MÜSSEN die betroffenen Dokumente im selben Schritt aktualisiert werden.
 - Konkrete Zuordnung:
-  - Neues Feld / geänderte Skala / geänderter CSV-Export → `DATENMODELL.md` (Wiki) (+ ggf. `BEDIENUNGSANLEITUNG.md`, `ERLAEUTERUNGEN.md` im Wiki).
-  - Neue Funktion / neuer Tab / geändertes UI → `BEDIENUNGSANLEITUNG.md` (Wiki) (+ ggf. `Home.md`, `FAQ.md` im Wiki).
+  - Neues Feld / geänderte Skala / geänderter CSV-Export → `Datenmodell.md` (Wiki) (+ ggf. `Bedienungsanleitung-Tracker.md`, `Erlaeuterungen.md` im Wiki).
+  - Neue Funktion / neuer Tab / geändertes UI → `Bedienungsanleitung-Tracker.md` (Wiki) (+ ggf. `Home.md`, `FAQ-Tracker.md` im Wiki).
   - Neue Version (`VERSION` in `sw.js` erhöhen) → `CHANGELOG.md` (Repo).
   - Änderung an Lizenz/Rechtlichem → `LICENSE.md` (Repo).
 - Keine Duplikate: Jeder Inhalt gehört in genau EIN Dokument. Wird derselbe Inhalt mehrfach benötigt, wird verlinkt statt kopiert.
