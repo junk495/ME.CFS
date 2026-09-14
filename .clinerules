@@ -40,7 +40,7 @@ Hosting-Umgebung: GitHub Pages (rein statisches Hosting, HTTPS).
 6. DATENMODELL-KOMPATIBILITÄT (ME.CFS.graph):
    - Die Feld-Keys und CSV-Spaltennamen (`EXPORT_COLUMNS` in `app.js`) bilden den Daten-Vertrag mit der Auswertungs-App ME.CFS.graph.
    - Feld-Keys, CSV-Header und Skalen-Richtungen dürfen NUR geändert werden, wenn ME.CFS.graph (gleicher Stand) im selben Schritt mit angepasst wird — sonst gehen Werte in der Auswertung still verloren.
-   - Bei jeder Änderung am Datenmodell MÜSSEN die `DATENMODELL.md` im Wiki (ME.CFS) und die `DATENMODELL.md` von ME.CFS.graph gemeinsam aktualisiert werden.
+   - Bei jeder Änderung am Datenmodell MÜSSEN die gemeinsame `Datenmodell`-Seite im Wiki und die Feld-Definitionen beider Apps (Tracker `EXPORT_COLUMNS` + Graph `FIELD_DEFS`) gemeinsam aktualisiert werden.
 
 # Versionierung (Semantic Versioning)
 

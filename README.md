@@ -6,7 +6,7 @@ Ein reizarmer, offline-fähiger Tracker zur täglichen Dokumentation von ME/CFS-
 
 ## 📚 Dokumentation
 
-Die vollständige Dokumentation liegt im **[Wiki](https://github.com/junk495/ME.CFS/wiki)**: Bedienungsanleitung, FAQ, fachliche Grundlagen, Datenmodell und Entwickler-Handbuch.
+Die vollständige Dokumentation liegt im **[Projekt-Wiki](https://github.com/junk495/ME.CFS/wiki)** (für Tracker und Auswertungs-App): Bedienungsanleitung, FAQ, fachliche Grundlagen, Datenmodell und Entwickler-Handbuch.
 
 ## 📄 Weitere Dateien in diesem Repository
 
