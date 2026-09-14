@@ -61,7 +61,7 @@ Die Dokumentation ist auf zwei Orte verteilt und muss inhaltlich stets zusammenp
 
 ## Haupt-Repository (`ME.CFS`)
 
-- `README.md` — Kurzüberblick & Einstieg: Live-App-Link, Kurzvorstellung, Verweis aufs Wiki. NICHT hinein: ausführliche Bedienung, Feld-Details, medizinischer Hintergrund (→ Wiki).
+- `README.md` — Kurzüberblick & Einstieg: Live-App-Link, Kurzvorstellung, Verweis aufs Wiki, Roadmap/geplante Funktionen. NICHT hinein: ausführliche Bedienung, Feld-Details, medizinischer Hintergrund (→ Wiki).
 - `CHANGELOG.md` — Versionshistorie (je Version die Änderungen **an der App**: Funktionen, Felder, UI, Verhalten). NICHT hinein: aktuelle Feature-Beschreibung (→ Wiki), Bedienung (→ Wiki), Änderungen an Dokumentation, Lizenz oder anderen Nicht-App-Dateien.
 - `LICENSE.md` — Lizenz (CC BY-NC-SA 4.0) + medizinischer Haftungsausschluss.
 
