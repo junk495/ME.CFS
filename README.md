@@ -10,7 +10,7 @@ Die vollständige Dokumentation liegt im **[Projekt-Wiki](https://github.com/jun
 
 ## 🚧 Roadmap / Geplante Funktionen
 
-### Grunddaten-Blatt & Medikations-Erfassung
+### Idee 1: Grunddaten-Blatt & Medikations-Erfassung
 
 **Idee:** Zwei getrennte Ebenen für „Stammdaten" und „tägliche Ereignisse":
 
@@ -26,6 +26,32 @@ Die vollständige Dokumentation liegt im **[Projekt-Wiki](https://github.com/jun
 - Welche Grunddaten-Felder genau? (nur Medikation oder auch Diagnosen/Allergien/Ärzt:innen?)
 - Akutmedikation als Freitext oder als strukturierte Liste (Wirkstoff, Dosis, Uhrzeit)?
 - Soll der Graph später Medikamenten-Marker im Verlauf anzeigen?
+
+### Idee 2: Ja/Nein-Schalter mit bedingter Detailerfassung
+
+**Idee:** Statt jeden Tag alle Symptome auf einer 0–4-Skala durchzuklicken, wird pro Symptom/Messwert zuerst nur binär gefragt: **„Heute aufgetreten / auffällig? Ja / Nein"**.
+
+- **Nein** → das Feld gilt als „nicht vorhanden / Normalzustand" (die **Grunddaten** gelten), man springt weiter — minimaler Aufwand.
+- **Ja** → ein Detailbereich klappt auf: Schwere (0–4), konkrete **Messwerte** (z. B. Puls/Blutdruck bei Schwindel), Dauer, ggf. Auslöser/Notiz.
+
+**Beispiele:**
+- **PEM:** heute nicht da → „Nein", fertig. Heute da → „Ja" → Details (Schwere, Dauer, Auslöser).
+- **Schwindel:** „Ja" → Fenster mit Messwerten (Schwere + Puls/Blutdruck, da oft POTS-bedingt). „Nein" → Grunddaten/Normalzustand gelten.
+
+**Warum sinnvoll?**
+- **Massiv weniger kognitive Belastung:** An schlechten Tagen ist fast alles „Nein" → Erfassung in Sekunden; an guten Tagen bei „Ja" in die Tiefe.
+- Passt zum Prinzip **energieabhängige Erfassungstiefe** (Pacing First).
+
+**Zusammenhang mit Idee 1:**
+- Beide folgen demselben Muster **„Grunddaten = Standard, Tageslog = Abweichung"**.
+- Idee 1 liefert das **Grunddaten-Blatt** (Stammdaten/Normalwerte); Idee 2 nutzt es als Fallback bei „Nein".
+- Beide ergänzen sich: Idee 1 hält die dauerhaften Werte, Idee 2 erfasst nur die täglichen Abweichungen.
+
+**Offene Punkte (zur Bewertung):**
+- Ersetzt der Ja/Nein-Schalter die 0–4-Skala, oder führt „Ja" erst zur 0–4-Skala?
+- Welche „Messwerte" pro Symptom? (Schwindel → Puls/Blutdruck; Schmerz → Intensität/Ort; …)
+- Gilt „Nein" als 0 oder als im Grunddaten-Blatt hinterlegter „persönlicher Normalwert"?
+- Welche Felder bekommen einen Ja/Nein-Schalter? (alle Symptome oder nur bestimmte?)
 
 ## 📄 Weitere Dateien in diesem Repository
 
