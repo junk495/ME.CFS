@@ -5,6 +5,12 @@ Die Version wird in `sw.js` (`const VERSION`) gepflegt und folgt Semantic Versio
 
 Nur Änderungen, die die App selbst betreffen (Funktionen, Felder, UI, Verhalten), werden aufgeführt. Änderungen an Dokumentation, Lizenz oder anderen Nicht-App-Dateien gehören nicht hierher. Versionen ohne App-Änderungen werden übersprungen.
 
+## v9.4.0 – 2026-09-26
+
+### Neu
+
+- **Arztbericht (PDF):** Im Export-Tab gibt es jetzt den Button „Arztbericht (PDF) erstellen". Er öffnet die Auswertungs-App, die daraus einen druckbaren Bericht erstellt (Verlauf, Heatmap, Crash-Risiko, Symptombereiche, PEM-Episoden, Notizen).
+
 ## v9.3.1 – 2026-09-13
 
 ### Geändert
