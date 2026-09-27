@@ -5,6 +5,12 @@ Die Version wird in `sw.js` (`const VERSION`) gepflegt und folgt Semantic Versio
 
 Nur Änderungen, die die App selbst betreffen (Funktionen, Felder, UI, Verhalten), werden aufgeführt. Änderungen an Dokumentation, Lizenz oder anderen Nicht-App-Dateien gehören nicht hierher. Versionen ohne App-Änderungen werden übersprungen.
 
+## v9.4.1 – 2026-09-26
+
+### Geändert
+
+- **Ausführlicher Bericht:** Im Export-Tab gibt es jetzt zusätzlich den Button „In ME.CFS.report öffnen" für den frei konfigurierbaren Bericht (PC/Laptop/Tablet).
+
 ## v9.4.0 – 2026-09-26
 
 ### Neu
